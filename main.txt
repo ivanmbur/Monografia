@@ -1,0 +1,18 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\title 
+{
+	{KMS states and Tomita-Takesaki Theory}\\
+	{\large Universidad de los Andes}
+	{\includegraphics{logo.png}}	
+}
+\author{Iván Mauricio Burbano Aldana}
+
+\begin{document}
+
+	\maketitle
+
+\end{document}

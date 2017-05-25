@@ -1,0 +1,35 @@
+\section{Classical Mechanics}
+
+The setting of classical mechanics is usually a locally compact Hausdorff space $X$. We consider the states (of maximal knowledge) to be the elements of $X$. Likewise, observables take the form of functions on $X$. Moreover, given that in principle we could make the value of an observable as precise as we want by improving our knowledge of the state, observables are elements of the set of continuous functions $C(X)$\footnote{It doesn't matter whether we consider them real or complex at this stage.}. Nontheless the purpose of statistical mechanics is to treat systems in which total knowledge of a state is not practically posible. Instead we consider a probability measure\footnote{Along with a $\sigma$-algebra which we won't mention explicitely to keep the notation simple but should always be kept in mind.} which assigns to every measurable subset of $X$ a probability of the system's state being in it. We may define the expected value of an observable $f\in C(X)$ through a probability measure $P$ by 
+\begin{equation}
+\langle f \rangle_P = \int fdP.
+\end{equation}  
+Notice that an element $p\in X$ can also be though as a probability measure by using the Dirac measure $\delta_p$ which assigns $1$ to a set if it contains $p$ and $0$ otherwise. Indeed for every element $p \in X$ and observable $f \in C(X)$ we have $\langle f \rangle_{\delta_p} = f(p)$. This motivates us to broaden the definition of states to the probability measures on $X$. We will call Dirac measures (or equivalently the points in $X$) pure states.
+
+This definition of state proves to be very helpful for the discussion of ensembles. Whenever the description of the state of a system as a pure state is not feasible, we may consider the set of outcomes $Y$ of measurements we may perform on the system. Every element of $Y$ gives us information of the system in the form of a finite measure. We may define an ensemble as the mapping from $Y$ into the set of finite measures on $X$. Through normalization of finite measures every ensemble yields a mapping from $Y$ into the set of states and we define the accesible (pure) states of an element $y\in Y$ to be the support of the corresponding state. Although the construction of an ensemble is in general a difficult task, for systems in statistical equilibrium\footnote{These are systems whose state does not change in time. We refer to the equilibrium as statistical because it may be that the pure state of the system is changing in time but noticing these changes is not feasible for us.} there are many standard procedures. In the case of these type of systems we define the partition function $Z:Y\to \mathbb{R}^+_0$ by assigning to every element $y$ the measure of $X$ given by the ensemble evaluated at $y$.
+
+\begin{example}
+In many physical systems the space of pure states has a natural notion of size which we may represent by giving it the structure of a measure space $(X,\mathcal{A},\mu)$ where $\mathcal{A}$ contains the Borel $\sigma$-algebra\footnote{Usually we take a countable set with the counting measure but another example would be a phase space with the Liouville measure.} . We may consider $Y = \mathbb{R}$ to be the set of energy outcomes. If $H:X\rightarrow \mathbb{R}$ is a measurable function taking the interpretation of energy we define the microcanonical ensemble to be the mapping $y\mapsto \mu_y$ where $\mu_y(\Sigma) = \mu(\Sigma\cap H^{-1}(y))$ for all measurable $\Sigma$. The set $H^{-1}(y)$ is the set of accesible states and $\mu_y(\Sigma)$ measures the amount of pure states in $\Sigma$ which are accesible. Notice that the normalization of $\mu_y$ yields a state $P_y$ which assigns a uniform probability measure to $X$. This is called the equal a priori probabilities postulate. In this ensemble the partition function $Z(y) = \mu_y(X) = \mu(H^{-1}(y))$ is just the amount of accesible states. This ensemble is usually used to describe systems with constant energy and a fixed number of particles.
+\end{example}
+
+\begin{example}
+Consider again a measure space $(X,\mathcal{A},\mu)$ but let $Y=\mathbb{R}^+$ be the set of inverse temperatures of the system. If we have an energy function $H:X\rightarrow \mathbb{R}$ such that $x\rightarrow \exp(-y H(x))$ is integrable for all $y \in Y$ the canonical ensemble assigns to every inverse temperature $y$ a finite measure $\mu_y$ by
+\begin{equation}
+\mu_y(\Sigma)=\int_\Sigma e^{-y H(x)}d\mu(x)
+\end{equation}
+for all measurable sets $\Sigma$. This ensemble is usually used to describe systems with a fixed number of particles in thermal equilibrium with a heat bath. Note that we could add to the description of the system the heat bath and we would be able to in principle use the microcanonical ensemble. The difficulty lies in that generally the counting of accesible states is more difficult than the application of the canonical ensemble.
+\end{example}
+
+Note that both of the ensembles discussed have images consisting of absolutely continuous measures $\mu_y$ with respect to the notion of size $\mu$. The same is true for the induced states $P_y$. Moreover the Lebesgue-Radon-Nikodým derivative exits and we define the entropy of the ensemble in the state $P_y$ by\footnote{In general if we start from a decomposible $(X,\mathcal{A},\mu)$ and have an ensemble which yields absolutely continuous measures with respect to $\mu$ we can define entropy in this fashion. In particular, if $\mu$ comes from the daniel extension of a positive linear functional the space is decomposible.}
+\begin{equation}
+S(P_y)=-\int_{supp(P_y)} \log\left(\frac{dP_y}{d\mu}\right)\frac{dP_y}{d\mu}d\mu.
+\end{equation}
+One can check that in the microcanonical ensemble 
+\begin{equation}
+\frac{dP_y}{d\mu}(x)=\frac{\chi_{H^{-1}(y)}(x)}{Z(y)}
+\end{equation}
+and in the canonical ensemble 
+\begin{equation}
+\frac{dP_y}{d\mu}(x)=\frac{\exp(-yH(x))}{Z(y)}. 
+\end{equation}
+

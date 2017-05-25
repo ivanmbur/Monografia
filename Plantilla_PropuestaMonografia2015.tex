@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage[spanish]{babel}
+%\usepackage[english]{babel}
+\usepackage[latin5]{inputenc}
+\usepackage{hyperref}
+\usepackage[left=3cm,top=3cm,right=3cm,nohead,nofoot]{geometry}
+\usepackage{braket}
+\usepackage{datenumber}
+\usepackage{amssymb}
+%\newdate{date}{10}{05}{2013}
+%\date{\displaydate{date}}
+
+\begin{document}
+
+\begin{center}
+\Huge
+Estados KMS y la teoría de Tomita-Takesaki 
+
+\vspace{3mm}
+\Large Iván Mauricio Burbano Aldana
+
+\large
+201423205
+
+
+\vspace{2mm}
+\Large
+Director: Andrés Fernando Reyes Lega
+
+\normalsize
+\vspace{2mm}
+
+\today
+\end{center}
+
+
+\normalsize
+\section{Introducción}
+
+%Introducción a la propuesta de Monografía. Debe incluir un breve resumen del estado del arte del problema a tratar. También deben aparecer citadas todas las referencias de la bibliografía (a menos de que se citen más adelante, en los objetivos o metodología, por ejemplo)
+
+El estudio de la paradoja EPR (Einstein, Podosky y Rosen) \cite{Einstein1935} o desigualdades tipo Bell \cite{Bell1964, Guzman2015} permite notar una distinci\'on fuerte entre teor\'ias cl\'asicas y cu\'anticas. Indagar sobre esta lleva a la investigaci\'on de la estructura l\'ogica de la mec\'anica cu\'antica, donde se halla un ret\'iculo completo ortocomplementado que en general no es booleano \cite{Wilce2012}. Esta estructura l\'ogica est\'a en el centro de las diferencias entre la interpretaci\'on de estas teor\'ias como modelos probabil\'isticos \cite{Holevo2001, Holevo2011}. Ya siendo consciente de la estructura l\'ogica en mec\'anica cu\'antica, von Neumann protagoniz\'o la busqueda de una axiomatizaci\'on de esta teor\'ia y encontr\'o en el estudio de \'algebras de operadores el lenguaje correcto \cite{Neumann1955}. La teoría  de operadores nos presenta un formalismo en el cual se pueden entender estos distintos modelos de probabilidad como casos especiales de una misma teor\'ia \cite{Summers2006, Cano2013}. En efecto, la probabilidad cl\'asica (en el sentido de Kolmogorov \cite{Kolmogorov1956, Jaynes2003}) puede ser modelada mediante \'algebras de von Neumann \emph{conmutativas}. El caso no conmutativo aplica a teorías cuánticas, irrespectivamente de si se trata de sistemas relativistas  o no relativistas \cite{Haag1992}.
+%M\'as a\'un, teor\'ias cu\'anticas con grados de libertad infinitos necesitan ser modelados mediante \'algebras de otros tipos. 
+
+La "física cuántica algebraica" (como se conoce este enfoque basado en álgebras de operadores\cite{Landsman2009}) permite una comprensión más profunda de la estructura de la mecánica cuántica, la teoría cuántica de campos y la mecánica estadística.  Aspectos fundamentales como, por ejemplo,  el rompimiento espontáneo de simetría que da lugar al estado superconductor o a la generación de masa en el Modelo Estándar, encuentran una formulación natural en este lenguaje \cite{Strocchi2008}.
+
+%El marco de estas \'algebras nos permite comparar estas teor\'ias para identificar cuales agentes cumplen papeles an\'alogos y entender mejor sus diferencias 
+
+En este trabajo, nos proponemos estudiar la teoría de Tomita-Takesaki, tal como se presenta en \cite{Haag1992}. Dicha teoría tiene sus orígenes en el estudio de la estructura matemática de los estados KMS (Kubo-Martin-Scwinger) de mecánica estadística. En particular, a partir del análisis de entrop\'ias de von Neumann para sistemas de partículas idénticas realizado en \cite{Balachandran2013}, se reconoció que, bajo ciertas condiciones, existe una ambigüedad en la definición de entrop\'ia de enredamiento calculada a partir de la representación GNS \cite{Sorkin}. Dicha ambigüedad encontró interesantes aplicaciones a la física molecular, exploradas en \cite{Balachandran2013a, Balachandran2013b}. Desde un punto de vista más formal, dicha ambigüedad está relacionada con una cierta \emph{libertad gauge} que puede ser entendida en el contexto de la teoría de Tomita-Takesaki. El objetivo de este trabajo es entender y profundizar en esta relación.
+
+%El conocimiento adquirido por estos m\'etodos se puede aplicar para la extensi\'on de nociones f\'isicas bien entendidas en modelos previos a teor\'ias modernas. Por ejemplo, en la mayor\'ia de sistemas cu\'anticos con grados de libertad infinitos el operador $e^{-\beta H}$ no es de clase traza, imposibilitando la definici\'on de un estado de Gibbs para el tratamiento de sistemas en equilibrio. Sin embargo, existen unas condiciones llamadas KMS que cumplen los estados de Gibbs, que se pueden verificar en \'algebras de tipos ademas del I. Por lo tanto, en \'algebras de otros tipos podemos definir estados de equilibrio (estados KMS) pidiendo que sigan cumpliendo estas condiciones.
+
+\section{Objetivo General}
+
+%Objetivo general del trabajo. Empieza con un verbo en infinitivo.
+
+Formular rigurosamente la relación existente entre la libertad gauge discutida en \cite{Balachandran2013a, Balachandran2013b} y el operador modular de Tomita-Takesaki.
+
+\section{Objetivos Específicos}
+
+%Objetivos específicos del trabajo. Empiezan con un verbo en infinitivo.
+
+\begin{itemize}
+		\item Discutir algunas de las axiomatizaciones est\'andar de la mec\'anica cl\'asica y la mec\'anica cu\'antica como modelos probabil\'isticos.
+		\item Presentar la estructura l\'ogica del ret\'iculo de proyecciones ortogonales sobre un espacio de Hilbert como se hizo durante el semestre en el seminario de Teor\'ia Cu\'antica de Campos y entender a través de esta la paradoja EPR y las desigualdades de Bell.
+		\item Estudiar las nociones necesarias de  teor\'ia de operadores. En particular, algunos de los fundamentos sobre $C^*$-\'algebras y \'algebras de von Neumann y sus aplicaciones a la f\'isica cu\'antica.
+  		\item Desarrollar la formulación matem\'atica y el origen físico de la condición KMS.
+  		\item Exhibir en el texto la ambig\"uedad en la entrop\'ia descrita arriba,  su interpretación como libertad gauge y su relación con el operador modular. 
+\end{itemize}
+
+\section{Metodología}
+
+%Exponer DETALLADAMENTE la metodología que se usará en la Monografía.
+
+%Monografía teórica o computacional: ¿Cómo se harán los cálculos teóricos? ¿Cómo se harán las simulaciones? ¿Qué requerimientos computacionales se necesitan? ¿Qué espacios físicos o virtuales se van a utilizar?
+
+%Monografía experimental: Recordar que para ser aprobada, los aparatos e insumos experimentales que se usarán en la Monografía deben estar previamente disponibles en la Universidad, o garantizar su disponibilidad para el tiempo en el que se realizará la misma. ¿Qué montajes experimentales se van a usar y que material se requiere? ¿En qué espacio físico se llevarán a cabo los experimentos? Si se usan aparatos externos, ¿qué permisos se necesitan? Si hay que realizar pagos a terceros, ¿cómo se financiará esto?
+
+El desarrollo de esta monograf\'ia se har\'a mediante el estudio de la bibliografía en las referencias. En primer lugar, será necesario escribir de manera detallada el trabajo que ya se realizó este semestre sobre l\'ogica cu\'antica. Con este podremos entender como la paradoja EPR es esencialmente un fen\'omeno l\'ogico que se filtra a la teor\'ia probabil\'istica de la mec\'anica cu\'antica. En segundo lugar, la presentaci\'on de las teor\'ias cl\'asicas y cu\'anticas como teor\'ias probabil\'isticas se har\'a, en el primer caso, mediante la teor\'ia de la medida (ejemplificandola mediante los ensambles can\'onicos y microcan\'onicos) y, en el segundo, mediante los axiomas de Dirac-von Neumann. El estudio la teor\'ia de \'algebras de operadores, la formulaci\'on de los estados KMS y la teor\'ia de Tomita Takesaki se har\'a principalmente con la referencia \cite{Haag1992}. Se seguir\'an las referencias \cite{Balachandran2013a} y \cite{Balachandran2013b} para ilustrar las ambig\"uedades en la entropía para sistemas como $M_2(\mathbb{C})$, el oscilador arm\'onico y la mol\'ecula de Etileno de manera que tendremos modelos concretos que nos permitan completar el objetivo. Finalmente, con las herramientas desarrolladas en este proceso se interpretar\'a esta ambig\"uedad como libertad gauge y se relacionar\'a con el operador modular.
+
+Para evaluar el progreso en este proceso se realizar\'an reuniones semanales con el director. Esto nos dar\'a la oportunidad de presentar los avances y dicutir las ideas que surjan durante el proceso. Adem\'as, se pretende en formato de charla presentar avances en el seminario de Teor\'ia Cu\'antica de Campos.   
+
+\section{Cronograma}
+
+\begin{table}[htb]
+	\begin{tabular}{|c|cccccccccccccccc| }
+	\hline
+	Tareas $\backslash$ Semanas & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16  \\
+	\hline
+	1 & X & X &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+	2 & X & X & X &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+	3 &   &   &   & X & X & X & X &   &   &   &   &   &   &   &   &   \\
+	4 &   &   &   &   &   &   &   & X &   &   &   &   &   &   &   &   \\
+	5 &   &   &   &   &   &   &   & X & X & X & X &   &   &   &   &   \\
+	6 &   &   &   &   &   &   &   &   &   &   &   & X & X & X & X & X \\
+	7 & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X & X \\
+	\hline
+	\end{tabular}
+\end{table}
+\vspace{1mm}
+
+\begin{itemize}
+	\item Tarea 1: Estudio de axiomatizaciones de la probabilidad cl\'asica y cu\'antica.
+	\item Tarea 2: Conectar la paradoja EPR, desigualdades de Bell y la estructura l\'ogica de proyecciones ortogonales.
+	\item Tarea 3: Estudio de teor\'ia de \'algebras de Operadores.
+	\item Tarea 4: Entrega y presentaci\'on del 30\%.
+	\item Tarea 5: Estudio de la condici\'on KMS y la teor\'ia de Tomita-Takesaki.	
+	\item Tarea 6: Investigaci\'on sobre la libertad gauge discutida en \cite{Balachandran2013a, Balachandran2013b} y su conexi\'on con el operador modular de Tomita-Takesaki.
+	\item Tarea 7: Redactar el documento.
+\end{itemize}
+
+\section{Personas Conocedoras del Tema}
+
+%Nombres de por lo menos 3 profesores que conozcan del tema. Uno de ellos debe ser profesor de planta de la Universidad de los Andes.
+
+\begin{itemize}
+	\item Alonso Botero Mej\'ia (Universidad de los Andes)
+	\item Monika Winklmeier (Departamento de Matemáticas, Universidad de los Andes)
+	\item Aiyalam Parameswaran Balachandran (Syracuse University , New York, USA)
+\end{itemize}
+
+\bibliographystyle{ieeetr}
+\bibliography{Monografia}
+
+\section*{Firma del Director}
+
+\vspace{3cm}
+
+\section*{Firma del Estudiante}
+
+\end{document} 
