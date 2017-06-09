@@ -3,10 +3,17 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
 
 \graphicspath{ {images/} }
 
+\theoremstyle{definition}
 \newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{notation}{Notation}[section]
 
 \title 
 {
@@ -25,5 +32,10 @@
 \chapter{Classical and Quantum Mechanics as Probability Theories}
 \input{chapters/axiomatizations}
 
+\chapter{Quantum Logic}
+\input{chapters/logic}
+
+\bibliographystyle{ieeetr}
+\bibliography{Monografia}
 
 \end{document}

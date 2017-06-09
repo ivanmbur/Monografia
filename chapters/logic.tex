@@ -1,0 +1,161 @@
+The previous chapter showed that there is a dictionary to understand in a very similar language quantum and classical theories. Before we develop the language of operator algebras to make this similarity more concrete we will first show how this two theories are different. To do this we will study the logical structure of quantum mechanics and show that it isn't boolean.
+
+\section{EPR paradox}
+
+Einstein, Podolsky and Rosen examined the completeness of quantum mechanics in their famous 1935 paper \cite{Einstein1935}. They considered that an element of physical reality was one whose outcome in a measurement could be predicted without actually performing the experiment. They defined that a physical theory was complete if to every element of physicial reality there corresponded an object in the theory. One can prove that in quantum mechanics two observables $A$ and $B$\footnote{We will assume them to be bounded to avoid technical difficulties since our example will be finite dimensional.} satisfy for every state $\rho$ the Heisenberg uncertainty relation
+\begin{equation}
+\Delta_\rho A\Delta_\rho B\geq\frac{1}{2}|\langle\left[A,B\right]\rangle_\rho|
+\end{equation}
+where $\left[A,B\right]=AB-BA$ is the commutator and $\Delta_\rho A=\sqrt{\langle A^2\rangle-\langle A\rangle^2}$. Therefore either quantum mechanics is incomplete or two non-commuting observables cannot have a simultaneus physical reality. Assuming that quantum mechanics is indeed complete we are forced to accept that two non-commuting observables don't have a simultaneus physical reality.
+
+\begin{example}
+To descibe the polarization of a photon we may consider the hilbert space $\mathbb{C}^2$. We assign to the observable "\textit{the photon is linarly polarized at an angle $\theta$ (1 means that this is the case and 0 that it isn't)}" the operator $P(\theta)$ the orthogonal projection to the span of $|\theta\rangle=\cos(\theta)(0,1)+\sin(\theta)(1,0)$. Therefore the vector $|\theta\rangle$ gives us the state in which the photon is certain to have linear polarization at angle $\theta$. Now consider a system with two photons in a state $\rho_{\psi}$ where $\psi=\frac{1}{\sqrt{2}}\left(|0\rangle\otimes|\pi/2\rangle-|\pi/2\rangle\otimes|0\rangle\right)$. We may prepare such a system by allowing a Calcium atom to decay into two photons and waiting till the photons are far apart. It's easy to see that $\psi=\frac{1}{\sqrt{2}}\left(|\pi/4\rangle\otimes|3\pi/4\rangle-|3\pi/4\rangle\otimes|\pi/4\rangle\right)$. Therefore if we measure that the first photon has horizontal polarization we know the second one has a vertical polarization and if we measure that the first one has a polarization at an angle $\pi/4$ we know the second one has an angle of $3\pi/4$. But since the photons are far apart, measurements on the first one cannot affect the second one. Therefore both states $|\pi/2\rangle$ and $|3\pi/4\rangle$ describe the same physical reality and we are forced to conclude that $P(\pi/2)$ and $P(3\pi/4)$ have simultaneus realities. Nonetheless since $|\pi/2\rangle$ is not orthongonal to $|3\pi/4\rangle$ the two observables don't commute arriving to a contradiction. 
+\end{example}
+
+Contradictions of the type shown above due to the use of coupled systems are often refered to nowadays to the EPR paradox. They led to the notion of entanglement. We are therefore, subject to the definitions given in the paper \cite{Einstein1935} forced to the conclusion that quantum theory must be an incomplete theory.  
+
+\section{Logic and Bell's inequalities}
+
+We may continue EPR's agenda and try to find a complete theory of physical reality. In such a theory (much like in every physicial theory) we must be able to ask true or false questions about a physical system. Studying these questions gives us an excuse to begin the discussion of logic theory. Although previous knowledge of logic is not essential, we will use our experience from classical logic to inspire the definitions we will use.
+
+\begin{definition}
+An order relation on a set $P$ is a relation $\leq$ on $X$ which satisfies for all $p,q,r\in P$:
+\begin{itemize}
+\item reflexivity: $p\leq p$;
+\item antisymmetry: $p\leq q$ and $q\leq p$ implies $p=q$;
+\item transitivity: $p\leq q$ and $q\leq r$ implies $p\leq r$.
+\end{itemize}
+The pair $(P,\leq)$ is called a partially ordered set or poset.
+\end{definition}
+
+We may recognize these laws if we exchange the symbols $\leq$ for the implication symbol $\implies$. 
+
+\begin{definition}
+Let $(P,\leq)$ be a poset and $A\subseteq P$. A lower (upper) bound of $A$ is an element $p\in P$ such that for all $a \in A$ we have $p\leq a$ ($a\leq p$). An infimum (supremum) of $A$ is a lower (upper) bound $p$ of $A$ such that if $r\in P$ is a lower (upper) bound of $A$ then $r\leq p$ ($p\leq r$).     
+\end{definition}
+
+Once again, through the symbol exchange made earlier we may note that the conjunction of two propositions $p\wedge q$ is the infimum of $\{p,q\}$ and the disjunction $p\vee q$ is the supremum of $\{p,q\}$. 
+
+\begin{theorem}
+Let $(P,\leq)$ be a poset and $A\subseteq P$ such that its infimum (supremum) exists. Then the infimum (supremum) is unique. 
+\end{theorem}
+
+\begin{proof}
+Suppose $p$ and $q$ are infima (suprema) of $A$. Then since $p$ is a lower (upper) bound we have $p\leq q$ ($q\leq p$). Similarly, since $q$ is a lower (upper) bound $q\leq p$ ($p\leq q$). Therefore by antisymmetry $p=q$.  
+\end{proof}
+
+\begin{notation}
+Let $(P,\leq)$ be a poset and $A\subseteq P$ such that its infimum (supremum) exists. We denote the infimum (supremum) of $A$ by $\bigwedge A$ ($\bigvee A$). If $A=\{p,q\}$ then we denote $p\wedge q :=\bigwedge A$ ($p\vee q := \bigvee A$). As is common in logic literature we will now use for infimum (supremum) the term meet (join). 
+\end{notation}
+
+Now we shall list some of the algebraic properties of posets.
+
+\begin{theorem}\label{thm:logic_algebra}
+Let $(P,\leq)$ be a poset. Then for all $p,q,r\in P$:
+\begin{enumerate}
+\item $p\leq q$ if and only if $p=p\wedge q$ if and only if $q =p\vee q$;
+\item (idempotency) $p\wedge p = p$ and $p\vee p=p$;
+\item (associativity) if the meet (join) of $\{p,q\}$, $\{q,r\}$, $\{p\wedge q, r\}$ ($\{p\vee q, r\}$), $\{p,q\wedge r\}$ ($\{p,q\vee r\}$) and $\{p,q,r\}$ exists then $(p\wedge q)\wedge r=p\wedge(q\wedge r)=\bigwedge \{p, q, r\}$ ($(p\vee q)\vee r=p\vee(q\vee r)=\bigvee \{p, q, r\}$);
+\item (commutativity) if the meet (join) of $\{p,q\}$ exists then $p\wedge q = q\wedge p$ ($p\vee q = q\vee p$).
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+All of the statements are clear from the definitions.
+\end{proof}
+
+All of these properties are familiar from basic logic. Nevertheless, there are some properties of basic logic which we cannot prove with the definitions above and need to be added as additional properties of posets.
+
+\begin{definition}
+
+\begin{itemize}
+\item A poset $(P,\leq)$ is said to be a lattice if for every $p,q\in P$ there exists $p\wedge q$ and $p\vee q$.
+\item A lattice $(L,\leq)$ is said to be complete if for every $A\subseteq L$ there exists $\bigwedge A$ and $\bigvee A$.
+\item A lattice $(L,\leq)$ is said to be distributive if for every $p,q,r\in L$ we have $p\wedge (q\vee r)=(p\wedge q)\vee (p\wedge r)$ and $p\vee (q\wedge r)=(p\vee r)\wedge (p\vee r)$.
+\item A poset $(P,\leq)$ is said to be bounded if there exists $0:=\bigwedge P$ and $1:=\bigvee P$.
+\item A complement of an element $p\in P$ of a bounded poset $(P,\leq)$ is an element $q\in P$ such that $p\wedge q = 0$ and $p\vee q = 1$.
+\item A Boolean algebra is a distributive bounded lattice in which every element has a complement.  
+\end{itemize}
+
+\end{definition}
+
+Comparison with usual logic shows that we usually equip propositions with the structure of a Boolean algebra. In this case complements take the interpretation of negation and are unique due to the following theorem.
+
+\begin{theorem}\label{thm:distributive}
+In a distributive bounded lattice $(L,\leq)$ elements have at most one complement.
+\end{theorem}
+
+\begin{proof}
+Suppose $q$ and $r$ are complements of $p\in L$. Then
+\begin{equation}
+q = q\wedge 1 = q\wedge (p\vee r) =(q\wedge p)\vee(q\wedge r) = 0\vee(q\wedge r)=q\wedge r 
+\end{equation}
+and therefore $q\leq r$. Exchanging the roles of $q$ and $r$ one finds that $r\leq q$ and therefore by antisymmetry $q=r$.
+\end{proof}
+
+Now, we ask that the set of propositions in a complete theory of physical reality has the structure of classical propositions, that is of a Boolean algebra. Denoting the complement of a proposition $p$ by $p'$ we may consider the following logical function
+\begin{equation}
+f(p,q)=(p\wedge q)\vee (p' \wedge q').
+\end{equation}
+
+With the help of the algebraic properties of this structure given in theorem \ref{thm:logic_algebra} we find that for all propositions $p_1$, $p_2$, $q_1$ and $q_2$
+\begin{multline}
+f(p_1,q_1)\wedge (f(p_1,q_2)\vee f(p_2,q_2)\vee f(p_2,q_1)) = \\ ((p_1\wedge q_1)\vee (p'_1 \wedge q'_1))\wedge \\ ((p_1\wedge q_2)\vee (p'_1 \wedge q'_2)\vee(p_2\wedge q_2)\vee (p'_2 \wedge q'_2)\vee(p_2\wedge q_1)\vee (p'_2 \wedge q'_1)) = \\ (p_1\wedge q_1\wedge  p_1\wedge q_2)\vee (p_1\wedge q_1\wedge  p'_1 \wedge q'_2)\vee(p_1\wedge q_1\wedge  p_2\wedge q_2)\vee (p_1\wedge q_1\wedge  p'_2 \wedge q'_2)\vee \\(p_1\wedge q_1\wedge  p_2\wedge q_1)\vee (p_1\wedge q_1\wedge  p'_2 \wedge q'_1) \vee (p'_1\wedge q'_1\wedge  p_1\wedge q_2)\vee (p'_1\wedge q'_1\wedge  p'_1 \wedge q'_2)\vee \\ (p'_1\wedge q'_1\wedge  p_2\wedge q_2)\vee (p'_1\wedge q'_1\wedge  p'_2 \wedge q'_2)\vee(p'_1\wedge q'_1\wedge  p_2\wedge q_1)\vee (p'_1\wedge q'_1\wedge  p'_2 \wedge q'_1)= \\ (p_1\wedge q_1 \wedge q_2)\vee 0\vee(p_1\wedge q_1\wedge  p_2\wedge q_2)\vee (p_1\wedge q_1\wedge  p'_2 \wedge q'_2)\vee \\(p_1\wedge q_1\wedge  p_2)\vee 0 \vee 0\vee (p'_1\wedge q'_1 \wedge q'_2)\vee \\ (p'_1\wedge q'_1\wedge  p_2\wedge q_2)\vee (p'_1\wedge q'_1\wedge  p'_2 \wedge q'_2)\vee 0\vee (p'_1\wedge q'_1\wedge  p'_2 )= \\ (p_1\wedge q_1 \wedge q_2)\vee(p_1\wedge q_1\wedge  p_2\wedge q_2)\vee (p_1\wedge q_1\wedge  p'_2 \wedge q'_2)\vee (p_1\wedge q_1\wedge  p_2) \\ \vee (p'_1\wedge q'_1 \wedge q'_2)\vee (p'_1\wedge q'_1\wedge  p_2\wedge q_2)\vee (p'_1\wedge q'_1\wedge  p'_2 \wedge q'_2)\vee (p'_1\wedge q'_1\wedge  p'_2 )= \\(p_1\wedge((q_1 \wedge q_2)\vee( q_1\wedge  p_2\wedge q_2)\vee (q_1\wedge  p'_2 \wedge q'_2)\vee ( q_1\wedge  p_2)))\vee \\ (p_1'\wedge((q'_1 \wedge q'_2)\vee (q'_1\wedge  p_2\wedge q_2)\vee (q'_1\wedge  p'_2 \wedge q'_2)\vee (q'_1\wedge  p'_2 )))= \\ (p_1\wedge((q_1 \wedge q_2)\vee (q_1\wedge(( p'_2 \wedge q'_2)\vee p_2))))\vee  (p_1'\wedge((q'_1 \wedge q'_2)\vee (q'_1\wedge ((p_2\wedge q_2)\vee p'_2) )))= \\ (p_1\wedge q_1\wedge (q_2\vee ( p'_2 \wedge q'_2)\vee p_2))\vee (p_1'\wedge q'_1 \wedge (q'_2 \vee (p_2\wedge q_2) \vee p'_2) )=  \\ (p_1\wedge q_1\wedge ((q_2 \vee p_2) \vee (q_2 \vee p_2)'))\vee (p_1'\wedge q'_1 \wedge ((p_2\wedge q_2)'\vee (p_2\wedge q_2)) )= \\ (p_1\wedge q_1\wedge 1)\vee (p_1'\wedge q'_1 \wedge 1)= (p_1\wedge q_1)\vee (p_1'\wedge q'_1)=f(p_1,q_1)
+\end{multline}
+from which we conclude 
+\begin{equation}
+f(p_1,q_1)\leq f(p_1,q_2)\vee f(p_2,q_2)\vee f(p_2,q_1). 
+\end{equation}
+Following Jaynes \cite{Jaynes2003} we may assign to every proposition $p$ a degree of plausibility $P(p)\in\mathbb{R}$. Every sensible way of assigning such degrees of plausability must be such that if $p\leq q$ then $P(p)\leq P(q)$. Therefore we find what we will call Bell's inequalities
+\begin{equation}
+P(f(p_1,q_1))\leq P(f(p_1,q_2)\vee f(p_2,q_2)\vee f(p_2,q_1)). 
+\end{equation}
+
+Now, given that quantum mechanics seems to correctly predict the behaviour of light polarization, we may go back to out previous example and test Bell's inequalities.
+\begin{example}
+Suppose $P_A(\theta)=P(\theta)\otimes id_{\mathbb{C}^2}$ and $P_B(\theta)=id_{\mathbb{C}^2}\otimes P(\theta)$. This means that $P_A(\theta)$ measures on the first photon and $P_B(\theta)$ on the second. More precisely we may interpret the expected value of $P_A(\theta)$ as yielding a degree of plausability to the proposition $p(\theta)=$"\textit{the first photon has linear polarization at an angle $\theta$}" and $P_B(\theta)$ playing the analogue role for $q(\theta)=$"\textit{the second photon has linear polarization at an angle $\theta$}". Therefore we find that the degree of plausibility for the proposition $p\wedge q$ is
+\begin{multline}
+tr(P_A(\alpha)P_B(\beta)\rho_\psi)= \langle \psi, P_A(\alpha)P_B(\beta)\psi\rangle= \\ \frac{1}{\sqrt{2}}\langle \psi, P(\alpha)|0\rangle\otimes P(\beta)|\pi/2\rangle -P(\alpha)|\pi/2\rangle\otimes P(\beta)|0\rangle\rangle= \\ \frac{1}{\sqrt{2}}\langle \psi, \cos(\alpha)|\alpha\rangle\otimes\sin(\beta)|\beta\rangle -\sin(\alpha)|\alpha\rangle\otimes\cos(\beta)|\beta\rangle\rangle= \\ \frac{1}{2}\left(\cos^2(\alpha)\sin^2(\beta)-2\cos(\alpha)\sin(\alpha)\sin(\beta)\cos(\beta))+\sin^2(\alpha)\cos^2(\beta)\right) = \\ \frac{1}{2}\left(\cos(\alpha)\sin(\beta)-\sin(\alpha)\cos(\beta)\right)^2 = \frac{1}{2}\sin^2(\alpha-\beta).
+\end{multline}  				
+Since the degree of plausability of $p(\alpha)'q(\beta)'$ is given by adding $\pi/2$ to both angles we find that $P(f(p(\alpha),q(\beta)))=sin^2(\alpha-\beta)$. Therefore we obtain through Bell's inequalities
+\begin{multline}
+1=sin^2(0-\pi/2)= P(f(p(0),q(\pi/2)))\leq \\ P(f(p(0),q(\pi/6)))+P(f(p(\pi/3),q(\pi/6)))+P(f(p(\pi/3),q(\pi/2))) = \\ sin^2(0-\pi/6) + sin^2(\pi/3-\pi/6) + sin^2(\pi/3-\pi/2) = 3/4
+\end{multline}
+which is clealy a contradiction.
+\end{example}
+We find thus through the contradiction between Bell's inequalities and experiment that we failed in our search of a complete theory of physics according to the definitions given by EPR. In his paper \cite{Bell1964}, Bell found his inequalities by assuming there was a hidden probability space (as in the classical case) from which we could assign degrees of plausibility to propositions. Of course such a view point falls within our discussion and makes it clear that there are no hidden variables. Nonetheless our exposition shows that the problem with the critique to quantum mechanics made by EPR lies in their definitions. Bell's inequalities show that no theory satisfying their requirements for completeness (which we interpreted as having a boolean logical structure) will ever be found. Moreover, our discussion yielded a clearer view on the root of the distinction between quantum mechanics and previous theories: \textit{the logical structure}.
+
+\section{Quantum Logic}
+
+To study the logical structure of quantum mechanics we first discuss the notion of proposition in the theory. Since propositions have to be observables with two possible outcomes "true" or "false", we identify the with the self-adjoint whose spectrum is $\{0,1\}$. These are precisely the orthogonal projections on a Hilbert space $\mathcal{H}$.
+
+\begin{theorem}
+Every closed subspace of $\mathcal{H}$ is the image of an orthogonal projection. Conversely, the image of every orthogonal projection is closed.
+\end{theorem}
+\begin{proof}
+Let $V\subseteq\mathcal{H}$ be a closed subspace.  By the Orthogonal Decomposition Theorem we have $\mathcal{H}=V\bigoplus V^{\bot}$. Therefore take the orthogonal projection $\psi\mapsto\xi$ where $\xi$ is the unique element of $V$ such that there exists a $\zeta\in V^{\bot}$ such that $\psi=\xi+\zeta$.
+Let $P$ be an orthogonal projection. Then $P(\mathcal{H})=(\ker P)^{\bot}$ and, since every orthogonal complement is closed, $P(\mathcal{H})$ is closed.
+\end{proof}
+
+Therefore we see that the set of propositions can also be identified with the closed subspaces of $\mathcal{H}$. From now on we won't make a distintion between quantum propostions, orthogonal projections and closed subspaces and we will denote such an identification by $L(\mathcal{H})$. Both of these identifications will help us endow the quantum mechanical propositions with a logical structure.
+
+\begin{theorem}
+The set of closed subspaces of a Hilbert space $\mathcal{H}$ is naturally a poset when equipped with the relation of set inclusion. This is of bounded by $\{0\}$ and $\mathcal{H}$. Moreover, it is a lattice where for every family of closed subspaces $\mathcal{C}$ we have $\bigwedge \mathcal{C} = \bigcap \mathcal{C}$ and $\bigvee \mathcal{C} = \overline{\text{span}\left(\bigcup\mathcal{C}\right)}$.
+\end{theorem}
+
+\begin{proof}
+Note that if $X$ is a set then $(P(X),\subseteq)$ is a poset and for every $A\subseteq P(X)$ it remains true that $(A,\subseteq)$ is a poset. The case of closed subspaces of a Hilbert space is a special case of this. Moreover, recall that in $(P(X),\subseteq)$ we have for $\mathcal{A}\in X$ that $\bigwedge A = \bigcap \mathcal{A}$ and since intersection of closed subspaces is a closed subspace, this remains true for our case of interest. Similarly $\bigvee\mathcal{A}=\bigcup\mathcal{A}$. But in general the union of subspaces is not a subspace. Nevertheless, the smallest subspace that contains a subset is its span. But we may still run into trouble because the span may not be closed. We can solve this by noticing that the smallest closed set that contains a subset is its closure, yielding the formula for the join in the theorem. Finally it is clear that application of the formulae for the meet and join yield $0=\{0\}$ and $1=\mathcal{H}$. 
+\end{proof}
+
+Notice now that in general a closed subspace of $\mathcal{H}$ has many different complements. For example in $\mathcal{C}^2$ we have that $\text{span}(\{(\cos(\theta),\sin(\theta))\})$ is a complement of $\text{span}(\{(1,0)\})$ for all $\theta\in (0,\pi)$. Therefore by theorem \ref{thm:distributive}{thm:distributive} the lattice of quantum propositions cannot be boolean. This explains the root of the contradiction in Bell's inequalities as well as the EPR paradox.
+
+Finally, we would like to make use of the logical structure of quantum mechanics to explain the objects appearing in section \ref{sec:QM}. First of all, notice that the operator $P_A(E)$ corresponding to an observable $A$ and a Borel set $E$ is the orthogonal projection corresponding to the proposition "\textit{measurement of the observable $A$ yields a value in the Borel set $E$}." Secondly, a reasonable way to define a state in quantum mechanics would be as a mapping that assigned to every proposition a degree of plausibility. Precisely,
+
+\begin{definition}
+A probability measure on the lattice of propositions $L(\mathcal{H})$ on a Hilbert space $\mathcal{H}$ is a map $\mu:L(\mathcal{H})\to [0,1]$ such that $\mu(H)=1$ and for every sequence $(P_n)$ of pairwise orthogonal projections we have $\mu(\bigoplus_{n=0}^{\infty}P_n)=\sum_{n=0}^{\infty}\mu(P_n)$. 
+\end{definition} 
+
+To relate the definition above to the one we gave in section \ref{sec:QM} we may note that for every density operator $\rho$ on a Hilbert space $\mathcal{H}$ the function $\mu_\rho:L(\mathcal{H})\to [0,1]:P\mapsto tr(P\rho)$ is a probability measure on $L(\mathcal{H})$. Conversely,
+
+\begin{theorem}[Gleason's Theorem]
+If $\mathcal{H}$ is a Hilbert space with dimension greater than $2$ then every probability measure on $L(\mathcal{H})$ is of the form $\mu_\rho$ for some density operator $\rho$ on $\mathcal{H}$.
+\end{theorem}
