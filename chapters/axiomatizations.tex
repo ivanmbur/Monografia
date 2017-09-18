@@ -1,9 +1,9 @@
 This chapter shows how both classical and quantum mechanics are probability theories. This is not intended as an axiomatization of these theories. Indeed the reader is assumed to be comfortable with these physical theories as well as the basic mathematical concepts of measure theory and functional analysis.
 
-\section{Classical Mechanics}
+\section{Classical Mechanics}\label{sec:classical_probability}
 
 The setting of classical mechanics is usually a locally compact Hausdorff space $X$. We consider the states of maximal knowledge (or pure states) to be the elements of $X$. Likewise, observables take the form of functions on $X$. We call the points of $X$ states of maximal knowledge because we interpret $f(p)$ as the value of the observable $f$ in the state $p\in X$. Moreover, given that in principle we could make the value of an observable as precise as we want by improving our knowledge of the state, observables are elements of the set of continuous functions $C(X)$\footnote{It doesn't matter whether we consider them real or complex at this stage.}. Nonetheless the purpose of statistical mechanics is to treat systems in which total knowledge of a state is not practically possible. Instead we consider a probability measure\footnote{Along with a $\sigma$-algebra which we won't mention explicitly to keep the notation simple but should always be kept in mind.} which assigns to every measurable subset of $X$ a probability of the system's state being in it. We may define the expected value of an observable $f\in C(X)$ through a probability measure $P$ by 
-\begin{equation}
+\begin{equation}\label{eq:classical_states}
 \langle f \rangle_P = \int fdP.
 \end{equation}  
 Notice that an element $p\in X$ can also be though as a probability measure by using the Dirac measure $\delta_p$ which assigns $1$ to a set if it contains $p$ and $0$ otherwise. Indeed for every element $p \in X$ and observable $f \in C(X)$ we have $\langle f \rangle_{\delta_p} = f(p)$. This motivates us to broaden the definition of states to the probability measures on $X$. We will call Dirac measures (or equivalently the points in $X$) pure states.
@@ -38,12 +38,12 @@ In the case we have a state of maximal knowledge $\delta_p$ we may collapse $X$ 
 
 \section{Quantum Mechanics}\label{sec:QM}
 
-The setting of quantum mechanics is a separable Hilbert space $\mathcal{H}$. In this case the states are the non-negative self-adjoint operators of unit trace on $\mathcal{H}$ (called density operators) and observables take the form of self-adjoint operators on $\mathcal{H}$. The possible outcomes of an observable $A$ are the elements of its spectrum and, if $P_A$ is the unique projection-valued measure such that $A=\int id_\mathcal{R}dP_A$ given by the spectral theorem, we have that the probability of the measurement of the observable $A$ yielding a value in the measurable subset $E\subseteq\mathbb{R}$ in the state $\rho$ is $tr(P_A(E)\rho)$. One can check that given this way of measuring probabilities we have that the expected value of an observable $A$ in the state $\rho$ is
-\begin{equation}
+The setting of quantum mechanics is a separable Hilbert space $\mathcal{H}$. In this case the states are the non-negative self-adjoint operators of unit trace on $\mathcal{H}$ (called density operators) and observables take the form of self-adjoint operators on $\mathcal{H}$. The possible outcomes of an observable $A$ are the elements of its spectrum and, if $P_A$ is the unique projection-valued measure such that $A=\int id_\mathbb{R}dP_A$ given by the spectral theorem, we have that the probability of the measurement of the observable $A$ yielding a value in the measurable subset $E\subseteq\mathbb{R}$ in the state $\rho$ is $tr(P_A(E)\rho)$. One can check that given this way of measuring probabilities we have that the expected value of an observable $A$ in the state $\rho$ is
+\begin{equation}\label{eq:quantum_states}
 \langle A\rangle_\rho = tr(A\rho).
 \end{equation}
 Moreover we define the entropy of a state $\rho$ to be
-\begin{equation}
+\begin{equation}\label{eq:Q_entropy}
 S(\rho)=-tr(\log(\rho)\rho).
 \end{equation}
 Inspired by the classical case we define a pure state $\rho_\psi$ to be orthogonal projection on the span of $\psi$ for $\psi\in\mathcal{H}$ of unit norm. Although such a state has null entropy as in the classical case

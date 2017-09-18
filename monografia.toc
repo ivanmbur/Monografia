@@ -1,0 +1,11 @@
+\contentsline {chapter}{\numberline {1}Introduction}{2}
+\contentsline {chapter}{\numberline {2}Classical and Quantum Mechanics as Probability Theories}{3}
+\contentsline {section}{\numberline {2.1}Classical Mechanics}{3}
+\contentsline {section}{\numberline {2.2}Quantum Mechanics}{6}
+\contentsline {chapter}{\numberline {3}Quantum Probability}{7}
+\contentsline {section}{\numberline {3.1}EPR paradox}{7}
+\contentsline {section}{\numberline {3.2}Logic and Bell's inequalities}{9}
+\contentsline {section}{\numberline {3.3}Quantum Logic}{13}
+\contentsline {chapter}{\numberline {4}Algebraic Structure of Mechanics}{17}
+\contentsline {section}{\numberline {4.1}C*-algebras}{17}
+\contentsline {section}{\numberline {4.2}GNS Construction}{20}
