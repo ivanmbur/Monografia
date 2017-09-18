@@ -24,7 +24,7 @@ for all measurable sets $\Sigma$. This ensemble is usually used to describe syst
 
 Note that both of the ensembles discussed have images consisting of absolutely continuous measures $\mu_y$ with respect to the notion of size $\mu$. The same is true for the induced states $P_y$. Moreover the Lebesgue-Radon-Nikodým derivative exits and we define the entropy of the ensemble in the state $P_y$ by\footnote{In general if we start from a decomposable $(X,\mathcal{A},\mu)$ and have an ensemble which yields absolutely continuous measures with respect to $\mu$ we can define entropy in this fashion. In particular, if $\mu$ comes from the Daniel extension of a positive linear functional the space is decomposable.}
 \begin{equation}
-S(P_y)=-\int_{supp(P_y)} \log\left(\frac{dP_y}{d\mu}\right)\frac{dP_y}{d\mu}d\mu.
+S(P_y)=-\int_{supp(P_y)} \log\left(\frac{dP_y}{d\mu}\right)dP_y=-\langle\log\left(\frac{dP_y}{d\mu}\right)\chi_{supp P_y}\rangle_{P_y}.
 \end{equation}
 One can check that in the microcanonical ensemble 
 \begin{equation}
@@ -44,7 +44,7 @@ The setting of quantum mechanics is a separable Hilbert space $\mathcal{H}$. In 
 \end{equation}
 Moreover we define the entropy of a state $\rho$ to be
 \begin{equation}\label{eq:Q_entropy}
-S(\rho)=-tr(\log(\rho)\rho).
+S(\rho)=-tr(\log(\rho)\rho)=-\langle log(\rho)\rangle_\rho.
 \end{equation}
 Inspired by the classical case we define a pure state $\rho_\psi$ to be orthogonal projection on the span of $\psi$ for $\psi\in\mathcal{H}$ of unit norm. Although such a state has null entropy as in the classical case
 \begin{equation}
