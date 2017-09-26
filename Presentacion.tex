@@ -1,0 +1,223 @@
+\documentclass{beamer}
+\usetheme{Boadilla}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+\theoremstyle{definition}
+
+\title{KMS states and Tomita-Takesaki Theory}
+\subtitle{30\% advancement}
+\author{Iván Burbano}
+\institute{Universidad de los Andes}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents
+\end{frame}
+
+\section{Introduction}
+
+\section{Classical and Quantum Mechanics as Probability Theories}
+
+\subsection{Classical Mechanics}
+
+\begin{frame}
+\frametitle{Elements of Classical Mechanics}
+A classical mechanical system has
+\begin{itemize}
+\item a locally compact Hausdorff space of pure states $X$;
+\item observables taking the form continuous real-valued functions $C(X)$ on $X$;
+\item states which take the form of probability measures on $X$.
+\end{itemize}
+With this structure we may define the expected value of $f\in C(X)$ by 
+\begin{equation}
+\langle f \rangle _P = \int f dP.
+\end{equation}
+And by the identification of points $p\in X$ with Dirac measures $\delta_p$, we have a compatible notion of pure state in which  
+\begin{equation}
+\langle f \rangle _{\delta_p}=f(p).
+\end{equation}
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Ensembles}
+
+With this approach we may define ensembles to be mappings $y\mapsto\mu_y$ from a space of macroscopic measurements $Y$ to the finite measure on $X$. Then we have
+\begin{itemize}
+\item the partition function $Z(y)=\mu_y(X)$ which we can use to normalize the measure $\mu_y$ and obtain a probability measure $P_y$;
+\item the entropy of the induced state
+\begin{equation}
+S(P_y)=-\int_{supp(P_y)} \log\left(\frac{dP_y}{d\mu}\right)dP_y=-\langle\log\left(\frac{dP_y}{d\mu}\right)\chi_{supp P_y}\rangle_{P_y}
+\end{equation}
+given there is a natural measure $\mu$ on $X$ and the Radon-Nikodým derivative exists. 
+\end{itemize}
+
+A classical system described by $(\{p\},\{\{p\},\emptyset\},\delta_p)$ equipped with an ensemble $y\mapsto \delta_p$, the state $\delta_p$ has null entropy.
+
+\end{frame}
+
+\subsection{Quantum Mechanics}
+
+\begin{frame}
+
+\frametitle{Elements of Quantum Mechanics}
+
+A quantum mechanical system has:
+
+\begin{itemize}
+\item a separable Hilbert space $\mathcal{H}$;
+\item observables taking the form of self-adjoint operators on $\mathcal{H}$;
+\item states represented by density operators (non-negative self-adjoint of unit trace).
+\end{itemize}
+
+With this structure we may define the expected value of an observable $A$ in a state $\rho$ to be
+\begin{equation}
+\langle A \rangle_\rho = tr(A\rho)
+\end{equation}
+and the entropy of a state $\rho$ to be
+\begin{equation}
+S(\rho) = -tr(\log(\rho)\rho)=\langle\log\rho\rangle_\rho.
+\end{equation}
+
+A pure state $\rho_\psi$ is a projection onto the $span\{\psi\}$ for some $\psi\in\mathcal{H}$. These have null entropy.
+
+\end{frame}
+
+\section{Quantum Probability}
+
+\subsection{EPR Paradox}
+
+\begin{frame}
+
+\frametitle{Suppose Quantum Mechanics is Complete}
+
+\begin{itemize}
+
+\item Einstein, Podolsky and Rosen considered that an element of physical reality was one whose outcome in a measurement could be predicted without actually performing the experiment. They defined that a physical theory was complete if to every element of physical reality there corresponded an object in the theory.
+
+\item Then two non-commuting observables $A$ and $B$ cannot have a simultaneous realities due to Heisenberg's uncertainty relations
+\begin{equation}
+\Delta_\rho A \Delta_\rho B \geq \frac{1}{2}|\langle[A,B]\rangle_\rho|.
+\end{equation}
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Polarization of photons}
+
+\begin{itemize}
+
+\item To describe the linear polarization of a photon we may consider the Hilbert space $\mathbb{C}^2$ on which the projection $P(\theta)$ onto the span of $|\theta\rangle=\cos(\theta)(1,0)+\sin(\theta)(0,1)$ representing the proposition ``\textit{the photon is linearly polarized at an angle $\theta$ (1 means that this is the case and 0 that it isn't)}'' acts.
+
+\item We may consider the composite system represented by the tensor product and the state 
+\begin{align}
+\begin{split}
+\psi&=\frac{1}{\sqrt{2}}\left(|0\rangle\otimes|\pi/2\rangle-|\pi/2\rangle\otimes|0\rangle\right)\\
+&=\frac{1}{\sqrt{2}}\left(|\pi/4\rangle\otimes|3\pi/4\rangle-|3\pi/4\rangle\otimes|\pi/4\rangle\right).
+\end{split}
+\end{align} 
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Contradiction!}
+
+\begin{itemize}
+
+\item If we measure that the first photon has horizontal polarization we know the second one has a vertical polarization.
+\item If we measure that the first one has a polarization at an angle $\pi/4$ we know the second one has an angle of $3\pi/4$. 
+\item Since the photons are far apart, measurements on the first one cannot affect the second one.
+
+\end{itemize}
+
+Therefore both states $|\pi/2\rangle$ and $|3\pi/4\rangle$ describe the same physical reality and we are forced to conclude that $P(\pi/2)$ and $P(3\pi/4)$ have simultaneous realities. Nonetheless since $|\pi/2\rangle$ is not orthogonal to $|3\pi/4\rangle$ the two projections don't commute arriving to a contradiction.
+
+\end{frame}
+
+\subsection{Bell's Inequalities}
+
+\begin{frame}
+
+\frametitle{Lattices of Propositions}
+
+\begin{definition}
+An order relation on a set $P$ is a relation $\leq$ on $X$ which satisfies for all $p,q,r\in P$:
+\begin{itemize}
+\item reflexivity: $p\leq p$;
+\item antisymmetry: $p\leq q$ and $q\leq p$ implies $p=q$;
+\item transitivity: $p\leq q$ and $q\leq r$ implies $p\leq r$.
+\end{itemize}
+The pair $(P,\leq)$ is called a partially ordered set or poset. Given $p,q\in P$ we define the meet $p\wedge q$ to be the supremum of $\{p,q\}$ and the join $p\vee q$ to be the infimum of $\{p,q\}$. If the infimum of $P$ is $0$ and the supremum is $1$, we define a complement of $p\in P$ to be an element $q\in P$ such that $p\wedge q = 0$ and $p\vee q=1$ 
+\end{definition}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Lattices of Propositions}
+
+\begin{definition}
+A poset $(P,\leq)$ is said to be a lattice if for every $p,q\in P$ there exists $p\wedge q$ and $p\vee q$. It is a distributive lattice if for every $p,q,r\in L$ we have $p\wedge (q\vee r)=(p\wedge q)\vee (p\wedge r)$ and $p\vee (q\wedge r)=(p\vee r)\wedge (p\vee r)$.
+\end{definition}
+
+\begin{theorem}
+In a distributive bounded lattice $(L,\leq)$ elements have at most one complement.
+\end{theorem}
+
+\begin{proof}
+Suppose $q$ and $r$ are complements of $p\in L$. Then
+\begin{equation}
+q = q\wedge 1 = q\wedge (p\vee r) =(q\wedge p)\vee(q\wedge r) = 0\vee(q\wedge r)=q\wedge r 
+\end{equation}
+and therefore $q\leq r$. Exchanging the roles of $q$ and $r$ one finds that $r\leq q$ and therefore by antisymmetry $q=r$.
+\end{proof}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Bell's inequalities}
+
+We ask that the set of propositions in a complete theory of physical reality has the structure of classical propositions, that is of a Boolean algebra (a distributive bounded lattice). Denoting the complement of a proposition $p$ by $p'$ we may consider the following logical function
+\begin{equation}
+f(p,q)=(p\wedge q)\vee (p' \wedge q').
+\end{equation}
+
+If we assign to every proposition $p$ a degree of plausibility $P(p)\in\mathbb{R}$ such that if $p\leq q$ then $P(p)\leq P(q)$ we find the Bell inequalities
+\begin{equation}
+P(f(p_1,q_1))\leq P(f(p_1,q_2)\vee f(p_2,q_2)\vee f(p_2,q_1)).
+\end{equation}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Lattice of Projections on a Hilbert space}
+
+\end{frame}
+
+\section{Algebraic Quantum Physics}
+
+\section{KMS States}
+
+\section{Von Neumann Algebras}
+
+\section{The Modular Theory of Tomita-Takesaki}
+
+\end{document}
+
+
