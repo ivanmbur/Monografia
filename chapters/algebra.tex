@@ -7,18 +7,22 @@ We will start by getting acquainted with the notion of a C*-algebra. This is the
 \begin{definition}
 An algebra $\mathcal{A}$ is a set equipped with three operations:
 \begin{align}
+\begin{split}
  \mathcal{A} \times \mathcal{A} & \rightarrow  \mathcal{A} \\
- (x,y) & \mapsto  x+y \quad\text{addition;} \nonumber \\
+ (x,y) & \mapsto  x+y \quad\text{addition;}  \\
  \mathbb{C} \times \mathcal{A} & \rightarrow \mathcal{A} \\
- (\lambda,x) & \mapsto \lambda x \quad\text{scalar multiplication;} \nonumber \\
+ (\lambda,x) & \mapsto \lambda x \quad\text{scalar multiplication;} \\
  \mathcal{A} \times \mathcal{A} & \rightarrow \mathcal{A} \\
- (x, y) & \mapsto xy \quad\text{multiplication;} \nonumber
+ (x, y) & \mapsto xy \quad\text{multiplication;}
+\end{split}
 \end{align}
 such that with addition and scalar multiplication it forms a complex vector space, with addition and multiplication it forms a ring, and there is a compatibility condition between scalar multiplication and multiplication which is that for all $x,y\in\mathcal{A}$ and $\lambda\in\mathbb{C}$ we have $(\lambda x)y=x(\lambda y) = \lambda (xy)$. If the ring is commutative the algebra is said to be commutative and if the ring is unital the algebra is said to be unital. A norm on an algebra $\mathcal{A}$ is a norm on the vector space structure $\|\cdot\|:\mathcal{A} \rightarrow \mathbb{R}^{+}_0 $ such that for all $x,y\in\mathcal{A}$ we have $\|xy\|\leq\|x\|\|y\|$. An algebra endowed with a norm is called a normed algebra. If the normed vector space structure of an algebra is Banach, the algebra is called Banach. An involution on an algebra $\mathcal{A}$ is a map $^*:\mathcal{A}  \rightarrow \mathcal{A} \quad x \mapsto x^*$ such that for all $x,y\in\mathcal{A}$ and $\lambda\in\mathbb{C}$:
 \begin{align}
+\begin{split}
 (\lambda x + y)^*&=\bar{\lambda}x^* + y^*; \\
 (xy)^*&=y^*x^*;\\
 (x^*)^*&=x.
+\end{split}
 \end{align}
 An algebra equipped with an involution is said to be a *-algebra. A $C*$-algebra is a Banach *-algebra where for all $x\in\mathcal{A}$ 
 \begin{equation}
@@ -44,8 +48,10 @@ Once again, this algebra differs from the structure given in section \ref{sec:QM
 
 Another solution for the case of Schrödinger's mechanics is to consider the Weyl operators $U(a)$ and $U(b)$ for $a,b\in\mathbb{R}$ given by
 \begin{align}
+\begin{split}
 U(a)\psi(x) &= \psi(x-\hbar a) \\
-V(b)\psi(x) &= e^{-ibx}\psi(x). 
+V(b)\psi(x) &= e^{-ibx}\psi(x).
+\end{split} 
 \end{align}
 By Stone's theorem if $q$ is the position operator and $p$ is the momentum operator satisfying the canonical commutation relations $[x,p]=i\hbar$ we have $U(a)=e^{-iap}$ and $V(b)=e^{-ibq}$\cite{Strocchi2008a}. 
 \end{example}
@@ -85,23 +91,31 @@ If $\mathcal{A}$ is a unital $C^*$-algebra and $\omega$ is a state on it, then t
 \begin{proof}
 Notice that in particular $\mathcal{A}$ is a vector space. Consider the function
 \begin{align}
+\begin{split}
 \mathcal{A}\times\mathcal{A}&\rightarrow\mathbb{C} \\
-(x,y)&\mapsto\omega(x^*y). \nonumber
+(x,y)&\mapsto\omega(x^*y).
+\end{split}
 \end{align}
 One can show that this function is an inner product except for the fact that there may be elements $x\in\mathcal{H}\setminus\{0\}$ such that $\omega(x^*x)=0$. We may define $\mathcal{N}_\omega := \{x\in\mathcal{A}|\omega(x^*x)=0\}$. Notice that if $x\in\mathcal{N}_\omega$ and $y\in\mathcal{A}$ then 
 \begin{align}
+\begin{split}
 |\omega((yx)^*(yx))|^2&=|\omega(x^*y^*yx)|^2=|\omega((y^*yx)^*x)|^2 \\
-&\leq\omega((y^*yx)^*(y^*yx))\omega(x^*x)=0, \nonumber
+&\leq\omega((y^*yx)^*(y^*yx))\omega(x^*x)=0,
+\end{split}
 \end{align}
 that is, $\mathcal{N}_\omega$ is a left ideal of $\mathcal{A}$. Notice that now the inner product
 \begin{align}
+\begin{split}
 \mathcal{A}/\mathcal{N}_\omega\times\mathcal{A}/\mathcal{N}_\omega&\rightarrow\mathbb{C} \\
-([x],[y])&\mapsto\langle[x],[y]\rangle:=\omega(x^*y) \nonumber
+([x],[y])&\mapsto\langle[x],[y]\rangle:=\omega(x^*y)
+\end{split}
 \end{align}
 is well defined and therefore take $\mathcal{H}_\omega=\overline{\mathcal{A}/\mathcal{N}_\omega}$. We define 
 \begin{align}
+\begin{split}
 \pi_\omega:\mathcal{A}&\rightarrow L(\mathcal{H}_\omega) \\
-x&\mapsto \pi_\omega(x) \nonumber
+x&\mapsto \pi_\omega(x)
+\end{split}
 \end{align}
 by extension of $\pi_\omega(x)[y]:=[xy]$ on $\mathcal{A}/\mathcal{N}_\omega$. We define at last $\Omega_\omega:=[1]$. If $x\in\mathcal{A}$ we have
 \begin{equation}\label{eqn:state_representation}
@@ -111,14 +125,16 @@ Moreover $\pi_\omega(\mathcal{A})\Omega_\omega = \mathcal{A}/\mathcal{N}_\omega$
 \end{proof}
 
 \begin{example}\label{example:M2}
-Let's follow the GNS construction with the example of the $C^*$-algebra of $2\times 2$ matrices with complex entries $M_2(\mathbb{C})$. This is of physical importance for 2 state systems. For example our recurring system in example \ref{ex:Bell} has this algebra of observables (the canonical matrix representations of the operators $P(0)$, $P(\pi/4)$, $P(\pi/2)$ and $P(3\pi/4)$ generate this algebra). Let the canonical basis of $\mathbb{C}^2$ be $\{e_1, e_2\}$ and the elementary matrices $E_{ij} = ((\delta_{in}\delta_{jm})_{nm})$. Let's choose the state
+Let's follow the GNS construction with the example of the $C^*$-algebra of $2\times 2$ matrices with complex entries $M_2(\mathbb{C})$. This is of physical importance for 2 state systems. For example our recurring system in example \ref{ex:Bell} has this algebra of observables (the canonical matrix representations of the operators $P(0)$, $P(\pi/4)$, $P(\pi/2)$ and $P(3\pi/4)$ generate this algebra). Let the elementary matrices of $M_2(\mathbb{C})$ be $E_{ij} = ((\delta_{in}\delta_{jm})_{nm})$. Let's choose the state
 \begin{equation}
 \omega_\lambda(\alpha) = \lambda \alpha_{11} + (1-\lambda)\alpha_{22}
 \end{equation} 
 for some $\lambda\in [0,1]$. The parameter $\lambda$ can be given interpretation by noting that $\omega_\lambda(P(0))=\lambda$, that is, $\lambda$ is the expectation value of the photon described to have polarization along the horizontal axis. We have that
 \begin{align}
+\begin{split}
 \omega_\lambda (\alpha^*\alpha) & = \omega_\lambda\left(\left(\sum_{i=1}^2 (\alpha^*)_{ik}\alpha_{kj}\right)_{ij}\right) = \omega_\lambda\left(\left(\sum_{i=1}^2 \overline{\alpha}_{ki}\alpha_{kj}\right)_{ij}\right) \\
-& = \lambda(|\alpha_{11}|^2+|\alpha_{21}|^2) + (1-\lambda)(|\alpha_{12}|^2+|\alpha_{22}|^2). \nonumber
+& = \lambda(|\alpha_{11}|^2+|\alpha_{21}|^2) + (1-\lambda)(|\alpha_{12}|^2+|\alpha_{22}|^2).
+\end{split}
 \end{align}
 Therefore the ideal $\mathcal{N}_\lambda := \mathcal{N}_{\omega_\lambda}$ will depend on the choice of $\lambda$.
 \begin{itemize}
@@ -143,12 +159,12 @@ Therefore it is clear that if $\mathcal{H}_\lambda:=\mathcal{H}_{\omega_\lambda}
 \item If $\lambda \in(0,1)$ we have that $\mathcal{N}_\lambda = \{0\}$ and therefore $M_2(\mathbb{C})/\mathcal{N}_\lambda \simeq M_2(\mathbb{C})$. We have in particular that this representation can be decomposed into the two previous representations
 \begin{equation}
 M_2(\mathbb{C})=\left\{\left.\begin{bmatrix}
-0 & \alpha_{12} \\
-0 & \alpha_{22}
-\end{bmatrix}\right|\alpha_{12},\alpha_{22}\in\mathbb{C}\right\}\oplus\left\{\left.\begin{bmatrix}
 \alpha_{11} & 0 \\
 \alpha_{21} & 0
-\end{bmatrix}\right|\alpha_{11},\alpha_{21}\in\mathbb{C}\right\}.
+\end{bmatrix}\right|\alpha_{11},\alpha_{21}\in\mathbb{C}\right\}\oplus\left\{\left.\begin{bmatrix}
+0 & \alpha_{12} \\
+0 & \alpha_{22}
+\end{bmatrix}\right|\alpha_{12},\alpha_{22}\in\mathbb{C}\right\}.
 \end{equation} 
 Moreover, if $\alpha \in M_2(\mathbb{C})$ we have
 \begin{equation}
@@ -173,6 +189,7 @@ id_{\mathcal{H}_\omega}=\sum_{\beta\in I}P^{(\beta)}.
 \end{equation}
 Therefore, we have if $\{e_1,\cdots,e_n\}$ is a basis for $\mathcal{H}_\omega$
 \begin{align}
+\begin{split}
 \omega(\alpha)&=\langle \Omega_\omega, \pi_\omega(\alpha)\Omega_\omega\rangle \\
 &=\langle\Omega_\omega,\sum_{\beta\in I}P^{(\beta)}\pi_\omega(\alpha)\Omega_\omega\rangle \\
 &=\langle\Omega_\omega,\sum_{\beta\in I}P^{(\beta)}\pi_\omega(\alpha)P^{(\beta)}\Omega_\omega\rangle \\
@@ -181,6 +198,7 @@ Therefore, we have if $\{e_1,\cdots,e_n\}$ is a basis for $\mathcal{H}_\omega$
 &=\sum_{m=1}^n\langle e_m,\sum_{\beta\in I}P^{(\beta)}\pi_\omega(\alpha) P^{(\beta)}\rho_{\Omega_\omega} e_m\rangle \\
 &=tr(\sum_{\beta\in I}P^{(\beta)}\pi_\omega(\alpha) P^{(\beta)}\rho_{\Omega_\omega})\\
 &=tr(\pi_\omega(\alpha)\sum_{\beta\in I}P^{(\beta)}\rho_{\Omega_\omega} P^{(\beta)}).
+\end{split}
 \end{align}
 Therefore we define
 \begin{equation}
@@ -191,6 +209,7 @@ as the induced state.
 \begin{example}
 Continuing with example \ref{example:M2} we find that since in the cases $\lambda\in\{0,1\}$ since the representation is irreducible we have $\rho_{\omega_\lambda}=\rho_{\Omega_{\omega_\lambda}}$ and therefore the state is pure and has null entropy. In the case $\lambda\in (0,1)$ we have for all $\alpha\in M_2(\mathbb{C})$
 \begin{align}
+\begin{split}
 \rho_{\omega_\lambda}\alpha &= \sum_{i=1}^2 P^{(i)}\rho_{\Omega_{\omega_\lambda}}P^{(i)}\alpha \\
 & = P^{(1)}\rho_{\Omega_{\omega_\lambda}}\begin{bmatrix}
 \alpha_{11} & 0 \\
@@ -208,11 +227,12 @@ Continuing with example \ref{example:M2} we find that since in the cases $\lambd
 \end{bmatrix} \right)I_2 \\
 &= P^{(1)}\lambda\alpha_{11}I_2 + P^{(2)}(1-\lambda)\alpha_{22}I_2 =\lambda\alpha_{11} E_{11} + (1-\lambda)\alpha_{22}E_{22} \\
 & = \lambda\rho_{E_{11}}\alpha + (1-\lambda)\rho_{E_{22}}\alpha = (\lambda\rho_{E_{11}} + (1-\lambda)\rho_{E_{22}})\alpha
+\end{split}
 \end{align} 
 and therefore $\rho_{\omega_\lambda}=\lambda\rho_{E_{11}} + (1-\lambda)\rho_{E_{22}}$.
 We conclude that the entropy is 
 \begin{equation}\label{eq:entropy_M2}
-S = \lambda\log (\lambda) + (1-\lambda)\log(1-\lambda)
+S = -(\lambda\log (\lambda) + (1-\lambda)\log(1-\lambda))
 \end{equation}
 \begin{figure}
 \centering
