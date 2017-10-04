@@ -1,0 +1,125 @@
+Having developed the theory of algebraic quantum mechanics we are now in the correct setting to discuss the theory of KMS states as shown in \cite{Duvenhage1999}. Although starting with an abstract definition, we will use the case of finite dimensional quantum systems to inspire why this is a natural generalization of the Gibbs states presented in \ref{ex:Gibbs}. In particular, they will be invariant under the dynamics of the system justifying therefore their usefulness given the generality of the dynamics we've defined.
+
+\section{Definition and Dynamical Invariance}
+
+\begin{definition}\label{def:KMS}
+Let $(\mathcal{A},\tau)$ be a $C^*$ or $W^*$-dynamical system, $\omega$ a state on $\mathcal{A}$ (in the $W^*$ case we demand $\omega$ is normal), $\beta\in\mathbb{R}$,
+\begin{align}
+\begin{split}
+\mathfrak{D}_\beta=\left\{
+\begin{array}{lr}
+\{z\in\mathbb{C}|0<\im z<\beta\} &\beta \geq 0 \\
+\{z\in\mathbb{C}|\beta<\im z<0\} &\beta < 0
+\end{array}\right.,
+\end{split}
+\end{align}  
+and $\overline{\mathfrak{D}_\beta}$ be the closure $\mathfrak{D}_\beta$ except for the case $\beta=0$ where we set $\overline{\mathfrak{D}_\beta}=\mathbb{R}$ (we will keep using these sets during the rest of this work). $\omega$ is said to be a $(\tau,\beta)$-KMS state if it satisfies the KMS conditions, that is, for every $A,B\in\mathcal{A}$ there exists a bounded continuous function $F_{A,B}:\overline{\mathfrak{D}_\beta}\rightarrow \mathbb{C}$ (which we will usually refer to as a witness to $\omega$ being a $(\tau,\beta)$-KMS state) analytic on $\mathfrak{D}_\beta$ and such that for every $t\in\mathbb{R}$ it is true that
+\begin{align}
+\begin{split}
+F_{A,B}(t)&=\omega(A\tau_t(B)) \\
+F_{A,B}(t+i\beta)&=\omega(\tau_t(B)A).
+\end{split}
+\end{align}
+A $(\tau,-1)$-KMS state is called a $\tau$-KMS state.
+\end{definition}
+
+Although the definition of $\tau$-KMS state may seem bizarre since it corresponds to negative temperatures, it is of great technical importance. Indeed the next theorem shows that for the most part everything we learn about $\tau$-KMS states is true for $(\tau,\beta)$-KMS states.
+
+\begin{theorem}
+Let $(\mathcal{A},\tau)$ be a $C^*(W^*)$-dynamical system, $\omega$ a state on $\mathcal{A}$, and $\beta\in\mathbb{R}$. Define
+\begin{alignat}{2}
+\alpha:\mathbb{R}&\rightarrow & \Aut(\mathcal{A}) \nonumber \\
+t&\mapsto &\alpha_t:\mathcal{A} & \rightarrow\mathcal{A} \\
+&&A&\mapsto \alpha_t(A):=\tau_{-\beta t}(A). \nonumber
+\end{alignat}
+Then $(\mathcal{A},\alpha)$ is a $C^*(W^*)$-dynamical system and:
+\begin{itemize}
+\item if $\omega$ is a $(\tau,\beta)$-KMS state then it is an $\alpha$-KMS state;
+\item if $\beta\neq 0$ then $\omega$ is a $(\tau,\beta)$-KMS state if and only if it is an $\alpha$-KMS state. 
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+It is easy to see that $(\mathcal{A},\alpha)$ is a $C^*(W^*)$-dynamical system.
+If $\omega$ is a $(\tau,\beta)$-KMS state and $F_{A,B}$ is a witness to this then
+\begin{align}
+\begin{split}
+G_{A,B}:\overline{\mathfrak{D}_{-1}}&\rightarrow\mathbb{C} \\
+z&\mapsto F_{A,B}(-\beta z)
+\end{split}
+\end{align} 
+clearly shows that it is an $\alpha$-KMS state.
+Conversely assume $\beta\neq 0$ and $\omega$ is an $\alpha$-KMS state. Suppose $G_{A,B}$ is a witness to $\omega$ being an $\alpha$-KMS state. Then  
+\begin{align}
+\begin{split}
+F_{A,B}:\overline{\mathfrak{D}_{-1}}&\rightarrow\mathbb{C} \\
+z&\mapsto F_{A,B}(-z/\beta)
+\end{split}
+\end{align} 
+clearly shows it is a $(\tau,\beta)$-KMS state.
+\end{proof}
+
+The importance of KMS states becomes immediately obvious due to the next theorem since it shows that KMS states are constant in the dynamics.
+
+\begin{theorem}
+Let $(\mathcal{A},\tau)$ be a $C^*$ or $W^*$ dynamical system where $A$ is unital and $\omega$ a $(\tau,\beta)$-KMS state for some $\beta\in\mathbb{R}\setminus\{0\}$. Then for all $A\in\mathcal{A}$ and $t\in\mathbb{R}$ we have $\omega(\tau_t(A))=\omega(A)$.
+\end{theorem}
+
+\begin{proof}
+By the previous theorem, we might as well assume that $\omega$ is a $\tau$-KMS state. Let $A\in\mathcal{A}$ be self-adjoint. If $F_{1,A}$ is a witness to $omega$ being a $\tau$-KMS state then for $t\in\mathbb{R}$
+\begin{equation}
+F_{1,A}(t)=\omega(\tau_t(A))=F_{1,A}(t-i)
+\end{equation}
+and since $\overline{\omega(\tau_t(A))}=\omega(\tau_t(A)^*)=\omega(\tau_t(A^*))=\omega(\tau_t(A))$ we have that $F_{1,A}(\overline{\mathfrak{D}_{-1}}\setminus\mathfrak{D}_{-1})\subseteq\mathbb{R}$. Given that $F_{1,A}$ is continuous, bounded and analytic on $\mathfrak{D}_{-1}$ we conclude that $F_{1,A}$ is constant (this is an application of Liouville's theorem see \cite{Duvenhage1999}). Therefore the theorem follows for self-adjoint operators.
+If $A\in\mathcal{A}$ we have
+\begin{equation}
+\omega(\tau_t(A))=\omega\left(\tau_t\left(\frac{A+A^*}{2}\right)\right)+i\omega\left(\tau_t\left(\frac{A-A^*}{2i}\right)\right)
+\end{equation}
+and each of the terms in the sum are independent of $t$ since the operators are self-adjoint. The theorem follows.
+\end{proof}
+
+\section{Gibbs states}
+
+Although we've shown that KMS states are constant under the dynamics of a system, this isn't the only requirement for a description of statistical equilibrium. Other issues like stability should be studied. The step we will give into further justifying the study of this states is to show that they are equivalent to the Gibbs states in the case of a finite dimensional Hilbert space. This will be stated with the use of only one theorem inspired by the work in \cite{Duvenhage1999}.
+
+\begin{theorem}
+Let $(\mathcal{B}(\mathcal{H}),\tau)$ be the $C^*(W^*)$-dynamical system discussed in example \ref{ex:schrodinger}. Then a state $\omega$ on $\mathcal{B}(\mathcal{H})$ is a $\beta$-Gibbs state if and only if it is a $(\tau,\beta)$-KMS state.  
+\end{theorem}
+
+\begin{proof}
+Assume $\omega$ is a $\beta$-Gibbs state. Define for $A,B\in\mathcal{B}(\mathcal{H})$
+\begin{align}
+\begin{split}
+F_{A,B}:\mathbb{C}&\rightarrow\mathbb{C} \\
+z&\mapsto \omega(A\tau_z(B))
+\end{split}
+\end{align}
+Then, we have for $t\in\mathbb{R}$ that $F_{A,B}(t)=\omega(A\tau_t(B))$ and 
+\begin{align}
+\begin{split}
+F_{A,B}(t+i\beta)& =\omega(A\tau_{t+i\beta}(B))=\frac{\tr(e^{-\beta H}Ae^{iH(t+i\beta)}Be^{-iH(t+i\beta)})}{\tr e^{-\beta H}} \\
+&= \frac{\tr(e^{-\beta H}Ae^{iHt}e^{-\beta H}Be^{-iHt}e^{\beta H})}{\tr e^{-\beta H}} \\
+&= \frac{\tr(e^{iHt}e^{-\beta H}Be^{-iHt}e^{\beta H}e^{-\beta H}A)}{\tr e^{-\beta H}} \\
+&= \frac{\tr(e^{iHt}e^{-\beta H}Be^{-iHt}A)}{\tr e^{-\beta H}} \\
+&= \frac{\tr(e^{-\beta H}e^{iHt}Be^{-iHt}A)}{\tr e^{-\beta H}} = \omega(\tau_t(B)A).
+\end{split} 
+\end{align}
+Moreover, $\omega$ is continuous and doesn't depend on $z$, therefore $F_{A,B}$ is analytic (and continuous which easily follows) due to the product rule and the fact that the exponential is analytic. 
+If $\{e_1,\dots,e_N\}$ is an orthonormal basis of eigenvectors of $H$ associated to the eigenvalues $E_1,\dots E_N$ and $P_1,\dots P_n$ are the corresponding projections on the span of each of the vectors, we have for $z\in \overline{\mathfrak{D}_\beta}$
+\begin{align}
+\begin{split}
+\|e^{\pm iHz}\|&=\|\sum_{n=1}^N e^{\pm iE_n z}P_n\|\leq\sum_{n=1}^N |e^{\pm iE_n z}|\|P_n\| \\
+&=\sum_{n=1}^N |e^{\pm iE_n z}|=\sum_{n=1}^N |e^{\pm iE_n \re z}e^{\mp E_n \im z}|=\sum_{n=1}^N |e^{\mp E_n \im z}| \\
+&=\sum_{n=1}^N e^{\mp E_n \im z}\leq \sum_{n=1}^N e^{|E_n\beta|}.
+\end{split}
+\end{align}  
+Since 
+\begin{align}
+\begin{split}
+\|F_{A,B}(z)\|&=\|\omega(A\tau_z(B))\|\leq\|\omega\|\|A\|\|e^{iHz}\|\|B\|\|e^{-iHz}\| \\
+&\leq\|A\|\sum_{n=1}^N e^{|E_n\beta|}\|B\|\sum_{n=1}^N e^{|E_n\beta|},
+\end{split}
+\end{align}
+it follows that $F_{A,B}|_{\overline{\mathfrak{D}_\beta}}$ is bounded and that $\omega$ is a $(\tau,\beta)$-KMS state.
+Now assume that $\omega$ is a $(\tau,\beta)$-KMS state and let $F_{A,B}$ be witness of this for $A,B\in\mathcal{B}(\mathcal{A})$.
+\end{proof}

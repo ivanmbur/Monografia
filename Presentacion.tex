@@ -208,6 +208,43 @@ P(f(p_1,q_1))\leq P(f(p_1,q_2)\vee f(p_2,q_2)\vee f(p_2,q_1)).
 
 \frametitle{Lattice of Projections on a Hilbert space}
 
+\begin{itemize}
+
+\item Since propositions on a Hilbert space should have a spectrum $\{0,1\}$ then they are represented by the orthogonal projections.
+
+\item We have that $\{\text{Orthogonal Projections}\}$ are in correspondence with $\{\text{closed subspaces}\}$. These yields the lattice structure with the inclusion relation.
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{A Correct Physical Theory Cannot be Complete!}
+
+Continuing with the photon example consider the operators of the measurements of Alice and Bob
+
+\begin{itemize}
+
+\item $P_A(\theta)=P(\theta)\otimes id_{\mathbb{C}^2}$ and $P_B(\theta)=id_{\mathbb{C}^2}\otimes P(\theta)$
+
+\item $tr(P_A(\alpha)P_B(\beta)\rho_\psi) = \frac{1}{2}\sin^2(\alpha-\beta)$
+
+\item $P(f(P_A(\alpha),P_B(\beta)))=\sin^2(\alpha-\beta)$
+
+\end{itemize}
+
+We can test Bell's inequalities
+\begin{align}
+\begin{split}
+1&=\sin^2(0-\pi/2)= P(f(P_A(0),P_B(\pi/2)))\\ 
+&\leq P(f(P_A(0),P_B(\pi/6)))+P(f(P_A(\pi/3),P_B(\pi/6)))+P(f(P_A(\pi/3),P_B(\pi/2)))  \\ 
+&=\sin^2(0-\pi/6) + \sin^2(\pi/3-\pi/6) + \sin^2(\pi/3-\pi/2) = 3/4!
+\end{split}
+\end{align}
+
+No correct physical theory can satisfy EPR requirements for being a complete physical theory.
+
 \end{frame}
 
 \section{Algebraic Quantum Physics}

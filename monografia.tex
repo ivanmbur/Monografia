@@ -6,16 +6,21 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{hyperref}
-\usepackage[super]{natbib}
-\bibliographystyle{unsrtnat}
 
 \graphicspath{ {images/} }
 
 \theoremstyle{definition}
 \newtheorem{example}{Example}[section]
-\newtheorem{definition}{Definition}[section]
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{notation}{Notation}[section]
+\newtheorem{definition}[example]{Definition}
+\newtheorem{theorem}[example]{Theorem}
+\newtheorem{corollary}[example]{Corollary}
+\newtheorem{notation}[example]{Notation}
+
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\re}{Re}
 
 \title 
 {
@@ -44,14 +49,12 @@ To be done.
 \input{chapters/algebra}
 
 \chapter{KMS states}
-To be done.
-
-\chapter{Von Neumann Algebras}
-To be done.
+\input{chapters/kms}
 
 \chapter{The Modular Theory of Tomita-Takesaki}
 To be done.
 
 \bibliography{/home/ivan/Documents/Bib_Files/Monografia}
+\bibliographystyle{ieeetr}
 
 \end{document}

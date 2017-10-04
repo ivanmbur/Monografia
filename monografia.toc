@@ -8,7 +8,10 @@
 \contentsline {section}{\numberline {3.3}Lattice of Projections on a Hilbert Space}{13}{section.3.3}
 \contentsline {chapter}{\numberline {4}Algebraic Quantum Physics}{17}{chapter.4}
 \contentsline {section}{\numberline {4.1}C*-algebras}{17}{section.4.1}
-\contentsline {section}{\numberline {4.2}GNS Construction}{20}{section.4.2}
-\contentsline {chapter}{\numberline {5}KMS states}{25}{chapter.5}
-\contentsline {chapter}{\numberline {6}Von Neumann Algebras}{26}{chapter.6}
-\contentsline {chapter}{\numberline {7}The Modular Theory of Tomita-Takesaki}{27}{chapter.7}
+\contentsline {section}{\numberline {4.2}GNS Construction}{21}{section.4.2}
+\contentsline {section}{\numberline {4.3}Von Neumann Algebras}{26}{section.4.3}
+\contentsline {section}{\numberline {4.4}Dynamical Systems}{27}{section.4.4}
+\contentsline {chapter}{\numberline {5}KMS states}{29}{chapter.5}
+\contentsline {section}{\numberline {5.1}Definition and Dynamical Invariance}{29}{section.5.1}
+\contentsline {section}{\numberline {5.2}Gibbs states}{31}{section.5.2}
+\contentsline {chapter}{\numberline {6}The Modular Theory of Tomita-Takesaki}{33}{chapter.6}
