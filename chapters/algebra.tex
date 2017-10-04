@@ -334,11 +334,11 @@ z&\mapsto&\tau_z:\mathcal{B}(\mathcal{H})&\rightarrow\mathcal{B}(\mathcal{H}) \\
 &&A&\mapsto e^{iHz}Ae^{-iHz} \nonumber
 \end{alignat}
 to the real numbers. The verification that this map is well defined and indeed restricts to a one-parameter automorphism group is routine.
-Let $\{e_1,\dots,e_N\}$ be an orthonormal basis of eigenvectors of $H$ associated to the eigenvalues $E_1,\dots,E_N$ (whose existence is guaranteed by the spectral theorem) and $P_1,\dots P_N$ the orthogonal projections onto the span of the respective vectors. Then we have
+Let $\{e_1,\dots,e_N\}$ be an orthonormal basis of eigenvectors of $H$ associated to the eigenvalues $E_1,\dots,E_N$ (whose existence is guaranteed by the spectral theorem). Then we have
 \begin{align}
 \begin{split}
-\|e^{iHt}-1\|&=\|\sum_{n=1}^Ne^{iE_nt}P_n-\sum_{n=1}^N P_n\|\leq\sum_{n=1}^N \|\left(e^{iE_nt}-1\right)P_n\| \\
-&= \sum_{n=1}^N|e^{iE_nt}-1|\|P_n\|=\sum_{n=1}^N|e^{iE_nt}-1|\rightarrow 0
+\|e^{iHt}-1\|&=\|\sum_{n=1}^Ne^{iE_nt}\rho_{e_n}-\sum_{n=1}^N \rho_{e_n}\|\leq\sum_{n=1}^N \|\left(e^{iE_nt}-1\right)\rho_{e_n}\| \\
+&= \sum_{n=1}^N|e^{iE_nt}-1|\|\rho_{e_n}\|=\sum_{n=1}^N|e^{iE_nt}-1|\rightarrow 0
 \end{split}
 \end{align}
 as $t\rightarrow 0$. Therefore if $s\in\mathbb{R}$ we have

@@ -120,6 +120,42 @@ Since
 &\leq\|A\|\sum_{n=1}^N e^{|E_n\beta|}\|B\|\sum_{n=1}^N e^{|E_n\beta|},
 \end{split}
 \end{align}
-it follows that $F_{A,B}|_{\overline{\mathfrak{D}_\beta}}$ is bounded and that $\omega$ is a $(\tau,\beta)$-KMS state.
-Now assume that $\omega$ is a $(\tau,\beta)$-KMS state and let $F_{A,B}$ be witness of this for $A,B\in\mathcal{B}(\mathcal{A})$.
+it follows that $F_{A,B}|_{\overline{\mathfrak{D}_\beta}}$ is bounded and that $\omega$ is a $(\tau,\beta)$-KMS state. \\
+Now assume that $\omega$ is a $(\tau,\beta)$-KMS state and let $F_{A,B}$ be witness of this for $A,B\in\mathcal{B}(\mathcal{A})$. Define 
+\begin{align}
+\begin{split}
+G_{A,B}:\mathbb{C}&\rightarrow\mathbb{C} \\
+z&\mapsto \omega(A\tau_z(B))
+\end{split}
+\end{align}
+We want to show that $F_{A,B}=G_{A,B}|_{\overline{\mathfrak{D}_\beta}}$ or, equivalently, that
+\begin{align}
+\begin{split}
+f:\overline{\mathfrak{D_\beta}}&\rightarrow\mathbb{C} \\
+z&\mapsto F_{A,B}(z)-G_{A,B}(z)
+\end{split}
+\end{align} 
+(which is of course continuous and analytic in $\mathfrak{D}_\beta$) is null. In the case $\beta=0$ this is obvious. Assume $\beta>0$. Note that $D=\{z\in\mathbb{C}|-\beta<\im z<\beta\}$ is a region (that is, open and connected) and $D^*=D$. It is clear that $f(\mathbb{R})=\{0\}$. Then, by the Schwarz reflection principle\cite{Conway1978} there exists an analytic function $g:D\rightarrow\mathbb{C}$ such that $g(z)=f(z)$ in $\mathfrak{D}_\beta\cup\mathbb{R}$. Then, since $g(\mathbb{R})={0}$ we have that $g$ is null\cite{Conway1978}. We conclude that $f(z)=0$ for $z\in\mathfrak{D}_\beta\cup\mathbb{R}$ and therefore is null by continuity. The case $\beta<0$ is analogous.\\
+In particular we now have that 
+\begin{equation}
+\omega(A\tau_{i\beta}(B))=G_{A,B}(i\beta)=F_{A,B}(i\beta)=\omega(\tau_0(B)A)=\omega(BA)\footnote{A simple calculation shows that this equation is always true for $\beta$-Gibbs states. In our present situation we need to prove the converse.}.
+\end{equation}
+Therefore, if $\{e_1,\dots ,e_N\}$ is an orthonormal basis of eigenvectors of $H$ associated to the eigenvalues $E_1,\dots E_N$ and $\{f_1,\dots,f_N\}$ is the dual basis, we have
+\begin{align}
+\begin{split}
+\omega(A)&=\omega\left(\sum_{n=1}^N\sum_{m=1}^N f_n(Ae_m)e_n\otimes e_m\right)=\sum_{n=1}^N\sum_{m=1}^Nf_n(Ae_m)\omega(e_n\otimes e_m) \\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^Nf_n(Ae_m)\tr(e^{-\beta H})\omega(e_n \otimes e_m) \\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^N\sum_{k=1}^Nf_n(Ae_m)e^{-\beta E_k}\omega(e_n\otimes e_m) \\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^N\sum_{k=1}^Nf_n(Ae_m)e^{-\beta E_k}\omega((e_n\otimes e_k)( e_k\otimes e_m)) \\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^N\sum_{k=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega((e_n\otimes e_k) e^{-\beta E_k} (e_k\otimes e_m) e^{\beta E_m}) \\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^N\sum_{k=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega((e_n\otimes e_k) e^{-\beta H} (e_k\otimes e_m) e^{\beta H}) \\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^N\sum_{k=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega((e_n\otimes e_k) \tau_{i\beta} (e_k\otimes e_m)) \\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^N\sum_{k=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega( (e_k\otimes e_m)( e_n\otimes e_k))\\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^N\sum_{k=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega( e_k\otimes e_k)\langle e_m,e_n\rangle\\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega\left(\sum_{k=1}^N \rho_{e_k}\right)\delta_{mn}\\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega(1)\delta_{mn} \\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^Nf_n(Ae_n)e^{-\beta E_n} =\frac{\tr(Ae^{-\beta H})}{\tr(e^{-\beta H})}
+\end{split}
+\end{align}
+from which follows that $\omega$ is a $\beta$-Gibbs state.
 \end{proof}
