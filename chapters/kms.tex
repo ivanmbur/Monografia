@@ -66,11 +66,11 @@ Let $(\mathcal{A},\tau)$ be a $C^*$ or $W^*$ dynamical system where $A$ is unita
 \end{theorem}
 
 \begin{proof}
-By the previous theorem, we might as well assume that $\omega$ is a $\tau$-KMS state. Let $A\in\mathcal{A}$ be self-adjoint. If $F_{1,A}$ is a witness to $omega$ being a $\tau$-KMS state then for $t\in\mathbb{R}$
+By the previous theorem, we might as well assume that $\omega$ is a $\tau$-KMS state. Let $A\in\mathcal{A}$ be self-adjoint. If $F_{1,A}$ is a witness to $\omega$ being a $\tau$-KMS state then for $t\in\mathbb{R}$
 \begin{equation}
 F_{1,A}(t)=\omega(\tau_t(A))=F_{1,A}(t-i)
 \end{equation}
-and since $\overline{\omega(\tau_t(A))}=\omega(\tau_t(A)^*)=\omega(\tau_t(A^*))=\omega(\tau_t(A))$ we have that $F_{1,A}(\overline{\mathfrak{D}_{-1}}\setminus\mathfrak{D}_{-1})\subseteq\mathbb{R}$. Given that $F_{1,A}$ is continuous, bounded and analytic on $\mathfrak{D}_{-1}$ we conclude that $F_{1,A}$ is constant (this is an application of Liouville's theorem see \cite{Duvenhage1999}). Therefore the theorem follows for self-adjoint operators.
+and since $\overline{\omega(\tau_t(A))}=\omega(\tau_t(A)^*)=\omega(\tau_t(A^*))=\omega(\tau_t(A))$ we have that $F_{1,A}(\overline{\mathfrak{D}_{-1}}\setminus\mathfrak{D}_{-1})\subseteq\mathbb{R}$. Given that $F_{1,A}$ is continuous, bounded and analytic on $\mathfrak{D}_{-1}$ we conclude that $F_{1,A}$ is constant (this is an application of Liouville's theorem, see \cite{Duvenhage1999}). Therefore the theorem follows for self-adjoint operators.
 If $A\in\mathcal{A}$ we have
 \begin{equation}
 \omega(\tau_t(A))=\omega\left(\tau_t\left(\frac{A+A^*}{2}\right)\right)+i\omega\left(\tau_t\left(\frac{A-A^*}{2i}\right)\right)
@@ -143,17 +143,27 @@ In particular we now have that
 Therefore, if $\{e_1,\dots ,e_N\}$ is an orthonormal basis of eigenvectors of $H$ associated to the eigenvalues $E_1,\dots E_N$ and $\{f_1,\dots,f_N\}$ is the dual basis, we have
 \begin{align}
 \begin{split}
-\omega(A)&=\omega\left(\sum_{n=1}^N\sum_{m=1}^N f_n(Ae_m)e_n\otimes e_m\right)=\sum_{n=1}^N\sum_{m=1}^Nf_n(Ae_m)\omega(e_n\otimes e_m) \\
-&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^Nf_n(Ae_m)\tr(e^{-\beta H})\omega(e_n \otimes e_m) \\
-&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^N\sum_{k=1}^Nf_n(Ae_m)e^{-\beta E_k}\omega(e_n\otimes e_m) \\
-&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^N\sum_{k=1}^Nf_n(Ae_m)e^{-\beta E_k}\omega((e_n\otimes e_k)( e_k\otimes e_m)) \\
-&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^N\sum_{k=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega((e_n\otimes e_k) e^{-\beta E_k} (e_k\otimes e_m) e^{\beta E_m}) \\
-&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^N\sum_{k=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega((e_n\otimes e_k) e^{-\beta H} (e_k\otimes e_m) e^{\beta H}) \\
-&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^N\sum_{k=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega((e_n\otimes e_k) \tau_{i\beta} (e_k\otimes e_m)) \\
-&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^N\sum_{k=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega( (e_k\otimes e_m)( e_n\otimes e_k))\\
-&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^N\sum_{k=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega( e_k\otimes e_k)\langle e_m,e_n\rangle\\
-&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega\left(\sum_{k=1}^N \rho_{e_k}\right)\delta_{mn}\\
-&=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^N\sum_{m=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega(1)\delta_{mn} \\
+\omega(A)&=\omega\left(\sum_{n,m=1}^N f_n(Ae_m)e_n\otimes e_m\right)=\sum_{n,m=1}^N f_n(Ae_m)\omega(e_n\otimes e_m) \\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n,m=1}^N f_n(Ae_m)\tr(e^{-\beta H})\omega(e_n \otimes e_m) \\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n,m,k=1}^N f_n(Ae_m)e^{-\beta E_k}\omega(e_n\otimes e_m) \\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n,m,k=1}^Nf_n(Ae_m)e^{-\beta E_k}\omega((e_n\otimes e_k)( e_k\otimes e_m)) \\
+\end{split}
+\end{align}
+where we have used that $(e_n\otimes e_k)(e_k\otimes e_m)=\langle e_k, e_k \rangle (e_n\otimes e_m)=e_n\otimes e_m$. Attempting to put the equation in a form where we can apply our previously derived condition we have
+\begin{align}
+\begin{split}
+\omega(A)&=\frac{1}{\tr(e^{-\beta H})}\sum_{n,m,k=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega((e_n\otimes e_k) e^{-\beta E_k} (e_k\otimes e_m) e^{\beta E_m}) \\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n,m,k=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega((e_n\otimes e_k) e^{-\beta H} (e_k\otimes e_m) e^{\beta H}) \\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n,m,k=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega((e_n\otimes e_k) \tau_{i\beta} (e_k\otimes e_m)) \\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n,m,k=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega( (e_k\otimes e_m)( e_n\otimes e_k))\\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n,m,k=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega( e_k\otimes e_k)\langle e_m,e_n\rangle\\
+&=\frac{1}{\tr(e^{-\beta H})}\sum_{n,m=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega\left(\sum_{k=1}^N \rho_{e_k}\right)\delta_{mn}\\
+\end{split}
+\end{align}
+by noticing that $e_k\otimes e_k=\rho_{e_k}$ using the notation presented in section \ref{sec:QM}. Finally, we have that
+\begin{align}
+\begin{split}
+\omega(A)&=\frac{1}{\tr(e^{-\beta H})}\sum_{n,m=1}^Nf_n(Ae_m)e^{-\beta E_m}\omega(1)\delta_{mn} \\
 &=\frac{1}{\tr(e^{-\beta H})}\sum_{n=1}^Nf_n(Ae_n)e^{-\beta E_n} =\frac{\tr(Ae^{-\beta H})}{\tr(e^{-\beta H})}
 \end{split}
 \end{align}

@@ -26,7 +26,7 @@ Therefore if we measure that the first photon has horizontal polarization we kno
 
 Contradictions of the type shown above due to the use of coupled systems are often referred to nowadays as the EPR paradox. They led to the notion of entanglement. We are therefore, subject to the definitions given in the paper \cite{Einstein1935}, forced to the conclusion that quantum theory must be an incomplete theory.  
 
-\section{Lattices of Propositions and Bell's Inequalities}
+\section{Lattices and Bell's Inequalities}
 
 We may continue EPR's agenda and try to find a complete theory of physical reality. In such a theory (much like in every physical theory) we must be able to ask true or false questions about a physical system. Studying these questions gives us an excuse to begin the discussion of lattices of propositions (using as a main source \cite{Wilce2012}). Although previous knowledge of logic is not essential, we will use our experience from classical logic to inspire the definitions we will use.
 
@@ -112,39 +112,38 @@ f(p,q)=(p\wedge q)\vee (p' \wedge q').
 With the help of the algebraic properties of this structure given in theorem \ref{thm:logic_algebra} we find that for all propositions $p_1$, $p_2$, $q_1$ and $q_2$
 
 \begin{align}
-\begin{split}
-f(p_1,q_1)\wedge (f(p_1,q_2)\vee f(p_2,q_2)\vee f(p_2,q_1)) = \\
-((p_1\wedge q_1)\vee (p'_1 \wedge q'_1))&\wedge \\
-((p_1\wedge q_2)\vee (p'_1 \wedge q'_2)\vee(p_2\wedge q_2) &\vee \\ 
-(p'_2 \wedge q'_2)\vee(p_2\wedge q_1)\vee (p'_2 \wedge q'_1))& = \quad\text{(distributivity)}  \\ 
-(p_1\wedge q_1\wedge  p_1\wedge q_2)\vee (p_1\wedge q_1\wedge  p'_1 \wedge q'_2)&\vee \\
-(p_1\wedge q_1\wedge  p_2\wedge q_2)\vee (p_1\wedge q_1\wedge  p'_2 \wedge q'_2)&\vee \\
-(p_1\wedge q_1\wedge  p_2\wedge q_1)\vee (p_1\wedge q_1\wedge  p'_2 \wedge q'_1)&\vee \\
-(p'_1\wedge q'_1\wedge  p_1\wedge q_2)\vee (p'_1\wedge q'_1\wedge  p'_1 \wedge q'_2)&\vee \\
-(p'_1\wedge q'_1\wedge  p_2\wedge q_2)\vee (p'_1\wedge q'_1\wedge  p'_2 \wedge q'_2)&\vee \\
-(p'_1\wedge q'_1\wedge  p_2\wedge q_1)\vee (p'_1\wedge q'_1\wedge  p'_2 \wedge q'_1)&= \quad\text{(commutativity, idempotency, complements)}\\
-(p_1\wedge q_1 \wedge q_2)\vee 0 & \vee \\
-(p_1\wedge q_1\wedge  p_2\wedge q_2)\vee (p_1\wedge q_1\wedge  p'_2 \wedge q'_2)&\vee \\
-(p_1\wedge q_1\wedge  p_2)\vee 0 & \vee \\
-0\vee (p'_1\wedge q'_1 \wedge q'_2) & \vee \\
-(p'_1\wedge q'_1\wedge  p_2\wedge q_2)\vee (p'_1\wedge q'_1\wedge  p'_2 \wedge q'_2) & \vee\\
+f(p_1,q_1)\wedge (f(p_1,q_2)\vee f(p_2,q_2)\vee f(p_2,q_1)) = \nonumber \\
+((p_1\wedge q_1)\vee (p'_1 \wedge q'_1))&\wedge \nonumber \\
+((p_1\wedge q_2)\vee (p'_1 \wedge q'_2)\vee(p_2\wedge q_2) &\vee \nonumber \\ 
+(p'_2 \wedge q'_2)\vee(p_2\wedge q_1)\vee (p'_2 \wedge q'_1))& = \nonumber  \\ 
+(p_1\wedge q_1\wedge  p_1\wedge q_2)\vee (p_1\wedge q_1\wedge  p'_1 \wedge q'_2)&\vee \nonumber \\
+(p_1\wedge q_1\wedge  p_2\wedge q_2)\vee (p_1\wedge q_1\wedge  p'_2 \wedge q'_2)&\vee \nonumber \\
+(p_1\wedge q_1\wedge  p_2\wedge q_1)\vee (p_1\wedge q_1\wedge  p'_2 \wedge q'_1)&\vee \nonumber \\
+(p'_1\wedge q'_1\wedge  p_1\wedge q_2)\vee (p'_1\wedge q'_1\wedge  p'_1 \wedge q'_2)&\vee \nonumber \\
+(p'_1\wedge q'_1\wedge  p_2\wedge q_2)\vee (p'_1\wedge q'_1\wedge  p'_2 \wedge q'_2)&\vee \nonumber \\
+(p'_1\wedge q'_1\wedge  p_2\wedge q_1)\vee (p'_1\wedge q'_1\wedge  p'_2 \wedge q'_1)&= \nonumber \\
+(p_1\wedge q_1 \wedge q_2)\vee 0 & \vee \nonumber \\
+(p_1\wedge q_1\wedge  p_2\wedge q_2)\vee (p_1\wedge q_1\wedge  p'_2 \wedge q'_2)&\vee \nonumber \\
+(p_1\wedge q_1\wedge  p_2)\vee 0 & \vee \nonumber \\
+0\vee (p'_1\wedge q'_1 \wedge q'_2) & \vee \nonumber \\
+(p'_1\wedge q'_1\wedge  p_2\wedge q_2)\vee (p'_1\wedge q'_1\wedge  p'_2 \wedge q'_2) & \vee\nonumber \\
 0\vee (p'_1\wedge q'_1\wedge  p'_2 )&=  \\ 
-(p_1\wedge q_1 \wedge q_2)\vee(p_1\wedge q_1\wedge  p_2\wedge q_2)&\vee\\
-(p_1\wedge q_1\wedge  p'_2 \wedge q'_2)\vee (p_1\wedge q_1\wedge  p_2)&\vee \\
-(p'_1\wedge q'_1 \wedge q'_2)\vee (p'_1\wedge q'_1\wedge  p_2\wedge q_2)&\vee \\
-(p'_1\wedge q'_1\wedge  p'_2 \wedge q'_2)\vee (p'_1\wedge q'_1\wedge  p'_2 )&= \quad\text{(distributivity)} \\
-(p_1\wedge((q_1 \wedge q_2)\vee( q_1\wedge  p_2\wedge q_2)&\vee \\
-(q_1\wedge  p'_2 \wedge q'_2)\vee ( q_1\wedge  p_2))) & \vee\\
-(p_1'\wedge((q'_1 \wedge q'_2)\vee (q'_1\wedge  p_2\wedge q_2)&\vee \\
-(q'_1\wedge  p'_2 \wedge q'_2)\vee (q'_1\wedge  p'_2 ))) &= \quad\text{(distributivity)}\\
-(p_1\wedge((q_1 \wedge q_2)\vee (q_1\wedge(( p'_2 \wedge q'_2)\vee p_2))))&\vee \\
-(p_1'\wedge((q'_1 \wedge q'_2)\vee (q'_1\wedge ((p_2\wedge q_2)\vee p'_2) )))&= \quad\text{(distributivity)}\\
-(p_1\wedge q_1\wedge (q_2\vee ( p'_2 \wedge q'_2)\vee p_2))&\vee \\
-(p_1'\wedge q'_1 \wedge (q'_2 \vee (p_2\wedge q_2) \vee p'_2) )&= \\ 
-(p_1\wedge q_1\wedge ((q_2 \vee p_2) \vee (q_2 \vee p_2)'))&\vee \\
-(p_1'\wedge q'_1 \wedge ((p_2\wedge q_2)'\vee (p_2\wedge q_2)) )&= \\
-(p_1\wedge q_1\wedge 1)\vee (p_1'\wedge q'_1 \wedge 1)&= (p_1\wedge q_1)\vee (p_1'\wedge q'_1)=f(p_1,q_1),
-\end{split}
+(p_1\wedge q_1 \wedge q_2)\vee(p_1\wedge q_1\wedge  p_2\wedge q_2)&\vee\nonumber \\
+(p_1\wedge q_1\wedge  p'_2 \wedge q'_2)\vee (p_1\wedge q_1\wedge  p_2)&\vee\nonumber  \\
+(p'_1\wedge q'_1 \wedge q'_2)\vee (p'_1\wedge q'_1\wedge  p_2\wedge q_2)&\vee \nonumber \\
+(p'_1\wedge q'_1\wedge  p'_2 \wedge q'_2)\vee (p'_1\wedge q'_1\wedge  p'_2 )&=  \nonumber \\
+(p_1\wedge((q_1 \wedge q_2)\vee( q_1\wedge  p_2\wedge q_2)&\vee \nonumber \\
+(q_1\wedge  p'_2 \wedge q'_2)\vee ( q_1\wedge  p_2))) & \vee\nonumber \\
+(p_1'\wedge((q'_1 \wedge q'_2)\vee (q'_1\wedge  p_2\wedge q_2)&\vee \nonumber \\
+(q'_1\wedge  p'_2 \wedge q'_2)\vee (q'_1\wedge  p'_2 ))) &= \nonumber \\
+(p_1\wedge((q_1 \wedge q_2)\vee (q_1\wedge(( p'_2 \wedge q'_2)\vee p_2))))&\vee \nonumber \\
+(p_1'\wedge((q'_1 \wedge q'_2)\vee (q'_1\wedge ((p_2\wedge q_2)\vee p'_2) )))&= \nonumber \\
+(p_1\wedge q_1\wedge (q_2\vee ( p'_2 \wedge q'_2)\vee p_2))&\vee\nonumber  \\
+(p_1'\wedge q'_1 \wedge (q'_2 \vee (p_2\wedge q_2) \vee p'_2) )&= \nonumber \\ 
+(p_1\wedge q_1\wedge ((q_2 \vee p_2) \vee (q_2 \vee p_2)'))&\vee \nonumber \\
+(p_1'\wedge q'_1 \wedge ((p_2\wedge q_2)'\vee (p_2\wedge q_2)) )&= \nonumber \\
+(p_1\wedge q_1\wedge 1)\vee (p_1'\wedge q'_1 \wedge 1)&=\nonumber  \\
+(p_1\wedge q_1)\vee (p_1'\wedge q'_1)&=f(p_1,q_1),\nonumber 
 \end{align}
  
     
@@ -154,7 +153,7 @@ from which we conclude
 f(p_1,q_1)\leq f(p_1,q_2)\vee f(p_2,q_2)\vee f(p_2,q_1). 
 \end{equation}
 
-Following Jaynes \cite{Jaynes2003} we may assign to every proposition $p$ a degree of plausibility $P(p)\in\mathbb{R}$. Every sensible way of assigning such degrees of plausibility must be such that if $p\leq q$ then $P(p)\leq P(q)$. Therefore we find what we will call Bell's inequalities
+Following Jaynes \cite{Jaynes2003} we may assign to every proposition $p$ a degree of plausibility $P(p)\in\mathbb{R}$. Every sensible way of assigning such degrees of plausibility must be such that if $p\leq q$ then $P(p)\leq P(q)$. Therefore we find what we will call Bell's inequalities following \cite{Reyes2013}
 \begin{equation}
 P(f(p_1,q_1))\leq P(f(p_1,q_2)\vee f(p_2,q_2)\vee f(p_2,q_1)). 
 \end{equation}
@@ -188,19 +187,20 @@ In particular, in the case of two propositions $P$ and $Q$ that commute as proje
 Following up on example \ref{ex:Bell} suppose $P_A(\theta)=P(\theta)\otimes id_{\mathbb{C}^2}$ and $P_B(\theta)=id_{\mathbb{C}^2}\otimes P(\theta)$. This means that $P_A(\theta)$ measures on the first photon and $P_B(\theta)$ on the second. More precisely we may interpret $P_A(\theta)$ as the proposition``\textit{the first photon has linear polarization at an angle $\theta$}" and $P_B(\theta)$ playing the analogue role for ``\textit{the second photon has linear polarization at an angle $\theta$}''. Therefore we find that the degree of plausibility for the proposition $P_A(\alpha)\wedge P_B(\beta)=P_A(\alpha)P_B(\beta)$ is
 \begin{align}
 \begin{split}
-\tr(P_A(\alpha)P_B(\beta)\rho_\psi)&= \langle \psi, P_A(\alpha)P_B(\beta)\psi\rangle \\ 
-&=\frac{1}{\sqrt{2}}\langle \psi, P(\alpha)|0\rangle\otimes P(\beta)|\pi/2\rangle -P(\alpha)|\pi/2\rangle\otimes P(\beta)|0\rangle\rangle\\ 
-&=\frac{1}{\sqrt{2}}\langle \psi, \cos(\alpha)|\alpha\rangle\otimes\sin(\beta)|\beta\rangle -\sin(\alpha)|\alpha\rangle\otimes\cos(\beta)|\beta\rangle\rangle\\
-&= \frac{1}{2}\left(\cos^2(\alpha)\sin^2(\beta)-2\cos(\alpha)\sin(\alpha)\sin(\beta)\cos(\beta))+\sin^2(\alpha)\cos^2(\beta)\right) \\
-&= \frac{1}{2}\left(\cos(\alpha)\sin(\beta)-\sin(\alpha)\cos(\beta)\right)^2 = \frac{1}{2}\sin^2(\alpha-\beta).
+\tr(P_A(\alpha)P_B(\beta)\rho_\psi)&= \\
+\langle \psi, P_A(\alpha)P_B(\beta)\psi\rangle &=\\ 
+\frac{1}{\sqrt{2}}\langle \psi, P(\alpha)|0\rangle\otimes P(\beta)|\pi/2\rangle -P(\alpha)|\pi/2\rangle\otimes P(\beta)|0\rangle\rangle&=\\ 
+\frac{1}{\sqrt{2}}\langle \psi, \cos(\alpha)|\alpha\rangle\otimes\sin(\beta)|\beta\rangle -\sin(\alpha)|\alpha\rangle\otimes\cos(\beta)|\beta\rangle\rangle&=\\
+\frac{1}{2}\left(\cos(\alpha)\sin(\beta)-\sin(\alpha)\cos(\beta)\right)^2 &= \\
+ \frac{1}{2}\sin^2(\alpha-\beta) &.
 \end{split}
 \end{align}  				
 It is clear that setting $P_A(\theta)':=P_A(\theta+\pi/2)$ and $P_B(\theta)':=P_A(\theta+\pi/2)$ indeed yields complements according to theorem \ref{thm:quantum_complements}. With this, we find that $P(f(P_A(\alpha),P_B(\beta)))=\sin^2(\alpha-\beta)$. Therefore we obtain through Bell's inequalities
 \begin{align}
 \begin{split}
 1&=\sin^2(0-\pi/2)= P(f(P_A(0),P_B(\pi/2)))\\ 
-&\leq P(f(P_A(0),P_B(\pi/6)))+P(f(P_A(\pi/3),P_B(\pi/6)))+P(f(P_A(\pi/3),P_B(\pi/2)))  \\ 
-&=\sin^2(0-\pi/6) + \sin^2(\pi/3-\pi/6) + \sin^2(\pi/3-\pi/2) = 3/4
+&\leq\sin^2(0-\pi/6) + \sin^2(\pi/3-\pi/6) + \sin^2(\pi/3-\pi/2) \\
+&= 3/4
 \end{split}
 \end{align}
 which is clearly a contradiction.

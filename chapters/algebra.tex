@@ -102,14 +102,14 @@ known as the $\beta$-Gibbs state\cite{Kubo1965}\cite{Duvenhage1999}.
 
 \section{GNS Construction}
 
-Although we won't prove the structure theorems mentioned above for the characterization of $C^*$-algebras we will indeed be interested in the representation of a $C^*$-algebra on a Hilbert space induced by a state. 
+Although we won't prove the structure theorems mentioned above for the characterization of $C^*$-algebras we will indeed be interested in the representation of a $C^*$-algebra on a Hilbert space induced by a state. For this we will follow \cite{Bratteli1997} 
 
 \begin{definition}
-A representation of a a $C^*$-algebra $\mathcal{A}$ is a tuple $(\mathcal{H},\pi)$ where $\mathcal{H}$ is a Hilbert space and $\pi:\mathcal{A}\rightarrow \mathcal{B}(\mathcal{H})$ is a *-homomorphism (i.e. an adjoint preserving homomorphism). If $\mathcal{H}$ has non trivial invariant subspaces under the action of $\pi(\mathcal{A})$ then the representation is said to be reducible.
+A representation of a a $C^*$-algebra $\mathcal{A}$ is a tuple $(\mathcal{H},\pi)$ where $\mathcal{H}$ is a Hilbert space and $\pi:\mathcal{A}\rightarrow mathcal{B}(mathcal{H})$ is a *-homomorphism (i.e. an adjoint preserving homomorphism). If $\mathcal{H}$ has non trivial invariant subspaces under the action of $\pi(\mathcal{A})$ then the representation is said to be reducible.
 \end{definition}
 
 \begin{theorem}
-If $\mathcal{A}$ is a unital $C^*$-algebra and $\omega$ is a state on it, then there exists a representation $(\mathcal{H}_\omega,\pi_\omega)$ with a unit vector $\Omega_\omega$ such that $\overline{\pi_\omega(\mathcal{A})\Omega_\omega}=\mathcal{H}_\omega$ (i.e., $\Omega_\omega$ is cyclic) and for all $x\in\mathcal{A}$ we have that $\omega(x)=\langle\Omega_\omega,\pi_\omega(x)\Omega_\omega\rangle=\tr(\pi_\omega(x)\rho_{\Omega_\omega})$.  
+If $\mathcal{A}$ is a unital $C^*$-algebra and $\omega$ is a state on it, then there exists a unique representation (up to unitary equivalence) $(\mathcal{H}_\omega,\pi_\omega)$ with a unit vector $\Omega_\omega$ such that $\overline{\pi_\omega(\mathcal{A})\Omega_\omega}=\mathcal{H}_\omega$ (i.e., $\Omega_\omega$ is cyclic) and for all $x\in\mathcal{A}$ we have that $\omega(x)=\langle\Omega_\omega,\pi_\omega(x)\Omega_\omega\rangle=\tr(\pi_\omega(x)\rho_{\Omega_\omega})$ (omega is a vector state).  
 \end{theorem}
 
 \begin{proof}
@@ -141,11 +141,21 @@ is well defined and therefore take $\mathcal{H}_\omega=\overline{\mathcal{A}/\ma
 x&\mapsto \pi_\omega(x)
 \end{split}
 \end{align}
-by extension of $\pi_\omega(x)[y]:=[xy]$ on $\mathcal{A}/\mathcal{N}_\omega$. We define at last $\Omega_\omega:=[1]$. If $x\in\mathcal{A}$ we have
+by extension of $\pi_\omega(x)[y]:=[xy]$ (which is bounded and therefore uniformly continuous) on $\mathcal{A}/\mathcal{N}_\omega$. We define at last $\Omega_\omega:=[1]$. If $x\in\mathcal{A}$ we have
 \begin{equation}\label{eqn:state_representation}
 \langle \Omega_\omega, \pi_\omega(x)\Omega_\omega\rangle = \langle \Omega_\omega, [x]\rangle = \omega(x). 
 \end{equation}
-Moreover $\pi_\omega(\mathcal{A})\Omega_\omega = \mathcal{A}/\mathcal{N}_\omega$ and it is therefore verified that the vector $\Omega_\omega$ is cyclic.  
+Moreover $\pi_\omega(\mathcal{A})\Omega_\omega = \mathcal{A}/\mathcal{N}_\omega$ and it is therefore verified that the vector $\Omega_\omega$ is cyclic. \\ 
+Now suppose we have another representation $(\mathcal{H}', \pi')$ that satisfies the conditions of the theorem. Let $\Omega'\in\mathcal{H}'$ such that $\overline{\pi'(\mathcal{A})}\Omega'=\mathcal{H}'$ and $\omega(A)=\langle \Omega',A\Omega'\rangle$. Define $U:\mathcal{H}\rightarrow \mathcal{H}'$ by extension of $U\pi_\omega(A)\Omega_\omega=\pi'(A)\Omega'$ which is unitary since
+\begin{align}
+\begin{split}
+\langle U\pi_\omega(A)\Omega_\omega,U\pi_\omega(B)\Omega_\omega\rangle&= \langle \pi'(A)\Omega',\pi'(B)\Omega'\rangle \\
+&= \langle \Omega',\pi'(A^*)\pi'(B)\Omega'\rangle=\omega(A^*B)\\
+&=\langle \Omega_\omega, \pi_\omega(A^*)\pi_\omega(B)\Omega_\omega\rangle \\
+&= \langle \pi_\omega(A)\Omega_\omega,\pi_\omega (B)\Omega_\omega\rangle.
+\end{split}
+\end{align}
+Then $U^{-1}\pi'(A)U=\pi_\omega(A)$ and $U\Omega_\omega=\Omega'$.
 \end{proof}
 
 \begin{example}\label{example:M2}
@@ -313,7 +323,7 @@ Let $\mathcal{A}$ be a $C^*$-algebra. A one-parameter automorphism group is a gr
 The distinction we make for von Neumann algebras reflects the fact that even though we have corollary \ref{cor:W_C}, von Neumann algebras will be more general in physical applications. Indeed we have,
 
 \begin{theorem}\label{thm:C_W}
-A $C^*$-dynamical system on a $W^*$-algebra is a $W^*$-dynamical system.
+A $C^*$-dynamical system whose underlying algebra is a $W^*$-algebra is a $W^*$-dynamical system.
 \end{theorem}
 
 \begin{proof}
