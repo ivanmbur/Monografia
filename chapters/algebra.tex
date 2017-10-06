@@ -1,4 +1,4 @@
-Now that we've understood classical and quantum mechanics as probability theories and displayed their differences, we will now concern ourselves with the development of algebraic methods that will allow us to describe both classical and quantum mechanics in the same framework and to discuss equilibrium further.
+Now that we've understood classical and quantum mechanics as probability theories and displayed their differences, we will now concern ourselves with the development of algebraic methods that will allow us to describe both classical and quantum mechanics in the same framework and to discuss equilibrium further. We will define the notions of $C^*$-algebras, von Neumann algebras, dynamical systems, and develop the GNS construction. Through examples we will see the physical importance of these concepts. 
  
 \section{C*-algebras}
 
@@ -105,11 +105,15 @@ known as the $\beta$-Gibbs state\cite{Kubo1965}\cite{Duvenhage1999}.
 Although we won't prove the structure theorems mentioned above for the characterization of $C^*$-algebras we will indeed be interested in the representation of a $C^*$-algebra on a Hilbert space induced by a state. For this we will follow \cite{Bratteli1997} 
 
 \begin{definition}
-A representation of a a $C^*$-algebra $\mathcal{A}$ is a tuple $(\mathcal{H},\pi)$ where $\mathcal{H}$ is a Hilbert space and $\pi:\mathcal{A}\rightarrow mathcal{B}(mathcal{H})$ is a *-homomorphism (i.e. an adjoint preserving homomorphism). If $\mathcal{H}$ has non trivial invariant subspaces under the action of $\pi(\mathcal{A})$ then the representation is said to be reducible.
+A representation of a a $C^*$-algebra $\mathcal{A}$ is a tuple $(\mathcal{H},\pi)$ where $\mathcal{H}$ is a Hilbert space and $\pi:\mathcal{A}\rightarrow \mathcal{B}(\mathcal{H})$ is a *-homomorphism (i.e. an adjoint preserving homomorphism). If $\mathcal{H}$ has non trivial invariant subspaces under the action of $\pi(\mathcal{A})$ then the representation is said to be reducible.
+\end{definition}
+
+\begin{definition}
+Let $\mathcal{H}$ be a Hilbert space, $S\subseteq\mathcal{B}(\mathcal{H})$ and $G\subseteq\mathcal{H}$. Then $G$ is said to be cyclic for $S$ if $\Span SG$ is dense and separating for $S$ if for every $A\in S$ if $AG=\{0\}$ then $A=0$. A vector $x\in\mathcal{H}$ is said to be cyclic (separating) for $S$ if $\{x\}$ is.
 \end{definition}
 
 \begin{theorem}
-If $\mathcal{A}$ is a unital $C^*$-algebra and $\omega$ is a state on it, then there exists a unique representation (up to unitary equivalence) $(\mathcal{H}_\omega,\pi_\omega)$ with a unit vector $\Omega_\omega$ such that $\overline{\pi_\omega(\mathcal{A})\Omega_\omega}=\mathcal{H}_\omega$ (i.e., $\Omega_\omega$ is cyclic) and for all $x\in\mathcal{A}$ we have that $\omega(x)=\langle\Omega_\omega,\pi_\omega(x)\Omega_\omega\rangle=\tr(\pi_\omega(x)\rho_{\Omega_\omega})$ (omega is a vector state).  
+If $\mathcal{A}$ is a unital $C^*$-algebra and $\omega$ is a state on it, then there exists a unique representation (up to unitary equivalence) $(\mathcal{H}_\omega,\pi_\omega)$ with a cyclic unit vector $\Omega_\omega$ and for all $x\in\mathcal{A}$ we have that $\omega(x)=\langle\Omega_\omega,\pi_\omega(x)\Omega_\omega\rangle=\tr(\pi_\omega(x)\rho_{\Omega_\omega})$ (omega is a vector state).  
 \end{theorem}
 
 \begin{proof}
@@ -274,6 +278,12 @@ S = -(\lambda\log (\lambda) + (1-\lambda)\log(1-\lambda))
 \caption{The entropy of equation \ref{eq:entropy_M2} as a function of the probability that the photon has horizontal polarization.}
 \end{figure}
 \end{example}
+
+For completeness we state a theorem given by \cite{Bratelli1997} that shows that every GNS representation can be decomposed into representations with a cyclic vector.
+
+\begin{theorem}
+Every non-degenerate representation $(\mathcal{H},\pi)$ of a $C^*$-algebra $\mathcal{A}$ (that is, one in which $\pi(\mathcal{A})x={0}$ implies $x=0$) is a direct sum of representations with a cyclic vector. 
+\end{theorem}
 
 \section{Von Neumann Algebras}
 

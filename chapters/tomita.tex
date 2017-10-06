@@ -1,1 +1,63 @@
-We are now going to develop the theory of Tomita-Takesaki following the approach of \cite{Duvenhage1999} and \cite{Rieffel1977}. This approach is appropriate for our purposes since we want to introduce the main objects of the theory 
+We are now going to develop the theory of Tomita-Takesaki following the approach of \cite{Duvenhage1999} and \cite{Rieffel1977}. This approach is appropriate for our purposes since it allows us to introduce the main objects of the theory, the Tomita-Takesaki theory, and the connection to KMS states, while avoiding unbounded operators (and therefore domain issues) by making use of real Hilbert spaces. The study of this theory is mathematically important due to its use in the classification of type III factors (and therefore physically important). As we will see, it is also physically important due to the interpretation we will give to $\Delta^{it}$ and the modular group in connection to KMS states.
+
+We will begin by remembering some basic facts about real Hilbert spaces, spectra, and polar decompositions which we have avoided thus far to keep a fair focus on the physics. These is based on the first chapter of \cite{Duvenhage1999}.
+
+\section{Preliminaries}
+
+Whenever we've mentioned a Hilbert space thus far, we always referred to a complex vector space. We will keep with that convention unless the adjective real is stated. As it turns out, every Hilbert space has a natural structure under which it can be viewed as real.
+
+\begin{theorem}
+Let $\mathcal{H}$ be a Hilbert space. Considering it as a real vector space, define $\langle \cdot,\cdot \rangle_\mathbb{R}:\mathcal{H}\times\mathcal{H}\rightarrow\mathbb{R}$ by $\langle x,y\rangle_\mathbb{R}=\re\langle x,y\rangle$. Then $\mathcal{H}$ equipped with $\langle\cdot,\cdot\rangle_\mathbb{R}$ is a real Hilbert space and $\|\cdot\|_\mathbb{R}=\|\cdot\|$.
+\end{theorem}
+
+\begin{proof}
+It is easy to see that indeed $\mathcal{H}$ equipped with $\langle\cdot,\cdot\rangle$ is a real inner product space. On the other hand a simple calculation shows
+\begin{equation}
+\|x\|_\mathbb{R}=\sqrt{\langle x,x\rangle_\mathbb{R}}=\sqrt{\re\langle x,x\rangle}=\sqrt{\re\|x\|^2}=\sqrt{\|x\|^2}=\|x\|
+\end{equation}
+for all $x\in\mathcal{H}$. Therefore $\mathcal{H}$ has the same metric viewed as a complex inner product space as a real inner product space. It follows that it is a real Hilbert space.
+\end{proof}
+
+As a we discovered in this proof, the topology on a Hilbert space $\mathcal{H}$ is independent of whether we consider $\mathcal{H}$ a real of complex Hilbert space.
+
+\begin{definition}
+A vector subspace $\mathcal{K}$ of a Hilbert space $\mathcal{H}$ viewed as real is called a real subspace of $\mathcal{H}$.
+\end{definition}
+
+\begin{theorem}
+Let $\mathcal{K}$ be a closed real subspace of a Hilbert space $\mathcal{H}$. Then $i\mathcal{K}$ is also a closed real subspace of $\mathcal{H}$
+\end{theorem} 
+
+\begin{proof}
+It is clear that $i\mathcal{K}$ is a closed real subspace of $\mathcal{H}$. Let $x\in\overline{i\mathcal{K}}$. Then there is a sequence $(x_n)$ in $i\mathcal{K}$ such that $x_n\rightarrow x$. Therefore $(-ix_n)$ is a sequence in $\mathcal{K}$ and since $\|-ix_n-i(-x)\|=\|x_n-x\|\rightarrow 0$ we conclude that $x_n\rightarrow i(-x)\in\mathcal{K}$ since $\mathcal{K}$ is closed. Therefore $x=i(i(-x))\in i\mathcal{K}$ and we conclude $i\mathcal{K}$ is closed.  
+\end{proof}
+
+\begin{definition}
+An $A\in\mathcal{B}(\mathcal{H})$ with $\mathcal{H}$ a Hilbert space is said to be positive if $\langle x,Ax\rangle\geq 0$ for all $x\in\mathcal{H}$.
+\end{definition}
+
+\begin{theorem}
+If $A\in\mathcal{B}(\mathcal{H})$ with $\mathcal{H}$ a Hilbert space then $A^*A$ is positive. 
+\end{theorem}
+
+\begin{proof}
+For all $x\in\mathcal{H}$ we have that $\langle x,A^*Ax\rangle=\langle Ax,Ax \rangle = \|Ax\|^2\geq 0$.
+\end{proof}
+
+\begin{theorem}
+If $A\in\mathcal{B}(\mathcal{H})$ with $\mathcal{H}$ a Hilbert space is positive there is a unique $A^{1/2}\in\mathcal{B}(\mathcal{H})$ such that $A=(A^{1/2})^2$.
+\end{theorem}
+
+\begin{definition}
+If $A\in\mathcal{B}(\mathcal{H})$ with $\mathcal{H}$ a Hilbert space we define $|A|=(A^*A)^{1/2}$
+\end{definition}
+
+\begin{definition}
+$U\in\mathcal{B}(\mathcal{H})$ for $\mathcal{H}$ a real or complex Hilbert space is said to be a partial isometry if it is an isometry on $\ker U^\bot$
+\end{definition}
+
+\begin{theorem}
+If $A\in\mathcal{B}(\mathcal{H})$ for $\mathcal{H}$ a real or complex Hilbert space there exists a unique partial isometry $U\in\mathcal{B}(\mathcal{H})$ such that $A=U|A|$ called the polar decomposition of $A$. 
+\end{theorem}
+
+Let $\mathcal{K}$ and $\mathcal{L}$ be closed real subspaces of a Hilbert space $\mathcal{H}$ such that $\mathcal{K}\cap\mathcal{L}=\{0\}$ and $\mathcal{K}+\mathcal{L}$ is dense in $\mathcal{H}$. Define $P$ and $Q$ as the orthogonal projections on $\mathcal{K}$ and $\mathcal{L}$ respectively. Define $R=P+Q$ and let $JT=P-Q$ the polar decomposition of $P-Q$.

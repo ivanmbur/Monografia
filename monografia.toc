@@ -15,3 +15,4 @@
 \contentsline {section}{\numberline {5.1}Definition and Dynamical Invariance}{29}{section.5.1}
 \contentsline {section}{\numberline {5.2}Gibbs states}{31}{section.5.2}
 \contentsline {chapter}{\numberline {6}The Modular Theory of Tomita-Takesaki}{35}{chapter.6}
+\contentsline {section}{\numberline {6.1}Preliminaries}{35}{section.6.1}
