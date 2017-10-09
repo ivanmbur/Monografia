@@ -1,8 +1,0 @@
-\beamer@endinputifotherversion {3.36pt}
-\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
-\beamer@sectionintoc {2}{Classical and Quantum Mechanics as Probability Theories}{3}{0}{2}
-\beamer@subsectionintoc {2}{1}{Classical Mechanics}{3}{0}{2}
-\beamer@subsectionintoc {2}{2}{Quantum Mechanics}{5}{0}{2}
-\beamer@sectionintoc {3}{Quantum Probability}{6}{0}{3}
-\beamer@subsectionintoc {3}{1}{EPR Paradox}{6}{0}{3}
-\beamer@subsectionintoc {3}{2}{Bell's Inequalities}{9}{0}{3}

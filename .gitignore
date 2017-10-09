@@ -4,3 +4,9 @@
 *.bbl
 *.log
 *.out
+*.gz
+*.bcf
+*.xml
+*.nav
+*.snm
+*.toc
