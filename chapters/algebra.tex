@@ -279,7 +279,7 @@ S = -(\lambda\log (\lambda) + (1-\lambda)\log(1-\lambda))
 \end{figure}
 \end{example}
 
-For completeness we state a theorem given by \cite{Bratelli1997} that shows that every GNS representation can be decomposed into representations with a cyclic vector.
+For completeness we state a theorem given by \cite{Bratteli1997} that shows that every GNS representation can be decomposed into representations with a cyclic vector.
 
 \begin{theorem}
 Every non-degenerate representation $(\mathcal{H},\pi)$ of a $C^*$-algebra $\mathcal{A}$ (that is, one in which $\pi(\mathcal{A})x={0}$ implies $x=0$) is a direct sum of representations with a cyclic vector. 
@@ -375,3 +375,20 @@ Note that even though the dynamics have been defined through automorphisms of th
 \tau_t(\omega)(A):=\omega(\tau_t(A)).
 \end{equation}
 This is of course yields the same physics and we will occasionally use it to give a physical interpretation to mathematical results. 
+
+The following consequence given in \cite{Duvenhage1999} of having a state invariant under the dynamics of a system for its GNS representation will be useful later on to formulate the connection between KMS states and Tomita-Takesaki theory.
+
+\begin{theorem}
+Let $\mathcal{A}$ be a $C^*$-algebra, $\tau$ a one-parameter group of automorphisms of $\mathcal{A}$, $\omega$ a state such that $\omega(\tau_t(A))=\omega(A)$ for all $t\in\mathbb{R}$ and $A\in\mathcal{A}$, and $(\mathcal{H}_\omega,\pi_\omega)$ the induced GNS representation. Then there exists a unique one-parameter unitary group
+\begin{align}
+\begin{split}
+U:\mathbb{R}&\rightarrow\{A\in\mathcal{B}(\mathcal{H})|A\text{ is unitary}\} \\
+t&\mapsto U_t
+\end{split}
+\end{align}
+such that $U_t\Omega_\omega=\Omega_\omega$ and $\pi_\omega(\tau_t(A))=U_t\pi_\omega(A)U_{-t}$ for all $t\in\mathbb{R}$ and $A\in\mathcal{A}$. Furthermore, if $(\mathcal{A},\tau)$ is a $W^*$-dynamical system and $\pi_\omega(\mathcal{A}$ is a von Neumann algebra, then $U$ is strongly continuous.
+\end{theorem} 
+
+\begin{proof}
+Notice that $(\mathcal{H}_\omega,\pi\circ\tau_t)$ is a representation for all $t\in\mathbb{R}$ which satisfies the properties of the GNS representation, namely, $\Omega_\omega$ is cyclic. Then, by uniqueness, we have the unique desired function $U$. We only need to show $U$ is a group homomorphism. 
+\end{proof}

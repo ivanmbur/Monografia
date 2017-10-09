@@ -2,12 +2,139 @@ We are now going to develop the theory of Tomita-Takesaki following the approach
 
 We will begin by remembering some basic facts about real Hilbert spaces, spectra, and polar decompositions which we have avoided thus far to keep a fair focus on the physics. These is based on the first chapter of \cite{Duvenhage1999}.
 
-\section{Preliminaries}
+\section{Functional Calculus}
+
+We will now study the spectra of operators and use it to define functions on them. This study is important by itself since in quantum mechanics the spectra of an observable is the set of possible values observation of an observable may yield. Moreover, in the process of quantization we are usually forced to consider functions of operators. The theory needed in general is very sophisticated due to the need of unbounded operators. Although in section \ref{sec:QM} we already used spectral theory to present the formalism of quantum mechanics it wasn't important for the development of the theory in this work. Due to its use in Tomita-Takesaki theory and in an attempt to keep this work as self-contained as possible, we will now present a simplified version of the theory in the case of bounded operators (which will be enough due to our approach to Tomita-Takesaki theory). This of course will be applicable to $C^*$ and $W^*$-algebras due to their realization as bounded operators on a Hilbert space. We will follow the discussion of \cite{Hall2013}.
+
+\begin{definition}
+Let $(X,\Sigma)$ be a measurable space and $\mathcal{H}$ be a Hilbert space. A projection valued measure is a map $P:\Sigma\rightarrow L(\mathcal{H})$ such that:
+\begin{itemize}
+\item $P(\varnothing) = 0$ and $P(X)=id_{\mathcal{H}}$;
+\item if $\{E_n|n\in\mathbb{N}\}\subseteq\Sigma$ is a family of disjoint measurable sets and $x\in\mathcal{H}$ then
+\begin{equation}
+P\left(\bigcup_{n=1}^\infty E_n\right)x=\sum_{n=1}^\infty P(E_n)x;
+\end{equation}
+For all $E,F\in\Sigma$ we have $P(E\cap F)=P(E)P(F)$.
+\end{itemize}
+\end{definition}
+
+A projection valued measure induces a complex measure.
+
+\begin{theorem}
+Let $(X,\Sigma)$ be a measurable space, $\mathcal{H}$ be a Hilbert space and $P:\Sigma\rightarrow L(\mathcal{H})$ be a projection valued measure. Then for all $x,y\in\mathcal{H}$ we have that
+\begin{align}
+\begin{split}
+P_{x,y}:\Sigma&\rightarrow\mathbb{C} \\
+E&\mapsto \langle x,P(E)y \rangle
+\end{split}
+\end{align}
+is a complex measure on $(X,\Sigma)$
+\end{theorem}
+
+\begin{proof}
+Let $x,y\in\mathcal{H}$. Then $P_{x,y}(\varnothing)=\langle x,0y\rangle = 0$. If $\{E_n|n\in\mathbb{N}\}\subseteq\Sigma$ is a family of disjoint measurable sets
+\begin{align}
+\begin{split}
+P_{x,y}\left(\bigcup_{n=1}^\infty E_n\right)&=\langle x,P\left(\bigcup_{n=1}^\infty E_n\right)y\rangle =\langle x,\sum_{n=1}^\infty P(E_n)y\rangle \\
+&=\sum_{n=1}^\infty\langle x, P(E_n)y\rangle=\sum_{n=1}^\infty P_{x,y}(E_n).
+\end{split} 
+\end{align}
+We conclude that $P_{x,y}$ is a complex measure on $(X,\Sigma)$.
+\end{proof}
+
+\begin{theorem}[Inverse Spectral Theorem for Unbounded Operators]
+Let $(X,\Sigma)$ be a measurable space, $\mathcal{H}$ be a Hilbert space and $P:\Sigma\rightarrow L(\mathcal{H})$ be a projection valued measure. Then there is a unique linear map from the involutive normed (by the supremum norm) algebra of complex bounded measurable functions on $(X,\Sigma)$ to $\mathcal{B}(\mathcal{H})$ denoted by $f\mapsto\int fdP$ such that 
+\begin{equation}
+\left\langle x,\int fdP y\right\rangle =\int fdP_{x,y}
+\end{equation} 
+for all $x,y\in\mathcal{H}$. This map is a unital $*$-homomorphism,
+\begin{equation}
+\left\|\int f dP\right\|\leq\|f\|.
+\end{equation}
+and 
+\begin{equation}
+\int \chi_E dP=P(E)
+\end{equation}
+\end{theorem}
+
+\begin{definition}
+Let $\mathcal{H}$ be a Hilbert space and $A\in\mathcal{H}$. We define the resolvent set of $A$ to be $r(A)=\{\lambda\in\mathcal{C}|\lambda-A \text{ is invertible in } \mathcal{B}(\mathcal{H})\}$ and the spectra of A to be $\sigma(A)=\mathbb{C}\setminus r(A)$.
+\end{definition}
+
+We could've defined these sets relative to $C^*$ or $W^*$ algebras but, as it turns out, the definition is equivalent\cite{Bratteli1997}.
+
+\begin{theorem}[Spectral Theorem for Bounded Operators]
+Let $\mathcal{H}$ be a Hilbert space and $A\in\mathcal{B}(\mathcal{H})$ a normal operator. Then there exists a unique projection valued measure on the Borel $\sigma$-algebra of $\sigma(A)$ $P_A$ (which we will call the resolution of the identity for $A$) such that
+\begin{equation}
+A=\int id_{\mathbb{R}}dP_A
+\end{equation}
+\end{theorem}
+
+With this we can now define the action of functions on operators.
+
+\begin{definition}
+Let $\mathcal{H}$ be a Hilbert space, $A\in\mathcal{B}(\mathcal{H})$ a normal operator, $P_A$ its resolution of the identity, and $f$ be a complex bounded measurable function. Then we define
+\begin{equation}
+f(A)=\int f dP_A.
+\end{equation} 
+\end{definition}
+
+\section{Polar Decomposition}
+
+\begin{definition}
+An $A\in\mathcal{B}(\mathcal{H})$ with $\mathcal{H}$ a real or complex Hilbert space is said to be positive if $\langle x,Ax\rangle\geq 0$ for all $x\in\mathcal{H}$. If $A-B$ is positive for $A,B\in\mathcal{B}(\mathcal{H})$ we write $A\geq B$. 
+\end{definition}
+
+\begin{theorem}
+If $A\in\mathcal{B}(\mathcal{H})$ with $\mathcal{H}$ a real or complex Hilbert space then $A^*A$ is positive. 
+\end{theorem}
+
+\begin{proof}
+For all $x\in\mathcal{H}$ we have that $\langle x,A^*Ax\rangle=\langle Ax,Ax \rangle = \|Ax\|^2\geq 0$.
+\end{proof}
+
+\begin{theorem}
+If $P$ is a projection on a real or complex Hilbert $\mathcal{H}$ space then $A$ is positive.
+\end{theorem}
+
+\begin{proof}
+Let $x\in\mathcal{H}$. Since $\mathcal{H}=P(\mathcal{H})\oplus\ker P$ there exists unique $y\in P(\mathcal{H})$ and $z\in\ker\mathcal{H}$ such that $x=y+z$. Then
+\begin{equation}
+\langle x,Px \rangle =\langle y+z,P(y+z)\rangle=\langle y,y \rangle +\langle z,y\rangle=\|y\|^2\geq 0
+\end{equation}
+since $\ker P=P^*(A)^\bot=P(A)^\bot$.
+\end{proof}
+
+\begin{theorem}
+If $A\in\mathcal{B}(\mathcal{H})$ with $\mathcal{H}$ a real or complex Hilbert space is positive there is a unique $A^{1/2}\in\mathcal{B}(\mathcal{H})$ (called the positive square root of $A$) such that $A=(A^{1/2})^2$.
+\end{theorem}
+
+\begin{theorem}
+The positive square root of a positive element $A\in\mathcal{B}(\mathcal{H})$ for some real or complex Hilbert space $\mathcal{H}$ commutes with every bounded operator that commutes with $A$.
+\end{theorem}
+
+\begin{theorem}
+The product of positive elements is positive.
+\end{theorem}
+
+\begin{definition}
+If $A\in\mathcal{B}(\mathcal{H})$ with $\mathcal{H}$ a real or complex Hilbert space we define $|A|=(A^*A)^{1/2}$
+\end{definition}
+
+\begin{definition}
+$U\in\mathcal{B}(\mathcal{H})$ for $\mathcal{H}$ a real or complex Hilbert space is said to be a partial isometry if it is an isometry on $\ker U^\bot$
+\end{definition}
+
+\begin{theorem}
+If $A\in\mathcal{B}(\mathcal{H})$ for $\mathcal{H}$ a real or complex Hilbert space there exists a unique partial isometry $U\in\mathcal{B}(\mathcal{H})$ such that $A=U|A|$ (called the polar decomposition of $A$) and $\ker U = \ker A$. Moreover, if $A$ is self-adjoint we have that $U$ and $|A|$ commute and if further it is injective, we have that $U$ is self-adjoint and $U^2=U$.
+\end{theorem}
+
+\section{Real Hilbert Spaces}
 
 Whenever we've mentioned a Hilbert space thus far, we always referred to a complex vector space. We will keep with that convention unless the adjective real is stated. As it turns out, every Hilbert space has a natural structure under which it can be viewed as real.
 
 \begin{theorem}
-Let $\mathcal{H}$ be a Hilbert space. Considering it as a real vector space, define $\langle \cdot,\cdot \rangle_\mathbb{R}:\mathcal{H}\times\mathcal{H}\rightarrow\mathbb{R}$ by $\langle x,y\rangle_\mathbb{R}=\re\langle x,y\rangle$. Then $\mathcal{H}$ equipped with $\langle\cdot,\cdot\rangle_\mathbb{R}$ is a real Hilbert space and $\|\cdot\|_\mathbb{R}=\|\cdot\|$.
+Let $\mathcal{H}$ be a Hilbert space. Considering it as a real vector space, define $\langle \cdot,\cdot \rangle_\mathbb{R}:\mathcal{H}\times\mathcal{H}\rightarrow\mathbb{R}$ by $\langle x,y\rangle_\mathbb{R}=\re\langle x,y\rangle$. Then $\mathcal{H}$ equipped with $\langle\cdot,\cdot\rangle_\mathbb{R}$ is a real Hilbert space, $\|\cdot\|_\mathbb{R}=\|\cdot\|$ and $\langle x,y\rangle = \langle x,y\rangle_\mathbb{R}-i\langle x,iy\rangle$ for all $x,y\in\mathcal{H}$.
 \end{theorem}
 
 \begin{proof}
@@ -16,9 +143,22 @@ It is easy to see that indeed $\mathcal{H}$ equipped with $\langle\cdot,\cdot\ra
 \|x\|_\mathbb{R}=\sqrt{\langle x,x\rangle_\mathbb{R}}=\sqrt{\re\langle x,x\rangle}=\sqrt{\re\|x\|^2}=\sqrt{\|x\|^2}=\|x\|
 \end{equation}
 for all $x\in\mathcal{H}$. Therefore $\mathcal{H}$ has the same metric viewed as a complex inner product space as a real inner product space. It follows that it is a real Hilbert space.
+For all $x,y\in\mathcal{H}$ we have
+\begin{align}
+\begin{split}
+\langle x,y\rangle_\mathbb{R}-i\langle x,iy \rangle_\mathbb{R}&= \re \langle x,y\rangle-i\re\langle x,iy \rangle \\
+&= \re \langle x,y\rangle-i\re i\langle x,y \rangle \\
+&= \re \langle x,y\rangle+i\im\langle x,y \rangle \\
+&= \langle x,y\rangle.
+\end{split} 
+\end{align}
 \end{proof}
 
-As a we discovered in this proof, the topology on a Hilbert space $\mathcal{H}$ is independent of whether we consider $\mathcal{H}$ a real of complex Hilbert space.
+Whenever we consider a Hilbert space $\mathcal{H}$ as real we will denote it by $\mathcal{H}_\mathbb{R}$. As a we discovered in this proof, the topology on a Hilbert space $\mathcal{H}_\mathbb{R}$ is the same as that of $\mathcal{H}$.
+
+\begin{theorem}
+If an operator $A\in\mathcal{B}(\mathcal{H}_\mathbb{R})$ that is also in $\mathcal{B}(\mathcal{H})$ is self-adjoint (positive) in $\mathcal{H}$ if it is in $\mathcal{H}_\mathbb{R}$.
+\end{theorem}
 
 \begin{definition}
 A vector subspace $\mathcal{K}$ of a Hilbert space $\mathcal{H}$ viewed as real is called a real subspace of $\mathcal{H}$.
@@ -32,32 +172,102 @@ Let $\mathcal{K}$ be a closed real subspace of a Hilbert space $\mathcal{H}$. Th
 It is clear that $i\mathcal{K}$ is a closed real subspace of $\mathcal{H}$. Let $x\in\overline{i\mathcal{K}}$. Then there is a sequence $(x_n)$ in $i\mathcal{K}$ such that $x_n\rightarrow x$. Therefore $(-ix_n)$ is a sequence in $\mathcal{K}$ and since $\|-ix_n-i(-x)\|=\|x_n-x\|\rightarrow 0$ we conclude that $x_n\rightarrow i(-x)\in\mathcal{K}$ since $\mathcal{K}$ is closed. Therefore $x=i(i(-x))\in i\mathcal{K}$ and we conclude $i\mathcal{K}$ is closed.  
 \end{proof}
 
-\begin{definition}
-An $A\in\mathcal{B}(\mathcal{H})$ with $\mathcal{H}$ a Hilbert space is said to be positive if $\langle x,Ax\rangle\geq 0$ for all $x\in\mathcal{H}$.
-\end{definition}
+\section{Operators of the Theory}
+
+Let $\mathcal{K}$ and $\mathcal{L}$ be closed subspaces of a real Hilbert space $\mathcal{H}$ such that $\mathcal{K}\cap\mathcal{L}=\{0\}$ and $\mathcal{K}+\mathcal{L}$ is dense in $\mathcal{H}$. Define $P$ and $Q$ as the orthogonal projections on $\mathcal{K}$ and $\mathcal{L}$ respectively. Define $R=P+Q$ and let $JT=P-Q$ the polar decomposition of $P-Q$. We have that $P,Q,$ and $T$ are positive. We will start by proving some basic facts about this operators which we will use throughout the development of the theory. The proofs depend heavily on the Polar Decomposition theorem.
 
 \begin{theorem}
-If $A\in\mathcal{B}(\mathcal{H})$ with $\mathcal{H}$ a Hilbert space then $A^*A$ is positive. 
+\begin{enumerate}
+\item $R$ and $2-R$ are injective and $2\geq R \geq 0$;
+\item $T=R^{1/2}(2-R)^{1/2}$ and is injective;
+\item $J$ is self-adjoint, isometric, and $J^2=1$;
+\item $T$ commutes with $P,Q,R,$ and $J$;
+\item $JP=(1-Q)J$, $JQ=(1-P)J$, and $JR=(2-R)J$.
+\item $J\mathcal{K}=\mathcal{L}^\bot$
+\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-For all $x\in\mathcal{H}$ we have that $\langle x,A^*Ax\rangle=\langle Ax,Ax \rangle = \|Ax\|^2\geq 0$.
+\begin{enumerate}
+\item It is clear that the sum of positive operators is positive. Therefor $R\geq 0$. Moreover $1-P$ and $1-Q$ are also projections so that $2-R=(1-P)+(1-Q)\geq 0$. We conclude $2\geq R$. \\
+Let $x\in\ker R$. Then
+\begin{align}
+\begin{split}
+\|Px\|^2+\|Qx\|^2&=\langle Px,Px \rangle + \langle Qx,Qx\rangle = \langle x,P^*Px\rangle +\langle x, Q^*Qx\rangle \\
+&=\langle x, P^2x\rangle + \langle x, Q^2x\rangle = \langle x,Px\rangle + \langle x,Qx\rangle \\
+&=\langle x,Rx\rangle = 0
+\end{split}
+\end{align}
+Therefore $x\in\ker P\cap\ker Q=\mathcal{K}^\bot\cap\mathcal{K}^\bot=(\mathcal{K}+\mathcal{L})^\bot=\mathcal{H}^\bot=\{0\}$ and we conclude $\ker R = {0}$, that is, $R$ is injective. Notice now that $\mathcal{K}^\bot$ and $\mathcal{L}^\bot$ satisfy the same properties that we imposed on $\mathcal{K}$ and $\mathcal{L}$ at the beginning. That is $\mathcal{K}^\bot\cap\mathcal{L}^\bot=\{0\}$ and
+\begin{equation}
+\overline{\mathcal{K}^\bot+\mathcal{L}^\bot}=(\mathcal{K}^\bot+\mathcal{L}^\bot)^{\bot\bot}=(\mathcal{K}^{\bot\bot}\cap\mathcal{L}^{\bot\bot})^\bot = (\mathcal{K}\cap\mathcal{L})^\bot=\{0\}^\bot = \mathcal{H}.
+\end{equation}
+Since $1-P$ and $1-Q$ are the projections on $\mathcal{K}^\bot$ and $\mathcal{L}^\bot$ we have by repeating the previous arguments that $2-R$ is injective.
+\item We first note that 
+\begin{align}
+\begin{split}
+T^2&=(P-Q)^*(P-Q)=(P-Q)(P-Q)=P-PQ-QP+Q \\
+&=(P+Q)(2-P-Q)=R(2-R)=(R^{1/2})^2((2-R)^{1/2})^2 \\
+&=(R^{1/2}(2-R)^{1/2})^2
+\end{split}
+\end{align}
+Therefore, if $x\in \ker T$ the $x\in\ker T^2=\ker R(2-R)=\{0\}$. We conclude $T$ is injective. Since the product of positive elements is positive we have $T=R^{1/2}(2-R)^{1/2}$ by the uniqueness of the positive square root.
+\item $J$ is an isometry on the orthogonal complement of
+\begin{align}
+\begin{split}
+\ker J&=\ker (P-Q)\subseteq\ker(P-Q)^2=\ker(P-Q)^*(P-Q) \\
+&=\ker T^2=\ker R(2-R)=\{0\}.
+\end{split}
+\end{align}
+We conclude that $J$ is an isometry. The rest follows from $P-Q$ being self adjoint and the properties of the polar decomposition.
+\item $T$ commutes with $J$ because $P-Q$ is self-adjoint. We also have $T^2P=(P-Q)^2P=P-PQP=PT^2$ and therefore the positive square root must also commute $TP=PT$. Analogously $TQ=QT$ and one concludes that $T$ and $R$ commute.
+\item Since $TJP=JTP=(P-Q)P=P-QP=(1-Q)(P-Q)=(1-Q)TJ=T(1-Q)J$ and $T$ is injective we have $JP=(1-Q)J$. We also have $PJ=(J^*P^*)^*=(JP)^*=((1-Q)J)^*=J(1-Q)$ and we can solve for $JQ=(1-P)J$. We conclude $JR=J(P+Q)=(2-R)J.$
+\item Since $J$ is surjective ($J^2=1$) and $1-Q$ is the projection on $\mathcal{L}^\bot$ 
+\begin{equation}
+J\mathcal{K}=JP\mathcal{H}=(1-Q)J\mathcal{H}=(1-Q)\mathcal{H}=\mathcal{L}^\bot.
+\end{equation}
+\end{enumerate}
 \end{proof}
 
-\begin{theorem}
-If $A\in\mathcal{B}(\mathcal{H})$ with $\mathcal{H}$ a Hilbert space is positive there is a unique $A^{1/2}\in\mathcal{B}(\mathcal{H})$ such that $A=(A^{1/2})^2$.
-\end{theorem}
-
-\begin{definition}
-If $A\in\mathcal{B}(\mathcal{H})$ with $\mathcal{H}$ a Hilbert space we define $|A|=(A^*A)^{1/2}$
-\end{definition}
-
-\begin{definition}
-$U\in\mathcal{B}(\mathcal{H})$ for $\mathcal{H}$ a real or complex Hilbert space is said to be a partial isometry if it is an isometry on $\ker U^\bot$
-\end{definition}
+To obtain now the operators of the theory let $\mathcal{K}$ be a closed real subspace of a Hilbert space $\mathcal{H}$ such that $\mathcal{K}\cap i\mathcal{K}=\{0\}$ and $\mathcal{K}+\mathcal{iK}$ is dense in $\mathcal{H}$. Then the replacement of $\mathcal{L}$ by $i\mathcal{K}$ allows us to define the operators $P,Q,R,$ and $T$ as functions on $\mathcal{H}$. We will now give some properties of these as functions.  
 
 \begin{theorem}
-If $A\in\mathcal{B}(\mathcal{H})$ for $\mathcal{H}$ a real or complex Hilbert space there exists a unique partial isometry $U\in\mathcal{B}(\mathcal{H})$ such that $A=U|A|$ called the polar decomposition of $A$. 
+\begin{enumerate}
+\item $R,2-R,$ and $T$ are positive in $\mathcal{H}$
+\item $J$ is a conjugate linear isometry in $\mathcal{H}$.
+\item $\langle x, Jy\rangle=\langle y, Jx\rangle$ for all $x,y\in\mathcal{H}$ 
+\item $(JAJ)^*=JA^*J$ for all $A\in\mathcal{B}(\mathcal{H})$
+\end{enumerate}
 \end{theorem}
 
-Let $\mathcal{K}$ and $\mathcal{L}$ be closed real subspaces of a Hilbert space $\mathcal{H}$ such that $\mathcal{K}\cap\mathcal{L}=\{0\}$ and $\mathcal{K}+\mathcal{L}$ is dense in $\mathcal{H}$. Define $P$ and $Q$ as the orthogonal projections on $\mathcal{K}$ and $\mathcal{L}$ respectively. Define $R=P+Q$ and let $JT=P-Q$ the polar decomposition of $P-Q$.
+\begin{proof}
+\begin{enumerate}
+\item We only need to prove these functions are $\mathcal{B}(\mathcal{H})$. Note that for this proving linearity is enough since the topologies in the real and complex case coincide. Let $x\in\mathcal{H}$ and since $\mathcal{H}_\mathbb{R}=\mathcal{K}\oplus\mathcal{K}^\bot$ there exist unique $y\in\mathcal{K}$ and $z\in\mathcal{K}^\bot$ such that $x=y+z$. It is clear that $iz\in(i\mathcal{K})^\bot$ and therefore $iPx=iy=Q(ix)$. We conclude that $iP=Qi$ and therefore $Rix=P(ix)+Q(ix)=iQx+iPx=iRx$. We conclude that $R$ is linear. It is the clear too that $2-R$ is also linear. By uniqueness of the positive square root that $T=R^{1/2}(2-R)^{1/2}$ is also linear.
+\item Given that $T$ is injective and 
+\begin{align}
+\begin{split}
+TJ(ix)=(P-Q)(ix)=iQx-iPx=-i(P-Q)x=T(-iJx)
+\end{split}
+\end{align}
+for all $x\in\mathcal{H}$, we conclude that $J$ is conjugate linear. Moreover, since the norm in $\mathcal{H}_\mathbb{R}$ is the same as $\mathcal{H}$ we have that $J$ is an isometry.
+\item Let $x,y\in\mathcal{H}$. Then
+\begin{align}
+\begin{split}
+\langle x,Jy\rangle &= \langle x,Jy\rangle_\mathbb{R}-i\langle x,iJy\rangle_\mathbb{R} \\
+&= \langle x,Jy\rangle_\mathbb{R}-i\langle x,J(-iy)\rangle_\mathbb{R} \\
+&= \langle Jx,y\rangle_\mathbb{R}-i\langle Jx,-iy\rangle_\mathbb{R} \\
+&= \langle y,Jx\rangle_\mathbb{R}-i\langle -iy,Jx\rangle_\mathbb{R} \\
+&= \langle y,Jx\rangle_\mathbb{R}-i\langle y,iJx\rangle_\mathbb{R} \\
+&= \langle y,Jx \rangle.
+\end{split}
+\end{align}
+\item Let $x,y\in\mathcal{H}$. Then
+\begin{align}
+\begin{split}
+\langle x,JAJy \rangle &= \langle AJy, Jx\rangle = \langle Jy, A^*Jx\rangle \\
+&= \overline{\langle A^*Jx,Jy\rangle}=\overline{\langle y, JA^*Jx\rangle} \\
+&= \langle JA^*Jx,y\rangle
+\end{split}
+\end{align}
+\end{enumerate}
+\end{proof}
