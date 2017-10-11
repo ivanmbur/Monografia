@@ -4,7 +4,7 @@ For the remaining of the discussion I will assume knowledge of real Hilbert spac
 
 \section{Operators of the Theory}
 
-Let $\mathcal{K}$ and $\mathcal{L}$ be closed subspaces of a real Hilbert space $\mathcal{H}$ such that $\mathcal{K}\cap\mathcal{L}=\{0\}$ and $\mathcal{K}+\mathcal{L}$ is dense in $\mathcal{H}$. Define $P$ and $Q$ as the orthogonal projections on $\mathcal{K}$ and $\mathcal{L}$ respectively. Define $R=P+Q$ and let $JT=P-Q$ the polar decomposition of $P-Q$. We have that $P,Q,$ and $T$ are positive. We will start by proving some basic facts about this operators which we will use throughout the development of the theory. The proofs depend heavily on the Polar Decomposition theorem.
+Let $\mathcal{K}$ and $\mathcal{L}$ be closed subspaces of a real Hilbert space $\mathcal{H}$ such that $\mathcal{K}\cap\mathcal{L}=\{0\}$ and $\mathcal{K}+\mathcal{L}$ is dense in $\mathcal{H}$. Define $P$ and $Q$ as the orthogonal projections on $\mathcal{K}$ and $\mathcal{L}$ respectively. Define $R=P+Q$ and let $JT=P-Q$ the polar decomposition of $P-Q$. We have that $P,Q,$ and $T$ are positive. We will start by proving some basic facts about this operators which we will use throughout the development of the theory.
 
 \begin{theorem}
 \begin{enumerate}
@@ -205,7 +205,7 @@ Finally, we calculate for all $x,y\in\mathcal{H}$ and $t\in\mathbb{R}$
 \begin{align}
 \begin{split}
 \langle x, JR^{it}J y\rangle &= \langle R^{it}Jy,Jx\rangle = \langle Jy,R^{-it}Jx\rangle \\
-&= \left\langle Jy, \int \lambda^{-it}dP_R(\lambda)Jx\right\rangle = \int \lambda^{-it}dP_{R_{Jy,Jx}} \\
+&= \left\langle Jy, \int \lambda^{-it}dP_R(\lambda)Jx\right\rangle = \int \lambda^{-it}dP_{R_{Jy,Jx}}(\lambda) \\
 &= \int (2-\lambda)^{-it}d(P_{R_{Jy,Jx}}\circ (2-\id_\mathbb{C}))(\lambda) \\
 &= \int (2-\lambda)^{-it}dF_{x,y}(\lambda) = \int (2-\lambda)^{-it}dE_{x,y}(\lambda) \\
 &= \int (2-\lambda)^{-it}d(E_{x,y}\circ\id_\mathbb{C})(\lambda) \\
@@ -217,8 +217,38 @@ Finally, we calculate for all $x,y\in\mathcal{H}$ and $t\in\mathbb{R}$
 We conclude $JR^{it}J=(2-R)^{-it}$.
 \end{proof}
 
-We are now ready to define the main operator in the theory.
+We are now ready to define the main operator in the theory and give some of the properties which will proof to be useful in connecting the theory with KMS states.
 
 \begin{definition}
-For all $t\in\mathbb{R}$ define $\Delta_t = (2-R)^{it}R^{-it}$.
+For all $t\in\mathbb{R}$ define $\Delta^{it} = (2-R)^{it}R^{-it}$.
 \end{definition}
+
+Note that $\Delta^{it}$ is to be understood as a symbol by its own rather than a function of an operator $\Delta$. Although such an operator $\Delta=(2-R)R^{-1}$ is usually defined, it may be unbounded and therefore the definition of $\Delta^{it}$ would require a measurable calculus for unbounded operators. Our approach using real Hilbert spaces avoided just this.
+
+\begin{theorem}
+$t\mapsto\Delta^{it}$ is a strongly continuous one-parameter unitary group which satisfies $J\Delta^{it}=\Delta^{it}J$, $T\Delta^{it}=\Delta^{it}T$, and $\Delta^{it}\mathcal{K}=\mathcal{K}$ for every $t\in\mathbb{R}$.
+\end{theorem}
+
+\begin{proof}
+Using the fact that $R$ and $2-R$ commute and are self-adjoint (since they are positive) along with the properties of exponentiation prove $t\mapsto\Delta^{it}$ is a one-parameter unitary group. The fact that $T$ and $R$ commute with $R$ and $2-R$ also shows they commute with $\Delta^{it}$. Note
+\begin{align}
+\begin{split}
+J\Delta^{it}&=J(2-R)^{it}R^{-it}=J(2-R)^{it}JJR^{-it}=R^{-it}JR^{-it} \\
+&=R^{-it}JR^{-it}JJ=R^{-it}(2-R)^{it}J=(2-R)^{it} R^{-it}J=\Delta^{it}J.
+\end{split}
+\end{align}
+\end{proof}
+
+\section{Tomita-Takesaki Theorem}
+
+Let $\mathfrak{M}$ be a von Neumann algebra on a Hilbert space $\mathcal{H}$ and $\Omega\in\mathcal{H}$ be cyclic. Define $\mathcal{K}=\{A\Omega|A\in\mathfrak{M}'\text{ and is self-adjoint}\}$.
+
+\begin{theorem}
+$\mathcal{K}$ is a real subspace of $\mathcal{H}$, $\mathcal{K}\cap i\mathcal{K}=\varnothing$, and $\mathcal{K}+i\mathcal{K}$ is dense in $\mathcal{H}$. 
+\end{theorem}
+
+We may therefore define $P$,$Q$,$R$,$T$,$J$, and $\Delta^{it}$ as we did before.
+
+\begin{theorem}{Tomita-Takesaki Theorem}
+We have that $J\mathfrak{M}J=\mathfrak{M}'$ and $\Delta^{it}\mathfrak{M}\Delta^{it}=\mathfrak{M}$.
+\end{theorem}
