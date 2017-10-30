@@ -105,7 +105,7 @@ known as the $\beta$-Gibbs state\cite{Kubo1965}\cite{Duvenhage1999}.
 Although we won't prove the structure theorems mentioned above for the characterization of $C^*$-algebras we will indeed be interested in the representation of a $C^*$-algebra on a Hilbert space induced by a state. For this we will follow \cite{Bratteli1997} 
 
 \begin{definition}
-A representation of a a $C^*$-algebra $\mathcal{A}$ is a tuple $(\mathcal{H},\pi)$ where $\mathcal{H}$ is a Hilbert space and $\pi:\mathcal{A}\rightarrow \mathcal{B}(\mathcal{H})$ is a *-homomorphism (i.e. an adjoint preserving homomorphism). If $\mathcal{H}$ has non trivial invariant subspaces under the action of $\pi(\mathcal{A})$ then the representation is said to be reducible.
+A representation of a a $C^*$-algebra $\mathcal{A}$ is a tuple $(\mathcal{H},\pi)$ where $\mathcal{H}$ is a Hilbert space and $\pi:\mathcal{A}\rightarrow \mathcal{B}(\mathcal{H})$ is a $^*$-homomorphism (i.e. an adjoint preserving homomorphism). If $\mathcal{H}$ has non trivial invariant subspaces under the action of $\pi(\mathcal{A})$ then the representation is said to be reducible. If $\pi$ is a $^*$-isomorphism onto its image, the representation is said to be faithful. 
 \end{definition}
 
 \begin{definition}
@@ -321,6 +321,29 @@ Therefore $\mathfrak{M}'$ is Banach and we conclude it is a $C^*$-algebra.
 \begin{corollary}\label{cor:W_C}
 A $W^*$-algebra is a $C^*$-algebra.
 \end{corollary}
+
+\begin{theorem}
+Let $\mathfrak{M}$ be a von Neumann algebra on a Hilbert space $\mathcal{H}$ and $G\subseteq\mathcal{H}$. Then $G$ is cyclic for $\mathfrak{M}$ if and only if $G$ is separating for $\mathfrak{M}'$.
+\end{theorem}
+
+\begin{proof}
+Suppose $G$ is cyclic for $\mathfrak{M}$ and let $A\in\mathcal{M}'$ be such that $AG=\{0\}$. Then for all $\mathcal{B}\in\mathfrak{M}$ and $x\in G$ we have $ABx=BAx=B0=0$. By continuity $A=0$.
+Conversely, suppose $G$ is separating for $\mathfrak{M}'$ and let $P$ be the orthogonal projection on $\overline{\mathfrak{M}G}$. We will prove that the projection onto its orthogonal complement is null. First note that $P\in\mathfrak{M}'$. Indeed, if $x\in\mathcal{H}$ there exists $y\in \overline{\mathfrak{M}G}$ and $z\in\overline{\mathfrak{m}G}^\bot$ such that $x=y+z$. If $A\in\mathfrak{M}$ then $Ay\in\overline{\mathfrak{M}G}$ and $APy=Ay=PAy$. On the other hand, $Az\in\overline{\mathfrak{m}G}^\bot$ since for all $v\in\overline{\mathfrak{m}G}$ we have $\langle v,Az\rangle=\langle A^*v,z\rangle=0$. Therefore $PAz=0=A0=APz$. We conclude that $PAx=APx$ and $P\in\mathfrak{M}'$.Then it is clear that $1-P\in\mathfrak{M}'$ and we have $(1-P)G=\{0\}$. Since $G$ is separating for $\mathfrak{M}'$ we have $1-P=0$ and therefore $P=1$ showing that $G$ is cyclic for $\mathfrak{M}$.
+\end{proof}
+
+As it turns out, the GNS representation of a von Neumann algebra equipped with a faithful normal state will have properties which as we will see later are suitable for the application of Tomita-Takesaki theory.
+
+\begin{theorem}\label{thm:GNS_von}
+Let $\mathfrak{M}$ be a $W^*$-algebra and $\omega$ be a normal faithful state. Then the GNS representation $(\mathcal{H}_\omega,\pi_\omega)$ is faithful, $\pi_\omega(\mathfrak{M})$ is a $W^*$-algebra and the cyclic vector $\Omega_\omega$ is separating for $\pi_\omega(\mathfrak{M})$.
+\end{theorem} 
+
+\begin{proof}
+The fact that $\pi_\omega(\mathfrak{M})$ is a $W^*$-algebra is given in \cite{Bratteli1997} and relies on the topological properties of von Neumann algebras which we have not discussed. Let $A\in\mathfrak{M}$ be such that $\pi_\omega(A)\Omega_\omega=0$ (which in particular is true if $A\in\ker\pi_\omega$). Then since $\omega$ is faithful and
+\begin{equation}
+\omega(A^*A)=\langle \Omega_\omega, \pi_\omega (A^*A)\Omega_\omega\rangle=\langle \pi_\omega(A)\Omega_\omega,\pi_\omega(A)\Omega_\omega\rangle=0
+\end{equation}
+we conclude that $A^*A=0$. Therefore by the $C^*$-property $0=\|A^*A\|=\|A\|^2$ and $A=0$. We conclude that the representation is faithful and $\Omega_\omega$ is separating for $\pi_\omega(\mathfrak{M})$.
+\end{proof}
 
 \section{Dynamical Systems}
 

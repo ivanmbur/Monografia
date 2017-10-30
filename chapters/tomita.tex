@@ -4,7 +4,7 @@ For the remaining of the discussion I will assume knowledge of real Hilbert spac
 
 \section{Operators of the Theory}
 
-Let $\mathcal{K}$ and $\mathcal{L}$ be closed subspaces of a real Hilbert space $\mathcal{H}$ such that $\mathcal{K}\cap\mathcal{L}=\{0\}$ and $\mathcal{K}+\mathcal{L}$ is dense in $\mathcal{H}$. Define $P$ and $Q$ as the orthogonal projections on $\mathcal{K}$ and $\mathcal{L}$ respectively. Define $R=P+Q$ and let $JT=P-Q$ the polar decomposition of $P-Q$. We have that $P,Q,$ and $T$ are positive. We will start by proving some basic facts about this operators which we will use throughout the development of the theory.
+Let $\mathcal{K}$ and $\mathcal{L}$ be closed subspaces of a real Hilbert space $\mathcal{H}$ such that $\mathcal{K}\cap\mathcal{L}=\{0\}$ and $\mathcal{K}+\mathcal{L}$ is dense in $\mathcal{H}$. Define $P$ and $Q$ as the orthogonal projections on $\mathcal{K}$ and $\mathcal{L}$ respectively. Define $R=P+Q$ and let $JT=P-Q$ the polar decomposition of $P-Q$. $J$ is called the modular conjugation due to its role in the Tomita-Takesaki theorem. We have that $P,Q,$ and $T$ are positive. We will start by proving some basic facts about this operators which we will use throughout the development of the theory.
 
 \begin{theorem}
 \begin{enumerate}
@@ -220,7 +220,7 @@ We conclude $JR^{it}J=(2-R)^{-it}$.
 We are now ready to define the main operator in the theory and give some of the properties which will proof to be useful in connecting the theory with KMS states.
 
 \begin{definition}
-For all $t\in\mathbb{R}$ define $\Delta^{it} = (2-R)^{it}R^{-it}$.
+Define the unitary group $t\mapsto\Delta^{it} = (2-R)^{it}R^{-it}$ for all $t\in\mathbb{R}$.
 \end{definition}
 
 Note that $\Delta^{it}$ is to be understood as a symbol by its own rather than a function of an operator $\Delta$. Although such an operator $\Delta=(2-R)R^{-1}$ is usually defined, it may be unbounded and therefore the definition of $\Delta^{it}$ would require a measurable calculus for unbounded operators. Our approach using real Hilbert spaces avoided just this.
@@ -239,16 +239,69 @@ J\Delta^{it}&=J(2-R)^{it}R^{-it}=J(2-R)^{it}JJR^{-it}=R^{-it}JR^{-it} \\
 \end{align}
 \end{proof}
 
-\section{Tomita-Takesaki Theorem}
-
-Let $\mathfrak{M}$ be a von Neumann algebra on a Hilbert space $\mathcal{H}$ and $\Omega\in\mathcal{H}$ be cyclic. Define $\mathcal{K}=\{A\Omega|A\in\mathfrak{M}'\text{ and is self-adjoint}\}$.
+With these we have now constructed all of the operators of the theory and stated their most important properties. Our last task for the chapter will be to show how the closed real subspace $\mathcal{K}$ arises in a natural fashion from a von Neumann algebra and a cyclic and separating vector. In particular theorem \ref{thm:GNS_von} shows that we will always be able to do Tomita-Takesaki theory on the GNS representation of a von Neumann algebra equipped with a faithful normal state.
 
 \begin{theorem}
-$\mathcal{K}$ is a real subspace of $\mathcal{H}$, $\mathcal{K}\cap i\mathcal{K}=\varnothing$, and $\mathcal{K}+i\mathcal{K}$ is dense in $\mathcal{H}$. 
+Let $\mathfrak{M}$ be a $W^*$-algebra on a Hilbert space $\mathcal{H}$ and $\Omega\in\mathcal{H}$ be a cyclic and separating vector for $\mathfrak{M}$. Then $\mathcal{K}=\overline{\{A\Omega|A\in\mathfrak{M}\text{ is self adjoint}\}}$ is a closed real subspace of $\mathcal{H}$ such that $\mathcal{K}\cap i\mathcal{K}=\varnothing$ and $\mathcal{K}+i\mathcal{K}$ is dense in $\mathcal{H}$.
 \end{theorem}
 
-We may therefore define $P$,$Q$,$R$,$T$,$J$, and $\Delta^{it}$ as we did before.
+\begin{proof}
+It is clear that $\mathcal{K}$ is closed real subspace. By decomposition of bounded operators (as in the proof of theorem \ref{thm:time_invariance}) we have $\mathfrak{M}\Omega\subseteq \mathcal{K}+i\mathcal{K}$ and therefore we have that $\mathcal{K}+i\mathcal{K}$ is dense. Now let $A\in\mathfrak{M}'$ be self-adjoint. Then if $B\in\mathfrak{M}$ is self-adjoint we have that $\langle B\Omega,A\Omega\rangle\in\mathbb{R}$ and therefore $0=\langle B\Omega,iA\Omega\rangle_\mathbb{R}$. We conclude due to decomposition of bounded operators that $\mathfrak{M}'\Omega\subseteq (i\mathcal{K})^\bot+\mathcal{K}^\bot\subseteq (\mathcal{K}\cap i\mathcal{K})^\bot$. Since $\Omega$ is cyclic for $\mathfrak{M}'$ we have that $\mathcal{K}\cap i\mathcal{K}=\varnothing$.
+\end{proof}
 
-\begin{theorem}{Tomita-Takesaki Theorem}
-We have that $J\mathfrak{M}J=\mathfrak{M}'$ and $\Delta^{it}\mathfrak{M}\Delta^{it}=\mathfrak{M}$.
+With this theorem we can define for every pair $(\mathfrak{M},\Omega)$ with $\mathfrak{M}$ a $W^*$-algebra and $\Omega$ a cyclic and separating vector for $\mathfrak{M}$ the functions $P$, $Q$, $R$, $T$, an associated unitary group $t\mapsto\Delta^{it}$, and a modular conjugation $J$. 
+
+\section{Tomita-Takesaki Theorem}
+
+This section is completely devoted to the Tomita-Takesaki theorem. Although an effort was made in the previous section to be thorough with the construction of the operators involved in the theorem, we will now only assume the result $\Delta^{it}J\mathfrak{M}'J\Delta^{-it}\subseteq \mathfrak{M}$ given in \cite{Duvenhage1999}\cite{Rieffel1977}. This is in order to keep the mathematics as concise as possible since this theorem is not easy to prove.
+
+\begin{theorem}[Tomita-Takesaki Theorem]
+Let $\mathfrak{M}$ be a $W^*$-algebra and $\Omega$ be a cyclic and separating vector for $\mathfrak{M}$. Let $t\mapsto\Delta^{it}$ and $J$ be the unitary group and modular conjugation associated to $(\mathfrak{M},\Omega)$. Then:
+\begin{itemize}
+
+\item $J\mathfrak{M}J=\mathfrak{M}'$;
+
+\item $\Delta^{it}\mathfrak{M}\Delta^{-it}=\mathfrak{M}$ for all $t\in\mathbb{R}$. 
+
+\end{itemize}
 \end{theorem}
+
+\begin{proof}
+
+For all $A\in\mathfrak{M}'$ and $t\in\mathbb{R}$ we have that $\Delta^{it}JAJ\Delta{-it}\in\mathfrak{M}$ \cite{Duvenhage1999}\cite{Rieffel1977}. Then by setting $t=0$ we have that $J\mathfrak{M}'J\subseteq \mathfrak{M}$ and therefore $\mathfrak{M}'=J^2\mathfrak{M}'J^2\subseteq J\mathfrak{M}J$. On the other hand, it is clear that $\Omega\in\mathcal{K}\cap (i\mathcal{K})^\bot$. Therefore $P\Omega=\Omega$ and $Q\Omega=0$. Then $JT\Omega=\Omega$ and $T^2\Omega=\Omega$. By the Borel calculus $T^2\Omega=\Omega$ implies that $T\Omega=\Omega$\footnote{This step is not trivial. Indeed we want to prove something along the lines of: if $Ax=x$ then $f(A)x=f(1)x$. This is given in \cite{Duvenhage1999} and requires decomposing $f$ into positive functions, approximating positive functions by simple ones, simple functions by continuous ones, and continuous functions by polynomials using the Stone-Weierstrass theorem.} and we conclude $J\Omega=JJT\Omega=T\omega=\Omega$. Since $J\mathcal{K}\subseteq(i\mathcal{K})^\bot$ we have that for all $A,B\in\mathfrak{M}$ self-adjoint $\langle JA\Omega,B\Omega\rangle\in\mathbb{R}$. Therefore by the properties of $J$ we have that 
+
+\begin{align}
+\begin{split}
+\langle BJAJ\Omega,\Omega\rangle&=\langle BJA\Omega,\Omega\rangle=\langle JA\Omega,B\Omega\rangle =\langle B\Omega, JA\Omega\rangle \\
+&=\langle A\Omega,JB\Omega\rangle=\langle \Omega, AJB\Omega\rangle=\langle \Omega,AJBJ\Omega\rangle
+\end{split}
+\end{align}   
+
+and by linearity this extends to arbitrary $B\in\mathfrak{M}$. If $C\in\mathfrak{M}'$ we have that $JCJ\in\mathfrak{M}$ since $J\mathfrak{M}'J\subseteq\mathfrak{M}$ and therefore we have for $A,B\in\mathfrak{M}$ self-adjoint recalling the properties of $J$ that
+\begin{align}
+\begin{split}
+\langle AJBJ\Omega, C\Omega\rangle&=\langle JBJ\Omega, AC\Omega\rangle = \langle \Omega, JBJAC\Omega\rangle = \langle BJAC\Omega, J\Omega\rangle \\
+&=\langle BJAC\Omega, \Omega\rangle = \langle BJCA\Omega,\Omega\rangle = \langle BJCJJA\Omega,\Omega\rangle \\
+&= \langle BJCJJAJ\Omega,\Omega\rangle = \langle\Omega, AJBJCJJ\Omega\rangle = \langle\Omega, AJBJC\Omega\rangle \\
+&= \langle A\Omega,JBJC\Omega\rangle=\langle JBJA\Omega,C\Omega\rangle.
+\end{split}
+\end{align}
+Since $\Omega$ is cyclic for $\mathfrak{M}'$ by linearity we have that $JBJA\Omega=AJBJ\Omega$ for all $A,B\in\mathfrak{M}$. Therefore if $C\in\mathfrak{M}$ it is true that $JBJAC\Omega=ACJBJ\Omega=AJBJC\Omega$ and since $\Omega$ is cyclic for $\mathfrak{M}$ we have that $JBJ\in\mathfrak{M}'$ by continuity. We conclude that $J\mathfrak{M}J\subseteq\mathfrak{M}'$ proving the first part of the theorem.
+
+For the second part note that for all $t\in\mathbb{R}$
+
+\begin{equation}
+\Delta^{it}\mathfrak{M}\Delta^{-it}=\Delta^{it}J\mathfrak{M}'J\Delta^{-it}\subseteq\mathfrak{M}
+\end{equation}
+
+and therefore
+
+\begin{equation}
+\mathfrak{M}=\Delta^0\mathfrak{M}\Delta^0=\Delta^{it}\Delta^{-it}\mathfrak{M}\Delta^{it}\Delta^{-it}\subseteq \Delta^{it}\mathfrak{M}\Delta^{-it}
+\end{equation}
+
+proving the second part.
+
+\end{proof}
+
+ 
