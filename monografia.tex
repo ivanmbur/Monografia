@@ -32,7 +32,7 @@
 	{\large Universidad de los Andes}\\
 	{\includegraphics{logo.png}}	
 }
-\author{Iván Mauricio Burbano Aldana}
+\author{Iván Mauricio Burbano Aldana\\[1cm]{\small Advised by: Prof. Andrés Fernando Reyes Lega}}
 
 \begin{document}
 
@@ -43,33 +43,34 @@
 \tableofcontents
 
 \chapter{Introduction}
-To be done.
-
 \pagenumbering{arabic}
+\input{chapters/introduction}
 
-\chapter{Classical and Quantum Mechanics as Probability Theories}
+\chapter{Classical and Quantum Mechanics as Probability Theories}\label{chp:axiom}
 \input{chapters/axiomatizations}
 
-\chapter{Quantum Probability}
+\chapter{Quantum Probability}\label{chp:logic}
 \input{chapters/logic}
 
-\chapter{Algebraic Quantum Physics}
+\chapter{Algebraic Quantum Physics}\label{chp:algebra}
 \input{chapters/algebra}
 
-\chapter{KMS States}
+\chapter{KMS States}\label{chp:KMS}
 \input{chapters/kms}
 
-\chapter{The Modular Theory of Tomita-Takesaki}
+\chapter{The Modular Theory of Tomita-Takesaki}\label{chp:tomita}
 \input{chapters/tomita}
 
-\chapter{KMS States and Tomita-Takesaki Theory}
+\chapter{KMS States and Tomita-Takesaki Theory}\label{chp:final}
 \input{chapters/kms_tomita}
 
 \chapter{Final Remarks and Further Work}
+\input{chapters/remarks}
+
+\chapter{Acknowledgements}
+\input{chapters/acknowledgements}
 
 \bibliography{/home/ivan/Documents/Bib_Files/Monografia}
 \bibliographystyle{ieeetr}
-
-\chapter{Acknowledgements}
 
 \end{document}

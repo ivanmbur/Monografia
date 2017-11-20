@@ -105,50 +105,28 @@ and therefore $q\leq r$. Exchanging the roles of $q$ and $r$ one finds that $r\l
 \end{proof}
 
 Now, we ask that the set of propositions in a complete theory of physical reality has the structure of classical propositions, that is of a Boolean algebra. Denoting the complement of a proposition $p$ by $p'$ we may consider the following logical function
+
 \begin{equation}
 f(p,q)=(p\wedge q)\vee (p' \wedge q').
 \end{equation}
 
-With the help of the algebraic properties of this structure given in theorem \ref{thm:logic_algebra} we find that for all propositions $p_1$, $p_2$, $q_1$ and $q_2$
-
+Note that for classical propositions $p_1$, $q_1$, $p_2$ and $q_2$ we have
 \begin{align}
-f(p_1,q_1)\wedge (f(p_1,q_2)\vee f(p_2,q_2)\vee f(p_2,q_1)) = \nonumber \\
-((p_1\wedge q_1)\vee (p'_1 \wedge q'_1))&\wedge \nonumber \\
-((p_1\wedge q_2)\vee (p'_1 \wedge q'_2)\vee(p_2\wedge q_2) &\vee \nonumber \\ 
-(p'_2 \wedge q'_2)\vee(p_2\wedge q_1)\vee (p'_2 \wedge q'_1))& = \nonumber  \\ 
-(p_1\wedge q_1\wedge  p_1\wedge q_2)\vee (p_1\wedge q_1\wedge  p'_1 \wedge q'_2)&\vee \nonumber \\
-(p_1\wedge q_1\wedge  p_2\wedge q_2)\vee (p_1\wedge q_1\wedge  p'_2 \wedge q'_2)&\vee \nonumber \\
-(p_1\wedge q_1\wedge  p_2\wedge q_1)\vee (p_1\wedge q_1\wedge  p'_2 \wedge q'_1)&\vee \nonumber \\
-(p'_1\wedge q'_1\wedge  p_1\wedge q_2)\vee (p'_1\wedge q'_1\wedge  p'_1 \wedge q'_2)&\vee \nonumber \\
-(p'_1\wedge q'_1\wedge  p_2\wedge q_2)\vee (p'_1\wedge q'_1\wedge  p'_2 \wedge q'_2)&\vee \nonumber \\
-(p'_1\wedge q'_1\wedge  p_2\wedge q_1)\vee (p'_1\wedge q'_1\wedge  p'_2 \wedge q'_1)&= \nonumber \\
-(p_1\wedge q_1 \wedge q_2)\vee 0 & \vee \nonumber \\
-(p_1\wedge q_1\wedge  p_2\wedge q_2)\vee (p_1\wedge q_1\wedge  p'_2 \wedge q'_2)&\vee \nonumber \\
-(p_1\wedge q_1\wedge  p_2)\vee 0 & \vee \nonumber \\
-0\vee (p'_1\wedge q'_1 \wedge q'_2) & \vee \nonumber \\
-(p'_1\wedge q'_1\wedge  p_2\wedge q_2)\vee (p'_1\wedge q'_1\wedge  p'_2 \wedge q'_2) & \vee\nonumber \\
-0\vee (p'_1\wedge q'_1\wedge  p'_2 )&=  \\ 
-(p_1\wedge q_1 \wedge q_2)\vee(p_1\wedge q_1\wedge  p_2\wedge q_2)&\vee\nonumber \\
-(p_1\wedge q_1\wedge  p'_2 \wedge q'_2)\vee (p_1\wedge q_1\wedge  p_2)&\vee\nonumber  \\
-(p'_1\wedge q'_1 \wedge q'_2)\vee (p'_1\wedge q'_1\wedge  p_2\wedge q_2)&\vee \nonumber \\
-(p'_1\wedge q'_1\wedge  p'_2 \wedge q'_2)\vee (p'_1\wedge q'_1\wedge  p'_2 )&=  \nonumber \\
-(p_1\wedge((q_1 \wedge q_2)\vee( q_1\wedge  p_2\wedge q_2)&\vee \nonumber \\
-(q_1\wedge  p'_2 \wedge q'_2)\vee ( q_1\wedge  p_2))) & \vee\nonumber \\
-(p_1'\wedge((q'_1 \wedge q'_2)\vee (q'_1\wedge  p_2\wedge q_2)&\vee \nonumber \\
-(q'_1\wedge  p'_2 \wedge q'_2)\vee (q'_1\wedge  p'_2 ))) &= \nonumber \\
-(p_1\wedge((q_1 \wedge q_2)\vee (q_1\wedge(( p'_2 \wedge q'_2)\vee p_2))))&\vee \nonumber \\
-(p_1'\wedge((q'_1 \wedge q'_2)\vee (q'_1\wedge ((p_2\wedge q_2)\vee p'_2) )))&= \nonumber \\
-(p_1\wedge q_1\wedge (q_2\vee ( p'_2 \wedge q'_2)\vee p_2))&\vee\nonumber  \\
-(p_1'\wedge q'_1 \wedge (q'_2 \vee (p_2\wedge q_2) \vee p'_2) )&= \nonumber \\ 
-(p_1\wedge q_1\wedge ((q_2 \vee p_2) \vee (q_2 \vee p_2)'))&\vee \nonumber \\
-(p_1'\wedge q'_1 \wedge ((p_2\wedge q_2)'\vee (p_2\wedge q_2)) )&= \nonumber \\
-(p_1\wedge q_1\wedge 1)\vee (p_1'\wedge q'_1 \wedge 1)&=\nonumber  \\
-(p_1\wedge q_1)\vee (p_1'\wedge q'_1)&=f(p_1,q_1),\nonumber 
+\begin{split}
+(p_1\wedge q_1)\wedge((p_1\wedge q_2)\vee(p'_2\wedge q'_2)\vee(p_2\wedge q_1)) &= \\
+(p_1\wedge q_1\wedge q_2) \vee (p_1\wedge q_1\wedge(p_2\vee q_2)') \vee (p_1\wedge q_1\wedge p_2) &= \\
+(p_1\wedge q_1) \wedge (q_2\vee (p_2\vee q_2)'\vee p_2) = p_1\wedge q_1 &  
+\end{split}
 \end{align}
- 
-    
+and therefore
+\begin{equation}
+p_1\wedge q_1\leq (p_1\wedge q_2)\vee(p'_2\wedge q'_2)\vee(p_2\wedge q_1).
+\end{equation}
+Similarly
+\begin{equation}
+p'_1\wedge q'_1\leq (p'_1\wedge q'_2)\vee(p_2\wedge q_2)\vee(p'_2\wedge q'_1)
+\end{equation}    
 from which we conclude 
-
 \begin{equation}
 f(p_1,q_1)\leq f(p_1,q_2)\vee f(p_2,q_2)\vee f(p_2,q_1). 
 \end{equation}
@@ -157,7 +135,6 @@ Following Jaynes \cite{Jaynes2003} we may assign to every proposition $p$ a degr
 \begin{equation}
 P(f(p_1,q_1))\leq P(f(p_1,q_2)\vee f(p_2,q_2)\vee f(p_2,q_1)). 
 \end{equation}
-
 In order to study this inequalities in the setting of quantum mechanics, we must first explain how this machinery applies in the case of the theory.
 
 \section{Lattice of Projections on a Hilbert Space}\label{sec:Q_logic}

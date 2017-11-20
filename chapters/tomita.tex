@@ -220,7 +220,7 @@ We conclude $JR^{it}J=(2-R)^{-it}$.
 We are now ready to define the main operator in the theory and give some of the properties which will proof to be useful in connecting the theory with KMS states.
 
 \begin{definition}
-Define the unitary group $t\mapsto\Delta^{it} = (2-R)^{it}R^{-it}$ for all $t\in\mathbb{R}$.
+Define the one-parameter unitary group $t\mapsto\Delta^{it} = (2-R)^{it}R^{-it}$ for all $t\in\mathbb{R}$.
 \end{definition}
 
 Note that $\Delta^{it}$ is to be understood as a symbol by its own rather than a function of an operator $\Delta$. Although such an operator $\Delta=(2-R)R^{-1}$ is usually defined, it may be unbounded and therefore the definition of $\Delta^{it}$ would require a measurable calculus for unbounded operators. Our approach using real Hilbert spaces avoided just this.
@@ -239,7 +239,170 @@ J\Delta^{it}&=J(2-R)^{it}R^{-it}=J(2-R)^{it}JJR^{-it}=R^{-it}JR^{-it} \\
 \end{align}
 \end{proof}
 
-With these we have now constructed all of the operators of the theory and stated their most important properties. Our last task for the chapter will be to show how the closed real subspace $\mathcal{K}$ arises in a natural fashion from a von Neumann algebra and a cyclic and separating vector. In particular theorem \ref{thm:GNS_von} shows that we will always be able to do Tomita-Takesaki theory on the GNS representation of a von Neumann algebra equipped with a faithful normal state.
+The connection between KMS states and Tomita-Takesaki theory follows from a certain KMS type condition that $t\mapsto\Delta^{it}$ satisfies.
+
+\begin{definition}
+Let $\mathcal{L}$ be a real subspace of $\mathcal{H}$. A one-parameter unitary group $t\mapsto U_t$ satisfies the KMS condition with respect to $\mathcal{L}$ if for all $x,y\in\mathcal{H}$ there exists a bounded continuous function $f:\overline{\mathfrak{D}_{-1}}\rightarrow\mathbb{C}$ analytic on $\mathfrak{D}_{-1}$ such that 
+\begin{equation}
+f(t) = \langle x, U_t y\rangle
+\end{equation}
+and
+\begin{equation}
+f(t-i)=\langle U_t y, x\rangle 
+\end{equation}
+for all $t\in\mathbb{R}$. 
+\end{definition}
+
+The relationship between this version of the KMS condition and the one given before will become apparent due to the connection between the inner product and the state in a GNS representation. The function $f$ in the previous definition has to be unique \cite{Duvenhage1999}. There is a useful alternative formulation of this.
+
+\begin{theorem}
+A one-parameter unitary group $t\mapsto U_t$ satisfies the KMS condition with respect to a real subspace $\mathcal{L}$ of $\mathcal{H}$ if and only if for all $x,y\in\mathcal{L}$ there exists a bounded continuous function $f:\overline{\mathfrak{D}_{-1/2}}\rightarrow\mathbb{C}$ analytic on $\mathfrak{D}_{-1/2}$ such that
+\begin{equation}
+f(t)=\langle x, U_t y\rangle
+\end{equation}
+and 
+\begin{equation}
+f(t-i/2)\in\mathbb{R}
+\end{equation}
+for all $t\in\mathbb{R}$
+\end{theorem}
+
+\begin{proof}
+Let $x,y\in\mathcal{L}$. Suppose there exists a function $f:\overline{\mathfrak{D}_{-1/2}}\rightarrow\mathbb{C}$ analytic on $\mathfrak{D}_{-1/2}$ such that
+\begin{equation}
+f(t)=\langle x, U_t y\rangle
+\end{equation}
+and 
+\begin{equation}
+f(t-i/2)\in\mathbb{R}
+\end{equation}
+for all $t\in\mathbb{R}$. By the Schwarz Reflection Principle the function $g:\overline{\mathfrak{D}_{-1}}\rightarrow\mathbb{C}$ defined by 
+\begin{equation}
+g(z)=f(z)
+\end{equation}
+for all $z\in\overline{\mathfrak{D_{-1/2}}}$ and
+\begin{equation}
+g(z)=\overline{f(\overline{z+i/2})}
+\end{equation}
+for all $z\in\overline{\mathfrak{D}_{-1}}\setminus\overline{\mathfrak{D}_{-1/2}}$ is analytic on $\mathfrak{D}_{-1}$. Moreover 
+\begin{equation}
+g(t-i/2)=\overline{f(t)}=\langle U_t y, x \rangle
+\end{equation}
+for all $t\in\mathbb{R}$. The function $g$ shows that $t\mapsto U_t$ is a KMS state with respect to $\mathcal{L}$.
+
+Assume now that $t\mapsto U_t$ satisfies the KMS condition with respect to $\mathcal{L}$ and let $f$ be a witness of this. Consider the function
+\begin{align}
+\begin{split}
+g:\overline{\mathfrak{D}_{-1}}&\rightarrow\mathbb{C} \\
+z&\mapsto\overline{f(\overline{z+i})}.
+\end{split}
+\end{align}
+Then it is clear the $g$ is also a witness of $t\mapsto U_t$ satisfying the KMS condition with respect to $\mathcal{L}$ and by uniqueness $f=g$. But then it is clear that $f(t-i/2)\in\mathbb{R}$.
+\end{proof}
+
+To be able to prove the uniqueness of our first result stating the relation between KMS states and Tomita-Takesaki theory we need the notion of a weak entire vector.
+
+\begin{definition}
+Let $t\mapsto U_t$ be a one-parameter unitary group on $\mathcal{H}$. $x\in\mathcal{H}$ is a weak entire vector for $t\mapsto U_t$ if there exists a function $h:\mathbb{C}\rightarrow\mathcal{H}$ such that $h(t)=U_tx$ for all $t\in\mathbb{R}$, the function $z\mapsto\langle y,h(z)\rangle$ is an entire function for every $y\in\mathcal{H}$, and $h$ is bounded on every bounded subset of $i\mathbb{R}$. We denote the set of weak entire vector of $t\mapsto U_t$ by $W(U_t)$.
+\end{definition}
+
+\begin{theorem}
+Let $\mathcal{L}$ be a closed real subspace of $\mathcal{H}$ and $t\mapsto U_t$ a strongly continuous one-parameter unitary group in $\mathcal{H}$ such that $U_t\mathcal{L}\subseteq\mathcal{L}$. Then $\mathcal{L}\cap W(U_t)$ is dense in $\mathcal{L}$.
+\end{theorem}
+
+\begin{proof}
+Let $x\in\mathcal{L}$. Given that $\mathcal{L}$ is closed and $t\mapsto U_t$ is strongly continuous and bounded we can define the sequence $(x_n)$ in $\mathcal{L}$ where
+\begin{equation}
+x_n=\sqrt{\frac{n}{\pi}}\int_{-\infty}^\infty e^{-nt^2}U_t xdt.
+\end{equation} 
+Having in mind the standard Gaussian integral we have that $x_n\rightarrow x$ (the analysis required for this result can be found in \cite{Duvenhage1999}). Now define for every $n\in\mathbb{N}^*$ 
+\begin{align}
+\begin{split}
+h_n:\mathbb{C}&\rightarrow\mathcal{H} \\
+z &\mapsto \sqrt{\frac{n}{\pi}}\int_{-\infty}^{\infty} e^{-n(t-z)^2}U_txdt.
+\end{split}
+\end{align}
+By the definition of a Riemann integral and continuity of the inner product 
+\begin{equation}
+\langle y, h_n(z)\rangle = z \sqrt{\frac{n}{\pi}}\int_{-\infty}^{\infty} e^{-n(t-z)^2}\langle y, U_tx\rangle dt.
+\end{equation}
+It can be shown that $z\mapsto\langle y, h_n(z)\rangle$ is an entire function (the type of argument required for this result can be found in \cite{Duvenhage1999}). By explicit calculation one can show that $h_n$ is witness of $x_n\in W(U_t)$ from which the theorem follows.
+\end{proof}
+
+We are now ready to show the key to understand the connection between KMS states and Tomita-Takesaki theory.
+
+\begin{theorem}\label{thm:KMS_Tomita}
+$t\mapsto\Delta^{it}$ is the unique strongly continuous one-parameter unitary group on $\mathcal{H}$ that satisfies the KMS condition with respect to $\mathcal{K}$ such that $\Delta^{it}\mathcal{K}\subseteq\mathcal{K}$ for all $t\in\mathbb{R}$.
+\end{theorem}
+
+\begin{proof}
+We know that $t\mapsto\Delta^{it}$ is a strongly continuous one parameter unitary group. Let $x,y\in\mathcal{K}$ and 
+\begin{align}
+\begin{split}
+f:\overline{\mathfrak{D}_{-1/2}}&\rightarrow\mathbb{C} \\
+z&\mapsto \langle x, (2-R)^{iz}R^{-iz+1/2}(R^{1/2}+(2-R)^{1/2}J)y/2\rangle.
+\end{split}
+\end{align}
+This function is continuous, bounded and analytic on $\mathfrak{D}_{-1/2}$. Let $t\in\mathbb{R}$. Then
+\begin{align}
+\begin{split}
+f(t)&=\langle x, (2-R)^{it}R^{-it+1/2}(R^{1/2}+(2-R)^{1/2}J)y/2\rangle \\
+&=\langle x ,\Delta^{it}(R+TJ)y/2\rangle = \langle x, \Delta^{it}(R+JT)y/2\rangle \\
+&=\langle x, \Delta^{it}(P+Q+P-Q)y/2\rangle = \langle x, \Delta^{it}Py\rangle = \langle x, \Delta^{it}y\rangle
+\end{split}
+\end{align}
+and 
+\begin{align}\label{eq:im}
+\begin{split}
+\im f(t-i/2) &= \im \langle x, (2-R)^{it+1/2}R^{-it}(R^{1/2} + (2-R)^{1/2}J)y/2\rangle \\
+&= \im \langle \Delta^{-it}x, (2-R)^{1/2}(R^{1/2} + (2-R)^{1/2}J)y/2\rangle \\
+&= \im \langle \Delta^{-it}x, (T+(2-R)J)y/2\rangle \\
+&= \im\langle \Delta^{-it}x, (T+JR)y/2\rangle \\
+&= \im \langle \Delta^{-it}x, J(JT+R)y/2\rangle = \im\langle \Delta^{-it}x, JPy\rangle \\
+&= \im (i\langle i\Delta^{-it}x, (1-Q)Jy\rangle) \\
+&= \im (i\langle i\Delta^{-it}x, (1-Q)Jy\rangle) = 0 
+\end{split}
+\end{align}
+since $\Delta^{-it}x\in\mathcal{K}$ and $(1-Q)Jy\in(i\mathcal{K})^\bot$. Therefore $t\mapsto\Delta^{it}$ satisfies the KMS condition with respect to $\mathcal{K}$.
+
+Now assume that $t\mapsto U_t$ is a strongly continuous one-parameter group that satisfies the KMS condition with respect to $\mathcal{K}$ and such that $U_t\mathcal{K}\subseteq\mathcal{K}$ for all $t\in\mathbb{R}$. Let $x\in\mathcal{K}\cap W(U_t)$ and $h$ a witness of $x$ being an entire vector. We have that $h$ is bounded on all strips of the form $\{z\in\mathbb{C}|a<\im z<b\}$ with $a,b\in\mathbb{R}$ such that $a<b$. Indeed this is because the functions $z\mapsto\langle y,h(t+iz)\rangle$ and $z\mapsto\langle y, U_th(iz)\rangle$ with $y\in\mathcal{H}$ are entire and coincide on $i\mathbb{R}$. Therefore they coincide in $\mathbb{C}$ for all $y\in\mathcal{H}$ and we have
+\begin{equation}
+\|h(t+is)\|\leq \|U_th(is)\|\leq \|h(is)\|.
+\end{equation} 
+Boundedness on the strips come from $h$ being bounded on bounded subsets of $i\mathbb{R}$. Let $y\in\mathcal{K}$ and define the bounded, continuous function analytic on $\mathfrak{D}_{-1/2}$ (see \cite{Duvenhage1999})
+\begin{align}
+\begin{split}
+g:\overline{\mathfrak{D}_{-1/2}}&\rightarrow\mathbb{C} \\
+z&\mapsto\langle J(2-R)^{iz}R^{-iz+1/2}(R^{1/2}+(2-R)^{1/2}J)y/2,h(z)\rangle.
+\end{split}
+\end{align}
+With a similar argument as the one presented in equation \eqref{eq:im} we can show that $g(\mathbb{R})\subseteq\mathbb{R}$ and 
+\begin{equation}
+g(t-i/2)=\langle\Delta^{it}y,h(t-i/2)\rangle.
+\end{equation}
+Let $f:\overline{\mathfrak{D}_{-1/2}}\rightarrow\mathbb{C}$ be a witness of $t\mapsto U_t$ satisfying the KMS condition with respect to $\mathcal{K}$ for $x$ and $\Delta^{is}y$ and define for $s\in\mathbb{R}$
+\begin{align}
+\begin{split}
+F:\overline{\mathfrak{D}_{-1/2}}&\rightarrow\mathbb{C} \\
+z&\mapsto\langle\Delta^{is}y,h(z)\rangle - f(z)
+\end{split}
+\end{align} 
+Using the Schwarz Reflection Principle to extend $F$ and noticing that $F(\mathbb{R})=\{0\}$ we have that $F=0$. We therefore conclude that since $f(t-i/2)\in\mathbb{R}$
+\begin{equation}
+g(t-i/2)=\langle \Delta^{it}y,h(t-i/2)\rangle\in\mathbb{R}
+\end{equation}
+for all $t\in\mathbb{R}$ and $g$ is constant. In particular
+\begin{equation}
+\langle \Delta^{it}Jy,U_tx\rangle=g(t)=g(0)=\langle Jy,x\rangle.
+\end{equation}
+Given that $\Span \mathcal{K}$ is dense in $\mathcal{H}$ since $\mathcal{K}+i\mathcal{K}$ is dense we have that $\Span (\mathcal{K}\cap W(U_t))$ is dense and therefore we conclude that $\Delta^{it}Jy=U_tJy$ for all $t\in\mathbb{R}$ and $y\in\mathcal{K}$. Now, $\Span J\mathcal{K}$ is dense since $J$ is surjective, continuous, and
+\begin{equation}
+\mathcal{H}=J\overline{\mathcal{K}+i\mathcal{K}}\subseteq\overline{J(\mathcal{K}+i\mathcal{K})}=\overline{J\mathcal{K}+iJ\mathcal{K}}
+\end{equation}.
+Therefore $U_t=\Delta^{it}.$  
+\end{proof}
+
+With these we have now constructed all of the operators of the theory and stated their most important properties. Our last task for the section will be to show how the closed real subspace $\mathcal{K}$ arises in a natural fashion from a von Neumann algebra and a cyclic and separating vector.
 
 \begin{theorem}
 Let $\mathfrak{M}$ be a $W^*$-algebra on a Hilbert space $\mathcal{H}$ and $\Omega\in\mathcal{H}$ be a cyclic and separating vector for $\mathfrak{M}$. Then $\mathcal{K}=\overline{\{A\Omega|A\in\mathfrak{M}\text{ is self adjoint}\}}$ is a closed real subspace of $\mathcal{H}$ such that $\mathcal{K}\cap i\mathcal{K}=\varnothing$ and $\mathcal{K}+i\mathcal{K}$ is dense in $\mathcal{H}$.
@@ -249,13 +412,21 @@ Let $\mathfrak{M}$ be a $W^*$-algebra on a Hilbert space $\mathcal{H}$ and $\Ome
 It is clear that $\mathcal{K}$ is closed real subspace. By decomposition of bounded operators (as in the proof of theorem \ref{thm:time_invariance}) we have $\mathfrak{M}\Omega\subseteq \mathcal{K}+i\mathcal{K}$ and therefore we have that $\mathcal{K}+i\mathcal{K}$ is dense. Now let $A\in\mathfrak{M}'$ be self-adjoint. Then if $B\in\mathfrak{M}$ is self-adjoint we have that $\langle B\Omega,A\Omega\rangle\in\mathbb{R}$ and therefore $0=\langle B\Omega,iA\Omega\rangle_\mathbb{R}$. We conclude due to decomposition of bounded operators that $\mathfrak{M}'\Omega\subseteq (i\mathcal{K})^\bot+\mathcal{K}^\bot\subseteq (\mathcal{K}\cap i\mathcal{K})^\bot$. Since $\Omega$ is cyclic for $\mathfrak{M}'$ we have that $\mathcal{K}\cap i\mathcal{K}=\varnothing$.
 \end{proof}
 
-With this theorem we can define for every pair $(\mathfrak{M},\Omega)$ with $\mathfrak{M}$ a $W^*$-algebra and $\Omega$ a cyclic and separating vector for $\mathfrak{M}$ the functions $P$, $Q$, $R$, $T$, an associated unitary group $t\mapsto\Delta^{it}$, and a modular conjugation $J$. 
+With this theorem we can define for every pair $(\mathfrak{M},\Omega)$ with $\mathfrak{M}$ a $W^*$-algebra and $\Omega$ a cyclic and separating vector for $\mathfrak{M}$ the functions $P$, $Q$, $R$, $T$, an associated unitary group $t\mapsto\Delta^{it}$, and a modular conjugation $J$. Theorem \ref{thm:GNS_von} shows that we will always be able to do Tomita-Takesaki theory on the GNS representation of a von Neumann algebra equipped with a faithful normal state. The operators of the theory behave nicely with respect to the cyclic vector $\Omega$.
+
+\begin{theorem}
+$J\Omega=\Omega$ and $\Delta^{it}\Omega=\Omega$ for all $t\in\mathbb{R}$.
+\end{theorem}
+
+\begin{proof}
+It is clear that $\Omega\in\mathcal{K}\cap(i\mathcal{K})^\bot$. Therefore $P\Omega=\Omega$ and $Q\Omega = 0$. We immediately have then that $R\Omega = \Omega$ and $\Delta^{it}\Omega=\Omega$. On the other hand $T^2\Omega=\Omega$ and therefore $J\Omega = J(P-Q)\Omega=JJT\Omega = T\Omega =\Omega$.
+\end{proof}
 
 \section{Tomita-Takesaki Theorem}
 
 This section is completely devoted to the Tomita-Takesaki theorem. Although an effort was made in the previous section to be thorough with the construction of the operators involved in the theorem, we will now only assume the result $\Delta^{it}J\mathfrak{M}'J\Delta^{-it}\subseteq \mathfrak{M}$ given in \cite{Duvenhage1999}\cite{Rieffel1977}. This is in order to keep the mathematics as concise as possible since this theorem is not easy to prove.
 
-\begin{theorem}[Tomita-Takesaki Theorem]
+\begin{theorem}[Tomita-Takesaki Theorem]\label{thm:Tomita-Takesaki}
 Let $\mathfrak{M}$ be a $W^*$-algebra and $\Omega$ be a cyclic and separating vector for $\mathfrak{M}$. Let $t\mapsto\Delta^{it}$ and $J$ be the unitary group and modular conjugation associated to $(\mathfrak{M},\Omega)$. Then:
 \begin{itemize}
 
@@ -304,4 +475,22 @@ proving the second part.
 
 \end{proof}
 
- 
+The Tomita-Takesaki theorem will be of great importance to us since it yields a one-parameter automorphism group that defines a dynamical system.
+
+\begin{theorem}\label{thm:Dynamics_Tomita}
+Let $\mathfrak{M}$ be a von Neuman algebra and $\omega$ a faithful normal state. Consider the unitary group $t\mapsto\Delta^{it}$ associated to the pair $(\pi_\omega(\mathfrak{M}),\Omega_\omega)$. Then the map
+\begin{alignat}{2}
+\alpha:\mathbb{R}&\rightarrow & \Aut(\mathcal{A}) \nonumber \\
+t&\mapsto &\alpha_t:\mathcal{A} & \rightarrow\mathcal{A} \\
+&&A&\mapsto \alpha_t(A):=\pi_\omega^{-1}(\Delta^{it}\pi_\omega(A)\Delta^{-it}). \nonumber
+\end{alignat}
+makes $(\mathfrak{M},\alpha)$ a $W^*$-dynamical system.
+\end{theorem}
+
+\begin{proof}
+Because of theorem \ref{thm:Tomita-Takesaki} we have that $\Delta^{it}\pi_\omega(A)\Delta^{-it}\in\pi_\omega(\mathfrak{M})$ and therefore by theorem \ref{thm:GNS_von} $\alpha$ is well defined. Since $t\mapsto\Delta^{it}$ is a one-parameter unitary group and the representation is faithful it is clear that $\alpha$ is a one-parameter group of automorphisms. We have that since $t\mapsto\Delta^{it}$ is strongly continuous for all $x\in\mathcal{H}_\omega$ and $\Delta^{it}$ is unitary that $\alpha$ satisfies the correct continuity conditions and the theorem follows.
+\end{proof}
+
+\begin{definition}
+The map $\alpha$ of the previous theorem is called the modular group of $(\mathfrak{M},\omega)$.
+\end{definition}

@@ -113,7 +113,7 @@ Let $\mathcal{H}$ be a Hilbert space, $S\subseteq\mathcal{B}(\mathcal{H})$ and $
 \end{definition}
 
 \begin{theorem}
-If $\mathcal{A}$ is a unital $C^*$-algebra and $\omega$ is a state on it, then there exists a unique representation (up to unitary equivalence) $(\mathcal{H}_\omega,\pi_\omega)$ with a cyclic unit vector $\Omega_\omega$ and for all $x\in\mathcal{A}$ we have that $\omega(x)=\langle\Omega_\omega,\pi_\omega(x)\Omega_\omega\rangle=\tr(\pi_\omega(x)\rho_{\Omega_\omega})$ (omega is a vector state).  
+If $\mathcal{A}$ is a unital\footnote{From now onwards, we will always consider our algebras to be unital to avoid technical difficulties. The GNS construction can be done without this assumption but it requires to first extend to a unital algebra \cite{Bratteli1997}.} $C^*$-algebra and $\omega$ is a state on it, then there exists a unique representation (up to unitary equivalence) $(\mathcal{H}_\omega,\pi_\omega)$ with a cyclic unit vector $\Omega_\omega$ and for all $x\in\mathcal{A}$ we have that $\omega(x)=\langle\Omega_\omega,\pi_\omega(x)\Omega_\omega\rangle=\tr(\pi_\omega(x)\rho_{\Omega_\omega})$ (omega is a vector state).  
 \end{theorem}
 
 \begin{proof}
@@ -239,7 +239,7 @@ Therefore, we have if $\{e_1,\cdots,e_n\}$ is a basis for $\mathcal{H}_\omega$
 \end{split}
 \end{align}
 Therefore we define
-\begin{equation}
+\begin{equation}\label{eq:entropy}
 \rho_\omega := \sum_{\beta\in I}P^{(\beta)}\rho_{\Omega_\omega} P^{(\beta)}
 \end{equation}
 as the induced state.
