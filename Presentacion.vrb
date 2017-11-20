@@ -1,0 +1,9 @@
+\frametitle{Difference between Classical and Quantum theories}
+	\begin{equation*}
+		\begin{tikzcd}
+			\text{EPR paradox \cite{Einstein1935}} \arrow{d} \arrow{r} & \text{\onslide<2->{QM is incomplete}} \arrow{d} \\
+			\text{\onslide<2->{QM is complete}} \arrow{d} & \begin{tabular}{c} \onslide<4->{Search for complete theory:} \\ \onslide<4->{Boolean propositions} \end{tabular} \arrow{d} \\
+			\text{\onslide<3->{Entangled states \lightning}} \arrow{uur} & \begin{tabular}{c} \onslide<4->{Bell's inequalities  \cite{Bell1964}} \\ \onslide<4->{\cite{Reyes2013}} \end{tabular} \arrow{d} \\
+			\text{\onslide<5->{Lattice of projections \cite{Wilce2012}}} & \text{\onslide<5->{Against experiment!}} \arrow{l}
+		\end{tikzcd}
+	\end{equation*}

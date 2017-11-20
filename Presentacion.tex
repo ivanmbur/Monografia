@@ -2,258 +2,219 @@
 \usetheme{Boadilla}
 
 \usepackage[utf8]{inputenc}
-\usepackage{amsthm}
-\theoremstyle{definition}
+\usepackage{tikz-cd}
+\usepackage{wasysym}
+
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\im}{Im}
 
 \title{KMS states and Tomita-Takesaki Theory}
-\subtitle{30\% advancement}
-\author{Iván Burbano}
+\author[Iván Burbano]{Iván Mauricio Burbano Aldana\\[1cm]{\small Advised by: Prof. Andrés Fernando Reyes Lega}}
 \institute{Universidad de los Andes}
 \date{\today}
 
 \begin{document}
 
 \begin{frame}
-\titlepage
+	\titlepage
 \end{frame}
 
 \begin{frame}
-\frametitle{Outline}
-\tableofcontents
-\end{frame}
-
-\section{Introduction}
-
-\section{Classical and Quantum Mechanics as Probability Theories}
-
-\subsection{Classical Mechanics}
-
-\begin{frame}
-\frametitle{Elements of Classical Mechanics}
-A classical mechanical system has
-\begin{itemize}
-\item a locally compact Hausdorff space of pure states $X$;
-\item observables taking the form continuous real-valued functions $C(X)$ on $X$;
-\item states which take the form of probability measures on $X$.
-\end{itemize}
-With this structure we may define the expected value of $f\in C(X)$ by 
-\begin{equation}
-\langle f \rangle _P = \int f dP.
-\end{equation}
-And by the identification of points $p\in X$ with Dirac measures $\delta_p$, we have a compatible notion of pure state in which  
-\begin{equation}
-\langle f \rangle _{\delta_p}=f(p).
-\end{equation}
+	\frametitle{Motivation}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\includegraphics[width=\textwidth]{images/pendulum.png}
+		\column{0.5\textwidth}
+		Can we obtain the equations of motion from the equilibrium state?
+		\vspace{1cm}
+		
+		\onslide<2->{Maybe in quantum thermal systems.
+		\begin{equation*}
+			e^{-iHt} \circlearrowright e^{-\beta H}
+		\end{equation*}}
+	\end{columns}
 \end{frame}
 
 \begin{frame}
-
-\frametitle{Ensembles}
-
-With this approach we may define ensembles to be mappings $y\mapsto\mu_y$ from a space of macroscopic measurements $Y$ to the finite measure on $X$. Then we have
-\begin{itemize}
-\item the partition function $Z(y)=\mu_y(X)$ which we can use to normalize the measure $\mu_y$ and obtain a probability measure $P_y$;
-\item the entropy of the induced state
-\begin{equation}
-S(P_y)=-\int_{supp(P_y)} \log\left(\frac{dP_y}{d\mu}\right)dP_y=-\langle\log\left(\frac{dP_y}{d\mu}\right)\chi_{supp P_y}\rangle_{P_y}
-\end{equation}
-given there is a natural measure $\mu$ on $X$ and the Radon-Nikodým derivative exists. 
-\end{itemize}
-
-A classical system described by $(\{p\},\{\{p\},\emptyset\},\delta_p)$ equipped with an ensemble $y\mapsto \delta_p$, the state $\delta_p$ has null entropy.
-
+	\frametitle{Outline}
+	\tableofcontents
 \end{frame}
 
-\subsection{Quantum Mechanics}
+\section{Classical and Quantum Theories}
 
 \begin{frame}
-
-\frametitle{Elements of Quantum Mechanics}
-
-A quantum mechanical system has:
-
-\begin{itemize}
-\item a separable Hilbert space $\mathcal{H}$;
-\item observables taking the form of self-adjoint operators on $\mathcal{H}$;
-\item states represented by density operators (non-negative self-adjoint of unit trace).
-\end{itemize}
-
-With this structure we may define the expected value of an observable $A$ in a state $\rho$ to be
-\begin{equation}
-\langle A \rangle_\rho = tr(A\rho)
-\end{equation}
-and the entropy of a state $\rho$ to be
-\begin{equation}
-S(\rho) = -tr(\log(\rho)\rho)=\langle\log\rho\rangle_\rho.
-\end{equation}
-
-A pure state $\rho_\psi$ is a projection onto the $span\{\psi\}$ for some $\psi\in\mathcal{H}$. These have null entropy.
-
+	\frametitle{Elements of Classical and Quantum Theories}
+	\begin{columns}
+		\column{0.5\textwidth}
+		Classical theories
+		\begin{itemize}
+			\item<1-> Auxiliary space: locally compact Hausdorff space $X$;
+			\item<2-> Observables: continuous functions on a locally compact Hausdorff space $C(X)$;
+			\item<3-> States: probability measures $P$ on $X$;
+			\item<4-> Expected values: $\int fdP$.
+		\end{itemize}
+		\column{0.5\textwidth}
+		Quantum theories
+		\begin{itemize}
+			\item<1-> Auxiliary space: separable Hilbert space $\mathcal{H}$
+			\item<2-> Observables: self-adjoint operators on $\mathcal{H}$
+			\item<3-> States: positive, self-adjoint, normalized and trace-class operators $\rho$ on $\mathcal{H}$;
+			\item<4-> Expected values: $\tr(A\rho)$.
+		\end{itemize}
+	\end{columns}
 \end{frame}
 
-\section{Quantum Probability}
+\begin{frame}[fragile]
+	\frametitle{Difference between Classical and Quantum theories}
+	\begin{equation*}
+		\begin{tikzcd}
+			\text{EPR paradox \cite{Einstein1935}} \arrow{d} \arrow{r} & \text{\onslide<2->{QM is incomplete}} \arrow{d} \\
+			\text{\onslide<2->{QM is complete}} \arrow{d} & \begin{tabular}{c} \onslide<4->{Search for complete theory:} \\ \onslide<4->{Boolean propositions} \end{tabular} \arrow{d} \\
+			\text{\onslide<3->{Entangled states \lightning}} \arrow{uur} & \begin{tabular}{c} \onslide<4->{Bell's inequalities  \cite{Bell1964}} \\ \onslide<4->{\cite{Reyes2013}} \end{tabular} \arrow{d} \\
+			\text{\onslide<5->{Lattice of projections \cite{Wilce2012}}} & \text{\onslide<5->{Against experiment!}} \arrow{l}
+		\end{tikzcd}
+	\end{equation*}
+\end{frame}
 
-\subsection{EPR Paradox}
+\section{Algebraic Quantum Mechanics}
 
 \begin{frame}
-
-\frametitle{Suppose Quantum Mechanics is Complete}
-
-\begin{itemize}
-
-\item Einstein, Podolsky and Rosen considered that an element of physical reality was one whose outcome in a measurement could be predicted without actually performing the experiment. They defined that a physical theory was complete if to every element of physical reality there corresponded an object in the theory.
-
-\item Then two non-commuting observables $A$ and $B$ cannot have a simultaneous realities due to Heisenberg's uncertainty relations
-\begin{equation}
-\Delta_\rho A \Delta_\rho B \geq \frac{1}{2}|\langle[A,B]\rangle_\rho|.
-\end{equation}
-
-\end{itemize}
-
+	\frametitle{Algebraic Quantum Mechanics}
+	\begin{itemize}
+		\item Observables: A $C^*(W^*)$-algebra $\mathcal{A}$:
+		\begin{itemize}
+			\item Complete normed vector space with product and involution;
+			\item $C^*$ property: $\|A^*A\|=\|A\|^2$;
+			\item If $W^*$: $\mathcal{A}''=\mathcal{A}$.
+		\end{itemize}
+		\vspace{1cm}
+		\item States: Positive normalized linear functionals $\omega:\mathcal{A}\rightarrow\mathbb{C}$.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
-
-\frametitle{Polarization of photons}
-
-\begin{itemize}
-
-\item To describe the linear polarization of a photon we may consider the Hilbert space $\mathbb{C}^2$ on which the projection $P(\theta)$ onto the span of $|\theta\rangle=\cos(\theta)(1,0)+\sin(\theta)(0,1)$ representing the proposition ``\textit{the photon is linearly polarized at an angle $\theta$ (1 means that this is the case and 0 that it isn't)}'' acts.
-
-\item We may consider the composite system represented by the tensor product and the state 
-\begin{align}
-\begin{split}
-\psi&=\frac{1}{\sqrt{2}}\left(|0\rangle\otimes|\pi/2\rangle-|\pi/2\rangle\otimes|0\rangle\right)\\
-&=\frac{1}{\sqrt{2}}\left(|\pi/4\rangle\otimes|3\pi/4\rangle-|3\pi/4\rangle\otimes|\pi/4\rangle\right).
-\end{split}
-\end{align} 
-
-\end{itemize}
-
+	\frametitle{GNS Construction}
+	Start with a $C^*$-algebra $\mathcal{A}$ and a state $\omega$.
+	\begin{itemize}
+		\item $\mathcal{N}_\omega:=\{A\in\mathcal{A}|\omega(AA^*)=0\}$
+		\item Hilbert space $\mathcal{H}_\omega := \overline{\mathcal{A}/\mathcal{N}_\omega}$ with $\langle [A], [B]\rangle := \omega(A^*B)$ 
+		\item Define the representation extending
+		\begin{alignat*}{2}
+			\pi_\omega:\mathcal{A} & \rightarrow &\mathcal{B}(\mathcal{H}_\omega) \\
+			A & \mapsto & \pi_\omega(A):\mathcal{H}_\omega & \rightarrow\mathcal{H}_\omega \\
+			&& [B] & \mapsto [AB]
+		\end{alignat*}
+		\item Cyclic vector $\Omega_\omega := [1]$
+		\item Important facts:
+		\begin{itemize}
+			\item $\omega(A)=\langle \Omega_\omega, A\Omega_\omega\rangle$
+			\item If $\mathcal{A}$ is a $W^*$-algebra, $\pi_\omega$ is a $^*$-isomorphism, $\pi_\omega(\mathcal{A})$ is a $W^*$-algebra, and $\Omega_\omega$ is cyclic and separating $\bigstar$.
+		\end{itemize}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
-
-\frametitle{Contradiction!}
-
-\begin{itemize}
-
-\item If we measure that the first photon has horizontal polarization we know the second one has a vertical polarization.
-\item If we measure that the first one has a polarization at an angle $\pi/4$ we know the second one has an angle of $3\pi/4$. 
-\item Since the photons are far apart, measurements on the first one cannot affect the second one.
-
-\end{itemize}
-
-Therefore both states $|\pi/2\rangle$ and $|3\pi/4\rangle$ describe the same physical reality and we are forced to conclude that $P(\pi/2)$ and $P(3\pi/4)$ have simultaneous realities. Nonetheless since $|\pi/2\rangle$ is not orthogonal to $|3\pi/4\rangle$ the two projections don't commute arriving to a contradiction.
-
+	\frametitle{Dynamical Systems}
+	Time evolution is represented by a one-parameter group of automorphisms
+	\begin{align*}
+		\tau:\mathbb{R}&\rightarrow\Aut(\mathcal{A}) \\
+		t&\mapsto\tau_t.
+	\end{align*}
+	Dynamical systems consist of an $C^*(W^*)$-algebra with a time evolutions which satisfy certain continuity properties.
 \end{frame}
-
-\subsection{Bell's Inequalities}
-
-\begin{frame}
-
-\frametitle{Lattices of Propositions}
-
-\begin{definition}
-An order relation on a set $P$ is a relation $\leq$ on $X$ which satisfies for all $p,q,r\in P$:
-\begin{itemize}
-\item reflexivity: $p\leq p$;
-\item antisymmetry: $p\leq q$ and $q\leq p$ implies $p=q$;
-\item transitivity: $p\leq q$ and $q\leq r$ implies $p\leq r$.
-\end{itemize}
-The pair $(P,\leq)$ is called a partially ordered set or poset. Given $p,q\in P$ we define the meet $p\wedge q$ to be the supremum of $\{p,q\}$ and the join $p\vee q$ to be the infimum of $\{p,q\}$. If the infimum of $P$ is $0$ and the supremum is $1$, we define a complement of $p\in P$ to be an element $q\in P$ such that $p\wedge q = 0$ and $p\vee q=1$ 
-\end{definition}
-
-\end{frame}
-
-\begin{frame}
-
-\frametitle{Lattices of Propositions}
-
-\begin{definition}
-A poset $(P,\leq)$ is said to be a lattice if for every $p,q\in P$ there exists $p\wedge q$ and $p\vee q$. It is a distributive lattice if for every $p,q,r\in L$ we have $p\wedge (q\vee r)=(p\wedge q)\vee (p\wedge r)$ and $p\vee (q\wedge r)=(p\vee r)\wedge (p\vee r)$.
-\end{definition}
-
-\begin{theorem}
-In a distributive bounded lattice $(L,\leq)$ elements have at most one complement.
-\end{theorem}
-
-\begin{proof}
-Suppose $q$ and $r$ are complements of $p\in L$. Then
-\begin{equation}
-q = q\wedge 1 = q\wedge (p\vee r) =(q\wedge p)\vee(q\wedge r) = 0\vee(q\wedge r)=q\wedge r 
-\end{equation}
-and therefore $q\leq r$. Exchanging the roles of $q$ and $r$ one finds that $r\leq q$ and therefore by antisymmetry $q=r$.
-\end{proof}
-
-\end{frame}
-
-\begin{frame}
-
-\frametitle{Bell's inequalities}
-
-We ask that the set of propositions in a complete theory of physical reality has the structure of classical propositions, that is of a Boolean algebra (a distributive bounded lattice). Denoting the complement of a proposition $p$ by $p'$ we may consider the following logical function
-\begin{equation}
-f(p,q)=(p\wedge q)\vee (p' \wedge q').
-\end{equation}
-
-If we assign to every proposition $p$ a degree of plausibility $P(p)\in\mathbb{R}$ such that if $p\leq q$ then $P(p)\leq P(q)$ we find the Bell inequalities
-\begin{equation}
-P(f(p_1,q_1))\leq P(f(p_1,q_2)\vee f(p_2,q_2)\vee f(p_2,q_1)).
-\end{equation}
-
-\end{frame}
-
-\begin{frame}
-
-\frametitle{Lattice of Projections on a Hilbert space}
-
-\begin{itemize}
-
-\item Since propositions on a Hilbert space should have a spectrum $\{0,1\}$ then they are represented by the orthogonal projections.
-
-\item We have that $\{\text{Orthogonal Projections}\}$ are in correspondence with $\{\text{closed subspaces}\}$. These yields the lattice structure with the inclusion relation.
-
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}
-
-\frametitle{A Correct Physical Theory Cannot be Complete!}
-
-Continuing with the photon example consider the operators of the measurements of Alice and Bob
-
-\begin{itemize}
-
-\item $P_A(\theta)=P(\theta)\otimes id_{\mathbb{C}^2}$ and $P_B(\theta)=id_{\mathbb{C}^2}\otimes P(\theta)$
-
-\item $tr(P_A(\alpha)P_B(\beta)\rho_\psi) = \frac{1}{2}\sin^2(\alpha-\beta)$
-
-\item $P(f(P_A(\alpha),P_B(\beta)))=\sin^2(\alpha-\beta)$
-
-\end{itemize}
-
-We can test Bell's inequalities
-\begin{align}
-\begin{split}
-1&=\sin^2(0-\pi/2)= P(f(P_A(0),P_B(\pi/2)))\\ 
-&\leq P(f(P_A(0),P_B(\pi/6)))+P(f(P_A(\pi/3),P_B(\pi/6)))+P(f(P_A(\pi/3),P_B(\pi/2)))  \\ 
-&=\sin^2(0-\pi/6) + \sin^2(\pi/3-\pi/6) + \sin^2(\pi/3-\pi/2) = 3/4!
-\end{split}
-\end{align}
-
-No correct physical theory can satisfy EPR requirements for being a complete physical theory.
-
-\end{frame}
-
-\section{Algebraic Quantum Physics}
 
 \section{KMS States}
 
-\section{Von Neumann Algebras}
+\begin{frame}
+	\frametitle{KMS States}
+	\begin{definition}
+		Let $(\mathcal{A},\tau)$ be a dynamical system. We say that a state $\omega$ is a $(\tau,\beta)$-KMS state if for all $A,B\in\mathcal{A}$ there exists a continuous bounded function $F_{A,B}:\overline{\mathfrak{D}_\beta}\rightarrow\mathbb{C}$ analytic on $\mathfrak{D}_\beta$ (the strip of the complex plain bounded by $\im z = 0$ and $\im z = \beta$) such that
+		\begin{align*}
+			F_{A,B}(t)=\omega(A\tau_t(B)) \\
+			F_{A,B}(t+i\beta)=\omega(\tau_t(B)A)
+		\end{align*}		 
+		for all $t\in\mathbb{R}$.
+	\end{definition}
+\end{frame}
 
-\section{The Modular Theory of Tomita-Takesaki}
+\begin{frame}
+	\frametitle{KMS states as Equilibrium states}	
+	KMS states are a candidate for a general definition of thermodynamic equilibrium in quantum systems\cite{Haag1992}\cite{Duvenhage1999}:
+	\begin{itemize}
+		\item KMS states are invariant under the dynamics $\omega(\tau_t(A))=\omega(A)$;
+		\item In finite dimensional Hilbert spaces with Schrödinger's time evolution $\tau$, the only possible $(\tau,\beta)$-KMS states are the $\beta$-Gibbs states
+		\begin{align*}
+			\mathcal{B}(\mathcal{H})&\rightarrow\mathbb{C} \\
+			A&\mapsto \frac{\tr(Ae^{-\beta H})}{\tr(e^{-\beta H})}.
+		\end{align*}
+	\end{itemize}
+\end{frame}
+
+\section{Tomita-Takesaki Theory}
+
+\begin{frame}
+	\frametitle{Tomita-Takesaki Theory}
+	For a $W^*$-algebra $\mathfrak{M}$ equipped with a cyclic and separating vector $\Omega$ Tomita-Takesaki theory yields:
+	\begin{itemize}
+		\item a one-parameter unitary group $t\mapsto\Delta^{it}$;
+		\item a modular conjugation $J$.
+	\end{itemize}
+	\begin{theorem}[Tomita-Takesaki]
+		\begin{itemize}
+			\item $J\mathfrak{M}J=\mathfrak{M}'$;
+			\item $\Delta^{it}\mathfrak{M}\Delta^{-it}=\mathfrak{M}$ for all $t\in\mathbb{R}$. 	
+		\end{itemize}
+	\end{theorem}
+	\begin{proof}
+		\cite{Duvenhage1999}
+	\end{proof}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Tomita-Takesaki, time evolution and KMS states}
+	\begin{theorem}[$\bigstar$]
+		$t\mapsto\Delta^{it}$ is the unique strongly continuous one-parameter unitary group on $\mathcal{H}$ that satisfies the KMS condition with respect to $\mathcal{K}$ such that $\Delta^{it}\mathcal{K}\subseteq\mathcal{K}$ for all $t\in\mathbb{R}$.
+	\end{theorem}
+	\begin{theorem}[$\bigstar$]
+		Let $\mathfrak{M}$ be a von Neuman algebra and $\omega$ a faithful normal state. Consider the unitary group $t\mapsto\Delta^{it}$ associated to the pair $(\pi_\omega(\mathfrak{M}),\Omega_\omega)$. Then the one-parameter group of automorphisms given by $\alpha_t = \pi_\omega^{-1}(\Delta^{it}\pi_\omega(A)\Delta^{-it})$ makes $(\mathfrak{M},\alpha)$ a $W^*$-dynamical system.
+	\end{theorem}
+	\begin{proof}
+		\cite{Duvenhage1999}
+	\end{proof}
+\end{frame}
+
+\section{The Canonical Time Evolution}
+
+\begin{frame}
+	\frametitle{The Canonical Time Evolution}
+	\begin{theorem}[$\bigstar\bigstar\bigstar$]
+		Let $\mathfrak{M}$ be a von Neumann algebra and $\omega$ be a faithful normal state. Then $(\mathfrak{M},\tau)$ with $\tau_t(A) = \alpha_{-t/\beta}(A)$ and $\alpha$ the modular group of $(\mathfrak{M},\omega)$ is the unique $W^*$-dynamical system such that $\omega$ is an $(\alpha,\beta)$-KMS state.
+	\end{theorem}
+	\begin{proof}
+		\cite{Duvenhage1999}
+	\end{proof}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Further work}
+	\begin{itemize}
+		\item Classical KMS states and Tomita-Takesaki theory.
+		\item Understanding KMS states from "first principles":
+		\begin{itemize}
+			\item stability;
+			\item passivity.
+		\end{itemize}
+		\item Relativistic generalization of KMS states.
+		\item Entropy ambiguities. 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+	\frametitle{References}
+	\bibliography{/home/ivan/Documents/Bib_Files/Monografia}
+	\bibliographystyle{apalike}
+\end{frame}
 
 \end{document}
 
