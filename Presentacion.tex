@@ -30,9 +30,10 @@
 		\vspace{1cm}
 		
 		\onslide<2->{Maybe in quantum thermal systems.
-		\begin{equation*}
-			e^{-iHt} \circlearrowright e^{-\beta H}
-		\end{equation*}}
+		\begin{align*}
+			e^{-\beta H} &\circlearrowright e^{-iHt} \\
+			\text{temperature} &\iff i\times\text{time}
+		\end{align*}}
 	\end{columns}
 \end{frame}
 
@@ -50,7 +51,7 @@
 		Classical theories
 		\begin{itemize}
 			\item<1-> Auxiliary space: locally compact Hausdorff space $X$;
-			\item<2-> Observables: continuous functions on a locally compact Hausdorff space $C(X)$;
+			\item<2-> Observables: continuous functions $C(X)$ on $X$;
 			\item<3-> States: probability measures $P$ on $X$;
 			\item<4-> Expected values: $\int fdP$.
 		\end{itemize}
@@ -172,7 +173,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Tomita-Takesaki, time evolution and KMS states}
+	\frametitle{Tomita-Takesaki, Time Evolution and KMS States}
 	\begin{theorem}[$\bigstar$]
 		$t\mapsto\Delta^{it}$ is the unique strongly continuous one-parameter unitary group on $\mathcal{H}$ that satisfies the KMS condition with respect to $\mathcal{K}$ such that $\Delta^{it}\mathcal{K}\subseteq\mathcal{K}$ for all $t\in\mathbb{R}$.
 	\end{theorem}
@@ -189,7 +190,7 @@
 \begin{frame}
 	\frametitle{The Canonical Time Evolution}
 	\begin{theorem}[$\bigstar\bigstar\bigstar$]
-		Let $\mathfrak{M}$ be a von Neumann algebra and $\omega$ be a faithful normal state. Then $(\mathfrak{M},\tau)$ with $\tau_t(A) = \alpha_{-t/\beta}(A)$ and $\alpha$ the modular group of $(\mathfrak{M},\omega)$ is the unique $W^*$-dynamical system such that $\omega$ is an $(\alpha,\beta)$-KMS state.
+		Let $\mathfrak{M}$ be a von Neumann algebra and $\omega$ be a faithful normal state. Then $(\mathfrak{M},\tau)$ with $\tau_t(A) = \alpha_{-t/\beta}(A)$ and $\alpha$ the modular group of $(\mathfrak{M},\omega)$ is the unique $W^*$-dynamical system such that $\omega$ is a $(\tau,\beta)$-KMS state.
 	\end{theorem}
 	\begin{proof}
 		\cite{Duvenhage1999}
