@@ -1,32 +1,32 @@
-Now that we've understood classical and quantum mechanics as probability theories and displayed their differences, we will now concern ourselves with the development of algebraic methods that will allow us to describe both classical and quantum mechanics in the same framework and to discuss equilibrium further. We will define the notions of $C^*$-algebras, von Neumann algebras, dynamical systems, and develop the GNS construction. Through examples we will see the physical importance of these concepts. 
+Now that we have understood classical mechanics and quantum mechanics as probability theories and displayed their differences, we will now concern ourselves with the development of algebraic methods that will allow us to describe both classical and quantum mechanics in the same framework and to discuss equilibrium further. We will define the notions of $C^*$-algebras, von Neumann algebras, dynamical systems, and develop the GNS construction. Through examples we will see the physical importance of these concepts. 
  
 \section{C*-algebras}
 
-We will start by getting acquainted with the notion of a C*-algebra. This is the mathematical structure we will endow our physical observables with. Even though the general need for this structure can be inspired by the abstract analysis of experimental apparatuses\cite{Strocchi2008a} we will instead give the abstract definition and then justify it through examples. 
+We will start by getting acquainted with the notion of a $C^*$-algebra. This is the mathematical structure we will endow our physical observables with. Even though the general need for this structure can be inspired by the abstract analysis of experimental apparatuses\cite{Strocchi2008a} we will instead give the abstract definition and then justify it through examples. 
 
 \begin{definition}
 An (associative) algebra $\mathcal{A}$ is a set equipped with three operations:
 \begin{align}
 \begin{split}
  \mathcal{A} \times \mathcal{A} & \rightarrow  \mathcal{A} \\
- (x,y) & \mapsto  x+y \quad\text{addition;}  \\
+ (A,B) & \mapsto  A+B \quad\text{addition;}  \\
  \mathbb{C} \times \mathcal{A} & \rightarrow \mathcal{A} \\
- (\lambda,x) & \mapsto \lambda x \quad\text{scalar multiplication;} \\
+ (\lambda,A) & \mapsto \lambda A \quad\text{scalar multiplication;} \\
  \mathcal{A} \times \mathcal{A} & \rightarrow \mathcal{A} \\
- (x, y) & \mapsto xy \quad\text{multiplication;}
+ (A, B) & \mapsto AB \quad\text{multiplication;}
 \end{split}
 \end{align}
-such that with addition and scalar multiplication it forms a complex vector space, with addition and multiplication it forms a ring, and there is a compatibility condition between scalar multiplication and multiplication which is that for all $x,y\in\mathcal{A}$ and $\lambda\in\mathbb{C}$ we have $(\lambda x)y=x(\lambda y) = \lambda (xy)$. If the ring is commutative the algebra is said to be commutative and if the ring is unital the algebra is said to be unital. A norm on an algebra $\mathcal{A}$ is a norm on the vector space structure $\|\cdot\|:\mathcal{A} \rightarrow \mathbb{R}^{+}_0 $ such that for all $x,y\in\mathcal{A}$ we have $\|xy\|\leq\|x\|\|y\|$. An algebra endowed with a norm is called a normed algebra. If the normed vector space structure of an algebra is Banach, the algebra is called Banach. An involution on an algebra $\mathcal{A}$ is a map $^*:\mathcal{A}  \rightarrow \mathcal{A} \quad x \mapsto x^*$ such that for all $x,y\in\mathcal{A}$ and $\lambda\in\mathbb{C}$:
+such that with addition and scalar multiplication it forms a complex vector space, with addition and multiplication it forms a ring, and there is a compatibility condition between scalar multiplication and multiplication, which is that for all $A,B\in\mathcal{A}$ and $\lambda\in\mathbb{C}$ we have $(\lambda A)B=A(\lambda B) = \lambda (AB)$. If the ring is commutative the algebra is said to be commutative and if the ring is unital the algebra is said to be unital. A norm on an algebra $\mathcal{A}$ is a norm on the vector space structure $\|\cdot\|:\mathcal{A} \rightarrow \mathbb{R}^{+}_0 $ such that for all $A,B\in\mathcal{A}$ we have $\|AB\|\leq\|A\|\|B\|$. An algebra endowed with a norm is called a normed algebra. If the normed vector space structure of an algebra is Banach, the algebra is called Banach. An involution on an algebra $\mathcal{A}$ is a map $^*:\mathcal{A}  \rightarrow \mathcal{A} \quad A \mapsto A^*$ such that for all $A,B\in\mathcal{A}$ and $\lambda\in\mathbb{C}$:
 \begin{align}
 \begin{split}
-(\lambda x + y)^*&=\bar{\lambda}x^* + y^*; \\
-(xy)^*&=y^*x^*;\\
-(x^*)^*&=x.
+(\lambda A + B)^*&=\bar{\lambda}A^* + B^*; \\
+(AB)^*&=B^*A^*;\\
+(A^*)^*&=A.
 \end{split}
 \end{align}
 An algebra equipped with an involution is said to be a *-algebra. A $C^*$-algebra is a Banach *-algebra where for all $x\in\mathcal{A}$ 
 \begin{equation}
-\|x^*x\|=\|x\|^2.
+\|A^*A\|=\|A\|^2.
 \end{equation}
 \end{definition}
 
@@ -35,8 +35,8 @@ The set of continuous functions vanishing at infinity on a locally compact Hausd
 \begin{equation}
 \|f\| = \sup\{|f(x)||x\in X\}.
 \end{equation}
-This algebra differs from the structure described in \ref{sec:classical_probability} in that the functions are admittedly complex and their behavior at infinity is restricted. Nevertheless $C_0(X)$ is unital if and only if $X$ is compact. In that case $C_0(X)=C(X)$ and the observables coincide with the self-adjoint elements of the $C^*$-algebra. One can associate both the need for restricting behavior at infinity or making the space compact by noting that any real feasible experiment performed on a system should be localized. This has to do with the experimental motivation of $C^*$-algebras given in \cite{Strocchi2008a}.
-We now note that every commutative $C^*$-algebra can be realized as the space of continuous functions on a compact Hausdorff space. 
+This algebra differs from the structure described in \ref{sec:classical_probability} in that the behavior of the functions at infinity is restricted. Nevertheless $C_0(X)$ is unital if and only if $X$ is compact. In that case $C_0(X)=C(X)$ and the observables coincide with the self-adjoint elements of the $C^*$-algebra. One can associate both the need for restricting behavior at infinity or making the space compact by noting that any real feasible experiment performed on a system should be localized. This has to do with the experimental motivation of $C^*$-algebras given in \cite{Strocchi2008a}.
+We now note that every commutative $C^*$-algebra can be realized as the space $C_0(X)$ for $X$ a locally compact Hausdorff space\cite{Bratteli1997}. 
 \end{example}
 
 \begin{example}
@@ -44,7 +44,7 @@ The set of bounded operators in a Hilbert space $\mathcal{H}$ forms a $C^*$-alge
 \begin{equation}
 \|A\|=\sup\left\{\left.\frac{\|Ax\|}{\|x\|}\right|x\in\mathcal{H}\setminus \{0\} \right\}.
 \end{equation}
-Moreover, every closed self-adjoint subspace of the bounder operators $\mathcal{B}(\mathcal{H})$ of a Hilbert space $\mathcal{H}$ is a $C^*$-algebra\footnote{Although we won't need it, the Gelfand-Naimark theorem shows that every $C^*$-algebra is realizable as a closed self-adjoint subspace of $\mathcal{B}(\mathcal{H})$ for some Hilbert space $\mathcal{H}$\cite{Evans1998}.}. Once again, this algebra differs from the structure given in section \ref{sec:QM} because we only consider bounded operators. Once again at a fundamental level this doesn't matter since we know through the spectral theorem or the logical structure presented in section \ref{sec:Q_logic} that we can describe all observables (bounded or unbounded) through their spectral decomposition into projections. In particular, we should be able to take the $C^*$-algebra generated by the projections associated to the observable we want to analyze. For example, instead of considering the position operator $q$ on $L^2(\mathcal{H})$ given by $q\psi(x)=x\psi(x)$ for all $\psi\in\mathcal{H}$, we can consider the $C^*$-algebra generated by the characteristic functions of Borel sets $E\subseteq\mathbb{R}$ whose action on the Hilbert space is $\chi_E\psi(x) = \chi_E(x)\psi(x)$. Moreover, this problem, as in the classical case, is related to the fact that no experimental apparatus has an infinite display of outcomes. One indeed cannot measure infinitely large positions or momenta.
+Moreover, every closed self-adjoint subspace of the bounder operators $\mathcal{B}(\mathcal{H})$ of a Hilbert space $\mathcal{H}$ is a $C^*$-algebra. Conversely, the Gelfand-Naimark theorem shows that every $C^*$-algebra is realizable as a closed self-adjoint subspace of $\mathcal{B}(\mathcal{H})$ for some Hilbert space $\mathcal{H}$\cite{Bratteli1997}. Once again, this algebra differs from the structure given in section \ref{sec:QM} because we only consider bounded operators. Once again at a fundamental level this does not matter since we know through the spectral theorem or the logical structure presented in section \ref{sec:Q_logic} that we can describe all observables (bounded or unbounded) through their spectral decomposition into projections. In particular, we should be able to take the $C^*$-algebra generated by the projections associated to the observable we want to analyze. For example, instead of considering the position operator $q$ on $L^2(\mathcal{H})$ given by $q\psi(x)=x\psi(x)$ for all $\psi\in\mathcal{H}$, we can consider the $C^*$-algebra generated by the characteristic functions of Borel sets $E\subseteq\mathbb{R}$ whose action on the Hilbert space is $\chi_E\psi(x) = \chi_E(x)\psi(x)$. Moreover, this problem, as in the classical case, is related to the fact that no experimental apparatus has an infinite display of outcomes. One indeed cannot measure infinitely large positions or momenta.
 
 Another solution for the case of Schrödinger's mechanics is to consider the Weyl operators $U(a)$ and $U(b)$ for $a,b\in\mathbb{R}$ given by
 \begin{align}
@@ -59,7 +59,7 @@ By Stone's theorem if $q$ is the position operator and $p$ is the momentum opera
 As mentioned before the above definition gives structure to the observables of a system. To get a complete kinematical description we need to also give structure to the notion of state. We can inspire the definition of a state by the fact that both in classical and quantum descriptions the statistically appropriate notion of state seemed to act on the observable either through equation \ref{eq:classical_states} or \ref{eq:quantum_states}.
 
 \begin{definition}
-A state on a $C^*$-algebra $\mathcal{A}$ is a positive normalized linear functional $\omega:\mathcal{A}\rightarrow \mathbb{C}$, i.e. it is a linear map such that $\|\omega\| = 1$ (normalized) and for all $x\in\mathcal{A}$ we have $\omega(x^*x)\geq 0$ (positive). If $\omega(x^*x)>0$ for all $x\in\mathcal{A}\setminus\{0\}$, the state is said to be faithful.
+A state on a $C^*$-algebra $\mathcal{A}$ is a positive normalized linear functional $\omega:\mathcal{A}\rightarrow \mathbb{C}$, i.e. it is a linear map such that $\|\omega\| = 1$ (normalized) and for all $A\in\mathcal{A}$ we have $\omega(A^*A)\geq 0$ (positive). If $\omega(A^*A)>0$ for all $A\in\mathcal{A}\setminus\{0\}$, the state is said to be faithful.
 \end{definition}  
 
 Note that for a unital $C^*$-algebra a positive linear functional $\omega$ is normalized if and only if $\omega(1)=1$\cite{Bratteli1997}.
@@ -87,13 +87,13 @@ Setting $\lambda=1$ we see that $\omega(AB^*)+\omega(BA^*)\in\mathbb{R}$ and the
 \begin{example}
 By Riesz's representation theorem \cite{Hewitt1975} we have that for every state $\omega$ on $C(X)$ for $X$ compact Hausdorff there exists a probability measure $P$ on $X$ such that
 \begin{equation}
-\omega (f)=\int fdP
+\omega (f)=\int_X fdP
 \end{equation}    
-for every $f$ in $C(X)$. Indeed $P$ is the measure induced by the Daniel extension of $\omega$. Moreover, it turns out that every commutative $C^*$-algebra is isomorphic to an algebra $C_0(X)$ for $X$ locally compact Hausdorff\cite{Bratteli1997}. In particular, this final remark justifies that classical systems can be treated in the context of $C^*$-algebras. 
+for every $f$ in $C(X)$. Indeed $P$ is the measure induced by the Daniel extension of $\omega$. This final remark justifies that classical systems can be treated in the context of $C^*$-algebras. 
 \end{example}
 
 \begin{example}\label{ex:Gibbs}
-Given a density operator $\rho$ on a Hilbert space $\mathcal{H}$, $\omega_\rho:\mathcal{B} (\mathcal{H})\rightarrow\mathbb{C}$ given by $\omega_\rho(A)=\tr(A\rho)$ is a state. More generally, a state constructed as the restriction of $\omega_\rho$ to a $C^*$-algebra viewed as a subalgebra of $\mathcal{B}(\mathcal{H})$ is called a normal state. Of particular importance is the generalization of the canonical ensemble discussed in \ref{ex:canonical_ensemble}. Consider a system with Hamiltonian $H$ in equilibrium with a heat bath without exchange of particles at inverse temperature $\beta$. Then the state is
+Given a density operator $\rho$ on a Hilbert space $\mathcal{H}$, $\omega_\rho:\mathcal{B} (\mathcal{H})\rightarrow\mathbb{C}$ given by $\omega_\rho(A)=\tr(A\rho)$ is a state. More generally, a state constructed as the restriction of $\omega_\rho$ to a $C^*$-algebra viewed as a subalgebra of $\mathcal{B}(\mathcal{H})$ is called a normal state. Of particular importance is the generalization of the canonical ensemble discussed in \ref{ex:canonical_ensemble}. Consider a system with Hamiltonian $H$ in equilibrium with a heat bath without exchange of particles at inverse temperature $\beta$. Then the state is\footnote{We need that $e^{-\beta H}$ be trace class.}
 \begin{equation}
 \rho_\beta=\frac{e^{-\beta H}}{\tr(e^{-\beta H})}
 \end{equation}
@@ -102,10 +102,10 @@ known as the $\beta$-Gibbs state\cite{Kubo1965}\cite{Duvenhage1999}.
 
 \section{GNS Construction}
 
-Although we won't prove the structure theorems mentioned above for the characterization of $C^*$-algebras we will indeed be interested in the representation of a $C^*$-algebra on a Hilbert space induced by a state. For this we will follow \cite{Bratteli1997} 
+Although we will not prove the structure theorems mentioned above for the characterization of $C^*$-algebras we will indeed be interested in the representation of a $C^*$-algebra on a Hilbert space induced by a state. For this we will follow \cite{Bratteli1997}.
 
 \begin{definition}
-A representation of a a $C^*$-algebra $\mathcal{A}$ is a tuple $(\mathcal{H},\pi)$ where $\mathcal{H}$ is a Hilbert space and $\pi:\mathcal{A}\rightarrow \mathcal{B}(\mathcal{H})$ is a $^*$-homomorphism (i.e. an adjoint preserving homomorphism). If $\mathcal{H}$ has non trivial invariant subspaces under the action of $\pi(\mathcal{A})$ then the representation is said to be reducible. If $\pi$ is a $^*$-isomorphism onto its image, the representation is said to be faithful. 
+A representation of a a $C^*$-algebra $\mathcal{A}$ is a tuple $(\mathcal{H},\pi)$ where $\mathcal{H}$ is a Hilbert space and $\pi:\mathcal{A}\rightarrow \mathcal{B}(\mathcal{H})$ is a $^*$-homomorphism (i.e. an adjoint preserving homomorphism). If $\mathcal{H}$ has non trivial invariant subspaces under the action of $\pi(\mathcal{A})$ then the representation is said to be reducible. If $\pi$ is a $^*$-isomorphism onto its image the representation is said to be faithful. 
 \end{definition}
 
 \begin{definition}
@@ -113,7 +113,7 @@ Let $\mathcal{H}$ be a Hilbert space, $S\subseteq\mathcal{B}(\mathcal{H})$ and $
 \end{definition}
 
 \begin{theorem}
-If $\mathcal{A}$ is a unital\footnote{From now onwards, we will always consider our algebras to be unital to avoid technical difficulties. The GNS construction can be done without this assumption but it requires to first extend to a unital algebra \cite{Bratteli1997}.} $C^*$-algebra and $\omega$ is a state on it, then there exists a unique representation (up to unitary equivalence) $(\mathcal{H}_\omega,\pi_\omega)$ with a cyclic unit vector $\Omega_\omega$ and for all $x\in\mathcal{A}$ we have that $\omega(x)=\langle\Omega_\omega,\pi_\omega(x)\Omega_\omega\rangle=\tr(\pi_\omega(x)\rho_{\Omega_\omega})$ (omega is a vector state).  
+If $\mathcal{A}$ is a unital\footnote{From now onwards, we will always consider our algebras to be unital to avoid technical difficulties. The GNS construction can be done without this assumption but it requires to first extend to a unital algebra \cite{Bratteli1997}.} $C^*$-algebra and $\omega$ is a state on it, then there exists a unique representation (up to unitary equivalence) $(\mathcal{H}_\omega,\pi_\omega)$ with a cyclic unit vector $\Omega_\omega$ and for all $A\in\mathcal{A}$ we have that $\omega(A)=\langle\Omega_\omega,\pi_\omega(A)\Omega_\omega\rangle=\tr(\pi_\omega(A)\rho_{\Omega_\omega})$ (omega is a vector state).  
 \end{theorem}
 
 \begin{proof}
@@ -121,33 +121,33 @@ Notice that in particular $\mathcal{A}$ is a vector space. Consider the function
 \begin{align}
 \begin{split}
 \mathcal{A}\times\mathcal{A}&\rightarrow\mathbb{C} \\
-(x,y)&\mapsto\omega(x^*y).
+(A,B)&\mapsto\omega(A^*B).
 \end{split}
 \end{align}
-One can show that this function is an inner product except for the fact that there may be elements $x\in\mathcal{H}\setminus\{0\}$ such that $\omega(x^*x)=0$. We may define $\mathcal{N}_\omega := \{x\in\mathcal{A}|\omega(x^*x)=0\}$. Notice that if $x\in\mathcal{N}_\omega$ and $y\in\mathcal{A}$ then 
+One can show that this function is an inner product except for the fact that there may be elements $A\in\mathcal{H}\setminus\{0\}$ such that $\omega(A^*A)=0$. We may define $\mathcal{N}_\omega := \{A\in\mathcal{A}|\omega(A^*A)=0\}$. Notice that if $A\in\mathcal{N}_\omega$ and $B\in\mathcal{A}$ then 
 \begin{align}
 \begin{split}
-|\omega((yx)^*(yx))|^2&=|\omega(x^*y^*yx)|^2=|\omega((y^*yx)^*x)|^2 \\
-&\leq\omega((y^*yx)^*(y^*yx))\omega(x^*x)=0,
+|\omega((BA)^*(AB))|^2&=|\omega(A^*B^*BA)|^2=|\omega((B^*BA)^*A)|^2 \\
+&\leq\omega((B^*BA)^*(B^*BA))\omega(A^*A)=0,
 \end{split}
 \end{align}
 that is, $\mathcal{N}_\omega$ is a left ideal of $\mathcal{A}$. Notice that now the inner product
 \begin{align}
 \begin{split}
 \mathcal{A}/\mathcal{N}_\omega\times\mathcal{A}/\mathcal{N}_\omega&\rightarrow\mathbb{C} \\
-([x],[y])&\mapsto\langle[x],[y]\rangle:=\omega(x^*y)
+([A],[B])&\mapsto\langle[A],[B]\rangle:=\omega(A^*B)
 \end{split}
 \end{align}
-is well defined and therefore take $\mathcal{H}_\omega=\overline{\mathcal{A}/\mathcal{N}_\omega}$. We define 
+is well defined and therefore we can take $\mathcal{H}_\omega=\overline{\mathcal{A}/\mathcal{N}_\omega}$. We define 
 \begin{align}
 \begin{split}
 \pi_\omega:\mathcal{A}&\rightarrow L(\mathcal{H}_\omega) \\
-x&\mapsto \pi_\omega(x)
+A&\mapsto \pi_\omega(A)
 \end{split}
 \end{align}
-by extension of $\pi_\omega(x)[y]:=[xy]$ (which is bounded and therefore uniformly continuous) on $\mathcal{A}/\mathcal{N}_\omega$. We define at last $\Omega_\omega:=[1]$. If $x\in\mathcal{A}$ we have
+by extension of $\pi_\omega(A)[B]:=[AB]$ (which is bounded and therefore uniformly continuous) on $\mathcal{A}/\mathcal{N}_\omega$. We define at last $\Omega_\omega:=[1]$. If $A\in\mathcal{A}$ we have
 \begin{equation}\label{eqn:state_representation}
-\langle \Omega_\omega, \pi_\omega(x)\Omega_\omega\rangle = \langle \Omega_\omega, [x]\rangle = \omega(x). 
+\langle \Omega_\omega, \pi_\omega(A)\Omega_\omega\rangle = \langle \Omega_\omega, [A]\rangle = \omega(A). 
 \end{equation}
 Moreover $\pi_\omega(\mathcal{A})\Omega_\omega = \mathcal{A}/\mathcal{N}_\omega$ and it is therefore verified that the vector $\Omega_\omega$ is cyclic. \\ 
 Now suppose we have another representation $(\mathcal{H}', \pi')$ that satisfies the conditions of the theorem. Let $\Omega'\in\mathcal{H}'$ such that $\overline{\pi'(\mathcal{A})}\Omega'=\mathcal{H}'$ and $\omega(A)=\langle \Omega',A\Omega'\rangle$. Define $U:\mathcal{H}\rightarrow \mathcal{H}'$ by extension of $U\pi_\omega(A)\Omega_\omega=\pi'(A)\Omega'$ which is unitary since
@@ -163,7 +163,7 @@ Then $U^{-1}\pi'(A)U=\pi_\omega(A)$ and $U\Omega_\omega=\Omega'$.
 \end{proof}
 
 \begin{example}\label{example:M2}
-Let's follow the GNS construction with the example of the $C^*$-algebra of $2\times 2$ matrices with complex entries $M_2(\mathbb{C})$. This is of physical importance for 2 state systems. For example our recurring system in example \ref{ex:Bell} has this algebra of observables (the canonical matrix representations of the operators $P(0)$, $P(\pi/4)$, $P(\pi/2)$ and $P(3\pi/4)$ generate this algebra). Let the elementary matrices of $M_2(\mathbb{C})$ be $E_{ij} = ((\delta_{in}\delta_{jm})_{nm})$. Let's choose the state
+Let us follow the GNS construction with the example of the $C^*$-algebra of $2\times 2$ matrices with complex entries $M_2(\mathbb{C})$. This is of physical importance for 2 state systems. For example our recurring system in example \ref{ex:Bell} has this algebra of observables (the canonical matrix representations of the operators $P(0)$, $P(\pi/4)$, $P(\pi/2)$ and $P(3\pi/4)$ generate this algebra). Let the elementary matrices of $M_2(\mathbb{C})$ be $E_{ij} = ((\delta_{in}\delta_{jm})_{nm})$. Choose the state
 \begin{equation}
 \omega_\lambda(\alpha) = \lambda \alpha_{11} + (1-\lambda)\alpha_{22}
 \end{equation} 
@@ -208,22 +208,22 @@ Moreover, if $\alpha \in M_2(\mathbb{C})$ we have
 \begin{equation}
 (\pi_{\Omega_{\omega_\lambda}}(\alpha)E_{ij})_{nm}=\sum_{k=1}^2\alpha_{nk}\delta_{ik}\delta_{jm}=\alpha_{ni}\delta_{jm}
 \end{equation}
-and therefore the spaces in the decomposition are invariant under the action of the representation of the algebra. In particular, we check that the projection $\rho_{\Omega_{\omega_\lambda}}$ onto $\Omega_{\omega_\lambda}$ cannot be of the form $\pi_{\Omega_{\omega_\lambda}}(\alpha)$ for some $\alpha\in M_2(\mathbb{C})$ since it doesn't respect that invariance
+and therefore the spaces in the decomposition are invariant under the action of the representation of the algebra. In particular, we check that the projection $\rho_{\Omega_{\omega_\lambda}}$ onto $\Omega_{\omega_\lambda}$ cannot be of the form $\pi_{\Omega_{\omega_\lambda}}(\alpha)$ for some $\alpha\in M_2(\mathbb{C})$ since it does not respect that invariance
 \begin{equation}
 \rho_{\Omega_{\omega_\lambda}}(E_{ij})=\langle \Omega_{\omega_\lambda}, E_{ij}\rangle\Omega_{\omega_\lambda} = \omega_\lambda(E_{ij})I_2=(\lambda\delta_{1i}\delta_{1j}+(1-\lambda)\delta_{2i}\delta_{2j})I_2.
 \end{equation} 
 \end{itemize}
 \end{example}
 
-Given equation \ref{eqn:state_representation} one may feel tempted to associate to the system the orthogonal projection $\rho_{\Omega_{\omega_\lambda}}$ onto $\Omega_{\omega_\lambda}$ as a state. This would yield according to equation \ref{eqn:entropy_pure} a state of zero entropy. We need to find a way around this. Now, examining our previous example where the state was conveniently written as a convex sum of states, we find that the extremal points of this sum (the cases $\lambda\in\{0,1\}$) generate irreducible representations of the algebra while the other cases didn't. Moreover, the actual state $\rho_{\Omega_{\omega_\lambda}}$ was not in the image of the algebra of observables in the reducible representations considered. This inspires us to try to find a state $\rho_{\omega_\lambda}$ which also satisfies $\tr(\pi_{\omega_\lambda}(\alpha)\rho_{\omega_\lambda})=\omega(\alpha)$ from the irreducible representations in the GNS construction. Such an agenda may also be found in \cite{Balachandran2013c} ,\cite{Balachandran2013b}, \cite{Balachandran2013} and\cite{Balachandran2013a}.
+Given equation \ref{eqn:state_representation} one may feel tempted to associate to the system the orthogonal projection $\rho_{\Omega_{\omega_\lambda}}$ onto $\Omega_{\omega_\lambda}$ as a state. This would yield according to equation \ref{eqn:entropy_pure} a state of zero entropy. We need to find a way around this. Now, examining our previous example where the state was conveniently written as a convex sum of states, we find that the extremal points of this sum (the cases $\lambda\in\{0,1\}$) generate irreducible representations of the algebra while the other cases did not. Moreover, the actual state $\rho_{\Omega_{\omega_\lambda}}$ was not in the image of the algebra of observables in the reducible representations considered. This inspires us to try to find a state $\rho_{\omega_\lambda}$ which also satisfies $\tr(\pi_{\omega_\lambda}(\alpha)\rho_{\omega_\lambda})=\omega(\alpha)$ from the irreducible representations in the GNS construction. Such an agenda may also be found in \cite{Balachandran2013c} ,\cite{Balachandran2013b}, \cite{Balachandran2013} and\cite{Balachandran2013a}.
 
-Being concerned for the moment with finite dimensional representations, we will in general be able to write
+We will in general be able to write
 \begin{equation}
 \mathcal{H}_\omega = \bigoplus_{\beta\in I}\mathcal{H}_\omega^{(\beta)}
 \end{equation}
-where $\{\mathcal{H}_\omega^{(\beta)}|\beta\in I\}$ is a set of irreducible representations of $\mathcal{A}$. The decomposition leaves the projection operators $P^{(\beta)}$ onto $\mathcal{H}_\omega^{(\beta)}$ such that
+where $\{\mathcal{H}_\omega^{(\beta)}|\beta\in I\}$ is a set of irreducible representations of $\mathcal{A}$\cite{Bratteli1997}. The decomposition leaves the projection operators $P^{(\beta)}$ onto $\mathcal{H}_\omega^{(\beta)}$ such that
 \begin{equation}
-id_{\mathcal{H}_\omega}=\sum_{\beta\in I}P^{(\beta)}.
+\id_{\mathcal{H}_\omega}=\sum_{\beta\in I}P^{(\beta)}.
 \end{equation}
 Therefore, we have if $\{e_1,\cdots,e_n\}$ is a basis for $\mathcal{H}_\omega$
 \begin{align}
@@ -245,7 +245,7 @@ Therefore we define
 as the induced state.
 
 \begin{example}
-Continuing with example \ref{example:M2} we find that since in the cases $\lambda\in\{0,1\}$ since the representation is irreducible we have $\rho_{\omega_\lambda}=\rho_{\Omega_{\omega_\lambda}}$ and therefore the state is pure and has null entropy. In the case $\lambda\in (0,1)$ we have for all $\alpha\in M_2(\mathbb{C})$
+Continuing with example \ref{example:M2} we find that since in the cases $\lambda\in\{0,1\}$ the representation is irreducible we have $\rho_{\omega_\lambda}=\rho_{\Omega_{\omega_\lambda}}$ and therefore the state is pure and has null entropy. In the case $\lambda\in (0,1)$ we have for all $\alpha\in M_2(\mathbb{C})$
 \begin{align}
 \begin{split}
 \rho_{\omega_\lambda}\alpha &= \sum_{i=1}^2 P^{(i)}\rho_{\Omega_{\omega_\lambda}}P^{(i)}\alpha \\
@@ -274,16 +274,10 @@ S = -(\lambda\log (\lambda) + (1-\lambda)\log(1-\lambda))
 \end{equation}
 \begin{figure}
 \centering
-\includegraphics[width=0.8\textwidth]{entropia_M2.png}
+\includegraphics[width=0.7\textwidth]{entropia_M2.png}
 \caption{The entropy of equation \ref{eq:entropy_M2} as a function of the probability that the photon has horizontal polarization.}
 \end{figure}
 \end{example}
-
-For completeness we state a theorem given by \cite{Bratteli1997} that shows that every GNS representation can be decomposed into representations with a cyclic vector.
-
-\begin{theorem}
-Every non-degenerate representation $(\mathcal{H},\pi)$ of a $C^*$-algebra $\mathcal{A}$ (that is, one in which $\pi(\mathcal{A})x={0}$ implies $x=0$) is a direct sum of representations with a cyclic vector. 
-\end{theorem}
 
 \section{Von Neumann Algebras}
 
@@ -301,7 +295,7 @@ We say $\mathfrak{M}$ is a von Neumann algebra ($W^*$-algebra) if $\mathfrak{M}'
 It is clear that for all $\mathfrak{M}\subseteq\mathcal{B}(\mathcal{H})$ for some Hilbert space $\mathcal{H}$ we have $\mathfrak{M}\subseteq\mathfrak{M}''$. Therefore $\mathcal{B}(\mathcal{H})$ is a $W^*$-algebra.
 \end{example}
 
-We claimed that every $W^*$-algebras is a $C^*$-algebra. Indeed,
+We claimed that every $W^*$-algebra is a $C^*$-algebra. Indeed,
 
 \begin{theorem}
 Let $\mathfrak{M}\subseteq \mathcal{B}({\mathcal{H}})$ for some Hilbert space $\mathcal{H}$ be self-adjoint. Then $\mathfrak{M}'$ is a $C^*$-algebra.
@@ -347,7 +341,7 @@ we conclude that $A^*A=0$. Therefore by the $C^*$-property $0=\|A^*A\|=\|A\|^2$ 
 
 \section{Dynamical Systems}
 
-Up until now, we have only focused on the description of observables and states of a physical system. In now way have we yet discussed the dynamics of a system. In the context of algebraic physics we have that the concept of time evolution is implemented through automorphisms of the algebra of observables. To show this we will follow \cite{Duvenhage1999}.
+Up until now, we have only focused on the description of observables and states of a physical system. In no way have we yet discussed the dynamics of a system. In the context of algebraic physics we have that the concept of time evolution is implemented through automorphisms of the algebra of observables. To show this we will follow \cite{Duvenhage1999}.
 
 \begin{definition}\label{def:dynamics}
 Let $\mathcal{A}$ be a $C^*$-algebra. A one-parameter automorphism group is a group homomorphism $\tau:\mathbb{R}\rightarrow \Aut(\mathcal{A})$ $t\mapsto\tau_t$. If $\tau$ is a one-parameter automorphism group where the map $\mathbb{R}\rightarrow\mathcal{A}$ given by $t\mapsto\tau_t(A)$ is continuous for all $A\in\mathcal{A}$, then $(\mathcal{A},\tau)$ is called a $C^*$-dynamical system. If $\mathfrak{M}$ is a $W^*$-algebra on a Hilbert space $\mathcal{H}$ and $\tau$ is a one-parameter automorphism group on $\mathfrak{M}$ such that $\mathbb{R}\rightarrow\mathcal{H}$ given by $t\mapsto\tau_t(A)x$ is continuous for all $A\in\mathfrak{M}$ and $x\in\mathcal{H}$, then $(\mathfrak{M},\tau)$ is called a $W^*$-dynamical system. 
@@ -393,11 +387,11 @@ as $t\rightarrow 0$. Therefore if $s\in\mathbb{R}$ we have
 for all $A\in \mathcal{B}(\mathcal{H})$. We conclude that $(\mathcal{B}(\mathcal{H}),\tau)$ is a $C^*$ and $W^*$-dynamical system.
 \end{example} 
 
-Note that even though the dynamics have been defined through automorphisms of the algebra resembling Heisenberg's quantum mechanics, we could've equally defined it analogously to Schrodinger's mechanics through the evolution of states
+Note that even though the dynamics have been defined through automorphisms of the algebra resembling Heisenberg's quantum mechanics, we could have equally defined it analogously to Schrodinger's mechanics through the evolution of states
 \begin{equation}
 \tau_t(\omega)(A):=\omega(\tau_t(A)).
 \end{equation}
-This is of course yields the same physics and we will occasionally use it to give a physical interpretation to mathematical results. 
+This yields the same physics and we will occasionally use it to give a physical interpretation to mathematical results. 
 
 The following consequence given in \cite{Duvenhage1999} of having a state invariant under the dynamics of a system for its GNS representation will be useful later on to formulate the connection between KMS states and Tomita-Takesaki theory.
 
@@ -411,7 +405,3 @@ t&\mapsto U_t
 \end{align}
 such that $U_t\Omega_\omega=\Omega_\omega$ and $\pi_\omega(\tau_t(A))=U_t\pi_\omega(A)U_{-t}$ for all $t\in\mathbb{R}$ and $A\in\mathcal{A}$. Furthermore, if $(\mathcal{A},\tau)$ is a $W^*$-dynamical system and $\pi_\omega(\mathcal{A}$ is a von Neumann algebra, then $U$ is strongly continuous.
 \end{theorem} 
-
-\begin{proof}
-Notice that $(\mathcal{H}_\omega,\pi\circ\tau_t)$ is a representation for all $t\in\mathbb{R}$ which satisfies the properties of the GNS representation, namely, $\Omega_\omega$ is cyclic. Then, by uniqueness, we have the unique desired function $U$. We only need to show $U$ is a group homomorphism. 
-\end{proof}

@@ -4,10 +4,10 @@ For the remaining of the discussion I will assume knowledge of real Hilbert spac
 
 \section{Operators of the Theory}
 
-Let $\mathcal{K}$ and $\mathcal{L}$ be closed subspaces of a real Hilbert space $\mathcal{H}$ such that $\mathcal{K}\cap\mathcal{L}=\{0\}$ and $\mathcal{K}+\mathcal{L}$ is dense in $\mathcal{H}$. Define $P$ and $Q$ as the orthogonal projections on $\mathcal{K}$ and $\mathcal{L}$ respectively. Define $R=P+Q$ and let $JT=P-Q$ the polar decomposition of $P-Q$. $J$ is called the modular conjugation due to its role in the Tomita-Takesaki theorem. We have that $P,Q,$ and $T$ are positive. We will start by proving some basic facts about this operators which we will use throughout the development of the theory.
+Let $\mathcal{K}$ and $\mathcal{L}$ be closed subspaces of a real Hilbert space $\mathcal{H}$ such that $\mathcal{K}\cap\mathcal{L}=\{0\}$ and $\mathcal{K}+\mathcal{L}$ is dense in $\mathcal{H}$. Define $P$ and $Q$ as the orthogonal projections on $\mathcal{K}$ and $\mathcal{L}$ respectively. Define $R=P+Q$ and let $JT=P-Q$ the polar decomposition of $P-Q$. $J$ is called the modular conjugation due to its role in the Tomita-Takesaki theorem. We have that $P,Q,$ and $T$ are positive. We will start by proving some basic facts about these operators which we will use throughout the development of the theory.
 
 \begin{theorem}
-\begin{enumerate}
+\begin{enumerate}[(i)]
 \item $R$ and $2-R$ are injective and $2\geq R \geq 0$;
 \item $T=R^{1/2}(2-R)^{1/2}$ and is injective;
 \item $J$ is self-adjoint, isometric, $J^2=1$ and is bijective;
@@ -18,7 +18,7 @@ Let $\mathcal{K}$ and $\mathcal{L}$ be closed subspaces of a real Hilbert space 
 \end{theorem}
 
 \begin{proof}
-\begin{enumerate}
+\begin{enumerate}[(i)]
 \item It is clear that the sum of positive operators is positive. Therefor $R\geq 0$. Moreover $1-P$ and $1-Q$ are also projections so that $2-R=(1-P)+(1-Q)\geq 0$. We conclude $2\geq R$. \\
 Let $x\in\ker R$. Then
 \begin{align}
@@ -62,7 +62,7 @@ J\mathcal{K}=JP\mathcal{H}=(1-Q)J\mathcal{H}=(1-Q)\mathcal{H}=\mathcal{L}^\bot.
 To obtain now the operators of the theory let $\mathcal{K}$ be a closed real subspace of a Hilbert space $\mathcal{H}$ such that $\mathcal{K}\cap i\mathcal{K}=\{0\}$ and $\mathcal{K}+i\mathcal{K}$ is dense in $\mathcal{H}$. Then the replacement of $\mathcal{L}$ by $i\mathcal{K}$ allows us to define the operators $P,Q,R,$ and $T$ as functions on $\mathcal{H}$. We will now give some properties of these as functions on the complex structure.  
 
 \begin{theorem}
-\begin{enumerate}
+\begin{enumerate}[(i)]
 \item $R,2-R,$ and $T$ are positive in $\mathcal{H}$
 \item $J$ is a conjugate linear isometry in $\mathcal{H}$.
 \item $\langle x, Jy\rangle=\langle y, Jx\rangle$ for all $x,y\in\mathcal{H}$ 
@@ -71,7 +71,7 @@ To obtain now the operators of the theory let $\mathcal{K}$ be a closed real sub
 \end{theorem}
 
 \begin{proof}
-\begin{enumerate}
+\begin{enumerate}[(i)]
 \item We only need to prove these functions are $\mathcal{B}(\mathcal{H})$. Note that for this proving linearity is enough since the topologies in the real and complex case coincide. Let $x\in\mathcal{H}$ and since $\mathcal{H}_\mathbb{R}=\mathcal{K}\oplus\mathcal{K}^\bot$ there exist unique $y\in\mathcal{K}$ and $z\in\mathcal{K}^\bot$ such that $x=y+z$. It is clear that $iz\in(i\mathcal{K})^\bot$ and therefore $iPx=iy=Q(ix)$. We conclude that $iP=Qi$ and therefore $Rix=P(ix)+Q(ix)=iQx+iPx=iRx$. We conclude that $R$ is linear. It is the clear too that $2-R$ is also linear. By uniqueness of the positive square root that $T=R^{1/2}(2-R)^{1/2}$ is also linear.
 \item Given that $T$ is injective and 
 \begin{align}
@@ -237,6 +237,7 @@ J\Delta^{it}&=J(2-R)^{it}R^{-it}=J(2-R)^{it}JJR^{-it}=R^{-it}JR^{-it} \\
 &=R^{-it}JR^{-it}JJ=R^{-it}(2-R)^{it}J=(2-R)^{it} R^{-it}J=\Delta^{it}J.
 \end{split}
 \end{align}
+The continuity property can be found in \cite{Duvenhage1999}.
 \end{proof}
 
 The connection between KMS states and Tomita-Takesaki theory follows from a certain KMS type condition that $t\mapsto\Delta^{it}$ satisfies.
@@ -428,13 +429,13 @@ This section is completely devoted to the Tomita-Takesaki theorem. Although an e
 
 \begin{theorem}[Tomita-Takesaki Theorem]\label{thm:Tomita-Takesaki}
 Let $\mathfrak{M}$ be a $W^*$-algebra and $\Omega$ be a cyclic and separating vector for $\mathfrak{M}$. Let $t\mapsto\Delta^{it}$ and $J$ be the unitary group and modular conjugation associated to $(\mathfrak{M},\Omega)$. Then:
-\begin{itemize}
+\begin{enumerate}[(i)]
 
 \item $J\mathfrak{M}J=\mathfrak{M}'$;
 
 \item $\Delta^{it}\mathfrak{M}\Delta^{-it}=\mathfrak{M}$ for all $t\in\mathbb{R}$. 
 
-\end{itemize}
+\end{enumerate}
 \end{theorem}
 
 \begin{proof}
