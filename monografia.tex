@@ -9,6 +9,8 @@
 \usepackage{hyperref}
 \usepackage{enumerate}
 \usepackage{calligra}
+\usepackage[sorting=none]{biblatex}
+\addbibresource{library.bib}
 
 \newenvironment{dedication}
   {\clearpage           % we want a new page
@@ -63,7 +65,7 @@
 
 \begin{abstract}
 
-The many mathematical problems modern physical theories point at the need for a deeper structural understanding of the physical world. One of the most recurring and less understood features of these theories is the relationship between imaginary times and temperature. In this monograph we review one of the manifestations of this relationship. We show that under certain conditions, equilibrium states induce canonical dynamics. In order to do this we will explore KMS states and Tomita-Takesaki theory. KMS states will serve as our model for thermodynamical equilibrium in quantum systems. Tomita-Takesaki theory will yield the operators necessary for the construction of the canonical dynamics.
+The many mathematical problems of modern physical theories point at the need for a deeper structural understanding of the physical world. One of the most recurring and less understood features of these theories is the relationship between imaginary times and temperature. In this monograph we review one of the manifestations of this relationship. We show that under certain conditions, equilibrium states induce canonical dynamics. In order to do this we will explore KMS states and Tomita-Takesaki theory. KMS states will serve as our model for thermodynamical equilibrium in quantum systems. Tomita-Takesaki theory will yield the operators necessary for the construction of the canonical dynamics.
 
 \end{abstract}
 
@@ -122,7 +124,6 @@ Finalmente quiero agradecer a todas la personas que alguna vez tuvieron contacto
 \chapter{Final Remarks and Further Work}
 \input{chapters/remarks}
 
-\bibliography{/home/ivan/Documents/Bib_Files/Monografia}
-\bibliographystyle{ieeetr}
+\printbibliography
 
 \end{document}
